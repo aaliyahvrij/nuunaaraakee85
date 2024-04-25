@@ -1,5 +1,5 @@
-import { html, LitElement, nothing, TemplateResult } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { html, LitElement,  TemplateResult } from "lit";
+import { customElement,  } from "lit/decorators.js";
 
 @customElement("gameobject-form")
 export class GameObjectForm extends LitElement {
