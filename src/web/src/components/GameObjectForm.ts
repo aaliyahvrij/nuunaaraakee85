@@ -1,11 +1,12 @@
 import { html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { GameObjectFormResult } from "../shared/GameObjectFormResult";
+import { addGameObject } from "../services/routeService";
 
 @customElement("gameobject-form")
 export class GameObjectForm extends LitElement {
     @property({ type: String }) private selectedOption: string = "";
-    @property({ type: Object }) public formData: GameObjectFormResult = {
+    @property() public formData: GameObjectFormResult = {
         alias: "",
         name: "",
         description: "",
@@ -19,9 +20,9 @@ export class GameObjectForm extends LitElement {
         this.selectedOption = target.value;
     }
 
-    private handleButtonClick(): void {
+    private async handleButtonClick(): Promise<void> {
         this.formData = {
-            alias: (this.shadowRoot!.getElementById("alias") as HTMLInputElement).value,
+            alias: (this.shadowRoot!.getElementById("alias") as HTMLInputElement).value, //getelementbyid niet de beste manier
             name: (this.shadowRoot!.getElementById("name") as HTMLInputElement).value,
             description: (this.shadowRoot!.getElementById("description") as HTMLInputElement).value,
             type: this.selectedOption,
@@ -34,7 +35,15 @@ export class GameObjectForm extends LitElement {
                     ? parseInt((this.shadowRoot!.getElementById("hp") as HTMLInputElement).value)
                     : undefined,
         };
-        console.log("Form Data:", this.formData);
+
+        const addingGameObject: boolean = await addGameObject(this.formData);
+
+        if (addingGameObject) {
+            console.log("Gameobject was succesfull");
+        } else {
+            console.error("error:", Error);
+        }
+        // console.log("Form Data:", this.formData);
     }
 
     public render(): TemplateResult {
