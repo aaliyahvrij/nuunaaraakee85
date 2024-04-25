@@ -9,7 +9,13 @@ router.get("/", (_req, res) => {
 });
 
 
+
+
 router.post("/gameobject/add", (req, res) => {
+    const { alias, name, description, type, price, hp } = (req.body);
+
+     if (req.body.alias &&  )
+
     console.log(req.body); 
-    res.status(204).send(); 
+    return res.status(204).send(); 
 });

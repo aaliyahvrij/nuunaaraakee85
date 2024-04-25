@@ -2,6 +2,8 @@
 import { html, LitElement, TemplateResult } from "lit";
 import { customElement, property, } from "lit/decorators.js";
 import { GameObjectFormResult } from "@shared/GameObjectFormResult";
+import { addGameObject } from "../services/routeService";
+
 
 @customElement("gameobject-form")
 export class GameObjectForm extends LitElement {
@@ -11,12 +13,15 @@ export class GameObjectForm extends LitElement {
         name: "",
         description: "",
         type: "",
-        price: undefined,
+        price: undefined, 
         hp: undefined
     };
+    
 
-    private dataClick(): void {
+    
 
+    private async dataClick(): Promise<void> {
+    
         const data: GameObjectFormResult = {
             alias: this.formData.alias,
             name: this.formData.name,
@@ -27,6 +32,20 @@ export class GameObjectForm extends LitElement {
         };
 
         console.log("Ingevoerde gegevens:", data);
+
+        try{
+            
+            const addGame: boolean = await addGameObject(this.formData);
+            if (addGame){
+                console.log("het toevoegen van een GameObject is gelukt!");
+            } else{
+                console.error(" het toevoegen van een GameObject is mislukt!");
+            }
+
+        } catch (error) {
+            console.error("Er is een fout");
+        }
+        
     }
     
 
@@ -65,6 +84,8 @@ export class GameObjectForm extends LitElement {
     
     }
 
+    
+// eventlistners
     private changeAlias(event: Event): void {
         const input: HTMLInputElement = event.target as HTMLInputElement;
         this.formData.alias = input.value;
@@ -109,7 +130,7 @@ export class GameObjectForm extends LitElement {
             `;
         } else if (this.selectedType === "character") {
             return html`
-                <label for="hp">HP:</label>
+                <label for="hp">Health Points:</label>
                 <input type="number" @input=${this.changeHp} id="hp" name="hp" min="0" step="1"><br>
             `;
         } else {
