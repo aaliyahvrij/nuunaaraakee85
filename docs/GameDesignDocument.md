@@ -25,6 +25,6 @@ Nico's Kasteel Avontuur heeft een gedetailleerde, sfeervolle grafische stijl met
 - Tuinzaal: De tuinzaal kan helder en kleurrijk zijn, met zonlicht en planten. De lichte, mysterieuze geur van de planten kan de kamer vullen, waardoor het een betoverende sfeer krijgt.
 - De observatoriumkamer: is hoog boven het kasteel en heeft grote ramen die uitkijken over het landschap. De telescopen en astronoominstrumenten kunnen oud en nieuw zijn, met een gevoel van ontdekking en verwondering.
 
-![alt text](gamepic1.png)
+![alt text](gamepic1.png) 
 
-![alt text](gamepic2.png)
+![alt text](<img 2.png>)
