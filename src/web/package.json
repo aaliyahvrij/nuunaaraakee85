@@ -9,7 +9,7 @@
     },
     "devDependencies": {
         "glob": "10.3.10",
-        "vite": "5.0.12",
+        "vite": "^5.2.10",
         "vite-plugin-eslint": "1.8.1"
     }
 }
