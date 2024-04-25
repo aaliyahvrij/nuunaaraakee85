@@ -7,5 +7,5 @@
             "@shared/*": ["../shared/*"]
         }
     },
-    "include": ["./src", "../shared"]
+    "include": ["./src", "../shared", "./src/web/src/services/*", "components/GameObjectFormResult.ts"]
 }
