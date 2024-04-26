@@ -13,3 +13,5 @@ Daarna kwam meer vragen stellen, ook dit is heel persoonlijk, dus degene die dit
 Na vragen stellen kwam duidelijkheid over opdracht, ook dit is persoonlijk, we hadden zojuist namelijk even met Sybe besproken en dit valt eigenlijk ook onder vragen stellen. Dus stel er is geen duidelijkheid over een opdracht, dat we elkaar vragen durven stellen. Dit is ook persoonlijk dus ook dit valt onder de persoonlijke retro. 
 
 Op de laatste plekken valt, meer datapunten verzamelen/begrippen begrijpen/ meer met OOP werken. Net zoals hiervoor vallen deze ook onder de persoonlijke retrospective. Dus degene die dit opgeschreven hebben zullen dit in hun persoonlijke retro toelichten. 
+
+![alt text](Retro.jpg)
