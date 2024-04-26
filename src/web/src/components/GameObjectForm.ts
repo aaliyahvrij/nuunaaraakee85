@@ -35,7 +35,7 @@ export class GameObjectForm extends LitElement {
 
         try{
             
-            const addGame: boolean = await addGameObject(this.formData);
+            const addGame: boolean = await addGameObject(data);
             if (addGame){
                 console.log("het toevoegen van een GameObject is gelukt!");
             } else{
