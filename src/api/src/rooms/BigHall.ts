@@ -7,7 +7,7 @@ import { TalkAction } from "../base/actions/TalkAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
 import { PaintingCharacter } from "../characters/paintingcharacter";
-import { painting } from "../items/CandleItem";
+import { painting } from "../items/FireplaceItem";
 
 export const BigHallRoomAlias: string = "BigHall";
 
@@ -28,7 +28,7 @@ export class BigHall extends Room {
     }
 
     public actions(): Action[] {
-        return [new ExamineAction(), new TalkAction(), new CustomAction("praat", "Test", false)];
+        return [new ExamineAction(), new TalkAction(), new CustomAction("Leftdoor", "Take left door", false)];
     }
 
     public objects(): GameObject[] {
@@ -37,14 +37,14 @@ export class BigHall extends Room {
     }
 
     public custom(alias: string, _gameObjects: GameObject[] | undefined): ActionResult | undefined {
-        if(alias === "praat") {
-            return new TextActionResult(["You tested"]);
+        if(alias === "Leftdoor") {
+            return new TextActionResult(["You took the left door and went to the library"]);
         }
         return undefined;
     }
 
     public examine(): ActionResult | undefined {
-        return new TextActionResult(["It's a big hall", "You can also see the beautifull picture there!"]);
+        return new TextActionResult(["It's a big hall", "You can also see the beautifull painting there!"]);
     }
 
 }

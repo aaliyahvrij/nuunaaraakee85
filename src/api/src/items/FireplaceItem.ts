@@ -10,9 +10,9 @@ export class painting extends Item implements Examine{
         super(PaintingItemAlias, ExamineActionAlias);
     }
 public name(): string {
-    return "candle";
+    return "Fireplace";
 }
 public examine(): ActionResult | undefined {
-    return new TextActionResult(["You inspected the candle."]);
+    return new TextActionResult(["It's burning fireplace in an abandoned castle, weird...."]);
 }
 }

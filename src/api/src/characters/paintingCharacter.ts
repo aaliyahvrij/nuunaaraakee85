@@ -10,6 +10,7 @@ export const PaintingCharacterAlias: string = "Painting";
 export class PaintingCharacter extends Character implements Examine {
     private hasGreeted: boolean = false;
     private toldJuwel: boolean = false;
+    private whereto: boolean = false;
 
     public constructor() {
         super(PaintingCharacterAlias, ExamineActionAlias);
@@ -26,19 +27,34 @@ export class PaintingCharacter extends Character implements Examine {
     public talk(choiceId?: number | undefined): ActionResult | undefined {
         if (choiceId === 1) {
             this.hasGreeted = true; 
-            return new TalkActionResult(this,
+            return new TalkActionResult(
+                this,
                 ["Why are you here?"],
-                [new TalkChoiceAction(2, "Tell him about the jewel")]
+                [
+                    new TalkChoiceAction(2, "Tell him about the jewel"),
+                ]
             );
+            
         } else if (choiceId === 2) {
             this.toldJuwel = true;
-            return new TextActionResult(["You start explaining about the jewel."]);
+            return new TalkActionResult(
+                this,
+                ["Ah, you seek the Nico Jewel... A truly formidable artifact shrouded in mystery and allure."],
+                [new TalkChoiceAction(3, "Ask where to find it")]
+            );
         }
+        
+        if(choiceId === 3) {
+            return new TextActionResult (
+                ["The Nico Jewel is not a destination, but a journey. Seek it where the stars kiss the sea, on the Isle of Whispers.", "Or just take the left door, and seek it yourself"]);
+        }
+
+
 
         if (!this.hasGreeted) {
             return new TalkActionResult(this,
-                ["Good evening dear adventurer."],
-                [new TalkChoiceAction(1, "Say hi")]
+                ["Good evening, dear adventurer. What brings you to my castle?"],
+                [new TalkChoiceAction(1, "Great the painting")]
             );
         }
 
