@@ -1,4 +1,4 @@
-import { Pool, PoolConnection, createPool } from "mysql2/promise";
+import { PoolConnection, Pool, createPool } from "mysql2/promise";
 
 let connectionPool: Pool;
 
