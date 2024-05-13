@@ -4,6 +4,24 @@ import { getConnection, queryDatabase } from "./services/databaseService";
 
 export const router: Router = Router();
 
+router.get("/gameobjects", asyncHandler(async (req: Request, res: Response) => {
+    try {
+        // Verbinding maken met de database
+        const connection: any = await getConnection();
+
+        // Query om alle GameObjects op te halen
+        const query: string = "SELECT id, alias, name, description, type FROM gameobject";
+        const gameObjects: any[] = await queryDatabase<any[]>(connection, query);
+
+        // Response met de opgehaalde GameObjects
+        res.json(gameObjects);
+    } catch (error) {
+        // Foutafhandeling
+        console.error("Error fetching game objects:", error);
+        res.status(500).send("Error fetching game objects");
+    }
+}));
+
 router.post("/gameobject/add", asyncHandler(async (req: Request, res: Response) => {
     try {
         // Verbinding maken met de database
@@ -72,6 +90,27 @@ router.post("/gameobject/add", asyncHandler(async (req: Request, res: Response) 
     }
 }));
 
+// Endpoint om een GameObject te verwijderen
+router.delete("/gameobject/:id/delete", asyncHandler(async (req: Request, res: Response) => {
+  const id: number = parseInt(req.params.id);
+
+  try {
+    // Verbinding maken met de database
+    const connection: any = await getConnection();
+
+    // Query om het GameObject te verwijderen
+    const query: string = "DELETE FROM gameobject WHERE id = ?";
+    await queryDatabase(connection, query, id);
+
+    // Response verzenden
+    res.status(204).send();
+  } catch (error) {
+    console.error("Error deleting game object:", error);
+    res.status(500).send("Error deleting game object");
+  }
+}));
+
+
 router.get("/", (req, res) => {
     // Standaardroute voor testdoeleinden
     res.json({
@@ -85,3 +124,4 @@ interface ResultSetHeader {
     changedRows: number;
     warningCount: number;
 }
+export default router;
