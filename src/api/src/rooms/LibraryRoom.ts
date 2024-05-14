@@ -5,6 +5,7 @@ import { CustomAction } from "../base/actions/CustomAction";
 import { ExamineAction } from "../base/actions/ExamineAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
+import { ParchmentItem } from "../items/ParchmentItem";
 
 export const LibraryRoomAlias: string = "library-room";
 
@@ -29,17 +30,18 @@ export class LibraryRoom extends Room {
     }
 
     public objects(): GameObject[] {
-        return [this];
+        return [this, new ParchmentItem()];
     }
 
     public examine(): ActionResult | undefined {
         return new TextActionResult(["It's a beautiful library!!", "You can see alot of roughed up books and papers."]);
     }
-    public public custom(alias: string, _gameObjects: GameObject[] | undefined): ActionResult | undefined {
-        if (alias === "test-me") { return new TextActionResult(["You looked at the window, the view is pretty gorgeous."]);
-    }
+    public custom(alias: string, _gameObjects: GameObject[] | undefined): ActionResult | undefined {
+        if (alias === "test-me") {
+            return new TextActionResult(["You looked at the window, the view is pretty gorgeous."]);
+        }
 
-        
+
         return undefined;
     }
 }   
