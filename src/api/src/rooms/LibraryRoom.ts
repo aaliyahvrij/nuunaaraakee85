@@ -1,8 +1,10 @@
+import { PickupAction } from "../actions/PickupAction";
 import { ActionResult } from "../base/actionResults/ActionResult";
 import { TextActionResult } from "../base/actionResults/TextActionResult";
 import { Action } from "../base/actions/Action";
 import { CustomAction } from "../base/actions/CustomAction";
 import { ExamineAction } from "../base/actions/ExamineAction";
+import { TalkAction } from "../base/actions/TalkAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
 import { ParchmentItem } from "../items/ParchmentItem";
@@ -26,7 +28,10 @@ export class LibraryRoom extends Room {
         ];
     }
     public actions(): Action[] {
-        return [new ExamineAction(), new CustomAction("test-me", "Look at the window", false)];
+        return [new ExamineAction(),
+        new PickupAction(),
+        new TalkAction(),
+        new CustomAction("test-me", "Look at the window", false)];
     }
 
     public objects(): GameObject[] {
