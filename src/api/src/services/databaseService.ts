@@ -1,4 +1,4 @@
-import { PoolConnection, Pool, createPool } from "mysql2/promise";
+import { PoolConnection, Pool, createPool, Connection } from "mysql2/promise";
 
 let connectionPool: Pool;
 
@@ -15,4 +15,14 @@ export function getConnection(): Promise<PoolConnection> {
     }
 
     return connectionPool.getConnection();
+}
+
+export async function queryDatabase<T = any>(
+    connection: Connection,
+    query: string,
+    ...values: any[]
+): Promise<T> {
+    const queryResult: any = await connection.query(query, values);
+
+    return queryResult[0] as T;
 }
