@@ -8,7 +8,10 @@ import { Room } from "../base/gameObjects/Room";
 
 export const armoryRoomAlias: string = "Armory";
 
+
 export class armoryRoom extends Room {
+    
+
     public constructor(){
         super(armoryRoomAlias);
     }
@@ -25,14 +28,13 @@ export class armoryRoom extends Room {
     }
 
     public actions(): Action[] {
-        return [new ExamineAction(), new CustomAction("test-me", "test the weapon", false)];
+        return [new ExamineAction(), new CustomAction("test-me", "Inspect the Armory", false)];
     }
 
 
 
     public objects(): GameObject[] {
-        return [this];
-        
+        return [this]; 
     }
 
     public examine(): ActionResult | undefined {
@@ -42,7 +44,8 @@ export class armoryRoom extends Room {
     public custom(alias: string, _gameObjects: GameObject[] | undefined): ActionResult | undefined {
         if (alias === "test-me")
 
-            return new TextActionResult([" You test me for a weapon?"]);
+            return new TextActionResult([" You notice a particular weapon on the wall that seems significant.", 
+            "It might be worth examining it more closely to see if it matches the shield in the center of the room."]);
 
             return undefined;
 
