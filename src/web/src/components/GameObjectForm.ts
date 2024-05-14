@@ -1,5 +1,5 @@
 
-import { html, LitElement, TemplateResult } from "lit";
+import { html, LitElement, TemplateResult, css } from "lit";
 import { customElement, property, } from "lit/decorators.js";
 import { GameObjectFormResult } from "@shared/GameObjectFormResult";
 import { addGameObject } from "../services/routeService";
@@ -16,9 +16,20 @@ export class GameObjectForm extends LitElement {
         price: undefined, 
         hp: undefined
     };
+
+    @property({ type: String }) public messageField: string = "";
+    @property({ type: String }) public messageResponse: string = "";
+
+    public static styles = css`
+        .valid {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    `;
     
 
-    
 
     private async dataClick(): Promise<void> {
     
@@ -37,8 +48,12 @@ export class GameObjectForm extends LitElement {
             
             const addGame: boolean = await addGameObject(data);
             if (addGame){
+                this.messageField ="Het toevoegen van een GameObject is gelukt, eindelijk!";
+                this.messageResponse = "valid";
                 console.log("het toevoegen van een GameObject is gelukt!");
             } else{
+                this.messageField = " het toevoegen van een GameObject is mislukt, jammer!";
+                this.messageResponse = "error";
                 console.error(" het toevoegen van een GameObject is mislukt!");
             }
 
@@ -56,6 +71,8 @@ export class GameObjectForm extends LitElement {
 
         return html`
             <p>Hello world!</p>
+
+            <div class="${this.messageResponse}">${this.messageField}</div>
 
             <label for="alias">Alias:</label>
             <input type="text" @input=${this.changeAlias}  id="alias" name="alias">

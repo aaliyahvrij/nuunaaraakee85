@@ -14,19 +14,25 @@ router.get("/", (_req, res) => {
 
 router.post("/gameobject/add", (req, res) => {
     const requestBody: GameObjectFormResult = req.body;
-    console.log(requestBody);
+    const { alias, name, description, type, price, hp } = requestBody;
+    console.log(requestBody,);
+   
 
-    if (requestBody.alias && requestBody.name && requestBody.description){
-        console.log("Valide");
-        res.sendStatus(200);
-    } else {
-        console.log("niet valide");
+    if (!alias && !name && !description && !type){
+        console.log("Not valid");
         res.sendStatus(400);
     }
 
+    if (type === "item" && price === undefined) {
+        console.log("Price is required for items");
+        return res.sendStatus(400);
+    }
 
 
-
+    if (type === "character" && hp === undefined) {
+        console.log("HP is required for characters");
+        return res.sendStatus(400);
+    }
 
 
     console.log(req.body); 
