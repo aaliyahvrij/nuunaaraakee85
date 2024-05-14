@@ -7,6 +7,7 @@ import { ExamineAction } from "../base/actions/ExamineAction";
 import { TalkAction } from "../base/actions/TalkAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
+import { LibraryCharacter } from "../characters/LibraryCharacter";
 import { ParchmentItem } from "../items/ParchmentItem";
 
 export const LibraryRoomAlias: string = "library-room";
@@ -35,7 +36,7 @@ export class LibraryRoom extends Room {
     }
 
     public objects(): GameObject[] {
-        return [this, new ParchmentItem()];
+        return [this, new ParchmentItem(), new LibraryCharacter];
     }
 
     public examine(): ActionResult | undefined {

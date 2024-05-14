@@ -2,6 +2,7 @@ import { GameObject } from "./base/gameObjects/GameObject";
 import { Room } from "./base/gameObjects/Room";
 import { getPlayerSessionFromContext, resetPlayerSessionInContext } from "./base/playerSessionMiddleware";
 import { ExampleCharacter, ExampleCharacterAlias } from "./characters/ExampleCharacter";
+import { LibraryCharacter, LibraryCharacterAlias } from "./characters/LibraryCharacter";
 import { ExampleItem, ExampleItemAlias } from "./items/ExampleItem";
 import { ParchmentItem, ParchmentItemAlias } from "./items/ParchmentItem";
 import { ExampleRoom, ExampleRoomAlias } from "./rooms/ExampleRoom";
@@ -74,9 +75,12 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
         case ExampleCharacterAlias:
             return new ExampleCharacter();
 
-            case ParchmentItemAlias:
-                return new ParchmentItem();
-                
+        case ParchmentItemAlias:
+            return new ParchmentItem();
+
+        case LibraryCharacterAlias:
+            return new LibraryCharacter();
+
         //NOTE: Fall back to rooms, since those are game objects too.
         default:
             return getRoomByAlias(alias);
