@@ -4,6 +4,9 @@ import { TextActionResult } from "../base/actionResults/TextActionResult";
 import { Examine, ExamineActionAlias } from "../base/actions/ExamineAction";
 import { TalkChoiceAction } from "../base/actions/TalkAction";
 import { Character } from "../base/gameObjects/Character";
+import { getPlayerSession } from "../instances";
+import { ParchmentItemAlias } from "../items/ParchmentItem";
+import { PlayerSession } from "../types";
 
 export const LibraryCharacterAlias: string = "portrait";
 
@@ -23,15 +26,35 @@ export class LibraryCharacter extends Character implements Examine {
 
 
     public talk(choiceId?: number | undefined): ActionResult | undefined {
-        //return new TextActionResult(["Hi pookie!!! I missed u :))"]);
+        const playerSession: PlayerSession = getPlayerSession();
+
         if (choiceId === 1) {
             return new TextActionResult(["Pookie.. You're making me nervous. O///O"]);
         }
         else if(choiceId === 2) {
             return new TextActionResult(["Goodbye Pookie..."]);
         }
-        return new TalkActionResult(this, ["hi pookie!"], 
-        [ new TalkChoiceAction(1, "Oogle at the painting"), new TalkChoiceAction(2, "Leave the painting alone")]
+        else if(choiceId === 3){
+
+            playerSession.inventory = [];
+
+            return new TextActionResult(["You gave the parchment to the painting."]);
+        }
+        
+
+
+        const choiceActions: TalkChoiceAction[] = [
+            new TalkChoiceAction(1, "Oogle at the painting"), new TalkChoiceAction(2, "Leave the painting alone")
+        ];
+
+   
+     if (playerSession.inventory.includes(ParchmentItemAlias)) {
+        choiceActions.push(new TalkChoiceAction (3, "Give the parchment to the portrait"));
+    }
+    
+        return new TalkActionResult(this, 
+            ["hi pookie!"], 
+            choiceActions
         );
     }
 

@@ -8,7 +8,9 @@ import { TalkAction } from "../base/actions/TalkAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
 import { LibraryCharacter } from "../characters/LibraryCharacter";
-import { ParchmentItem } from "../items/ParchmentItem";
+import { getGameObjectsFromInventory, getPlayerSession } from "../instances";
+import { ParchmentItem,  } from "../items/ParchmentItem";
+import { PlayerSession } from "../types";
 
 export const LibraryRoomAlias: string = "library-room";
 
@@ -36,7 +38,17 @@ export class LibraryRoom extends Room {
     }
 
     public objects(): GameObject[] {
-        return [this, new ParchmentItem(), new LibraryCharacter];
+        const playerSession: PlayerSession = getPlayerSession();
+
+       
+        const objects: GameObject[] = [this,  ...getGameObjectsFromInventory()];
+
+        if (!playerSession.pickedUpParchment) {
+            objects.push(new ParchmentItem());
+        }
+        objects.push(new LibraryCharacter());
+
+        return objects;
     }
 
     public examine(): ActionResult | undefined {
