@@ -5,6 +5,11 @@ import { CustomAction } from "../base/actions/CustomAction";
 import { ExamineAction } from "../base/actions/ExamineAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
+import { axeItem } from "../items/axeItem";
+import { keyItem } from "../items/keyItem";
+import { maceItem } from "../items/maceItem";
+import { shieldItem } from "../items/shieldItem";
+import { swordItem } from "../items/swordItem";
 
 export const armoryRoomAlias: string = "Armory";
 
@@ -34,7 +39,7 @@ export class armoryRoom extends Room {
 
 
     public objects(): GameObject[] {
-        return [this]; 
+        return [this,  new shieldItem(), new maceItem(), new swordItem(), new axeItem(), new keyItem() ]; 
     }
 
     public examine(): ActionResult | undefined {

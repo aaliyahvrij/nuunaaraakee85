@@ -3,6 +3,11 @@ import { Room } from "./base/gameObjects/Room";
 import { getPlayerSessionFromContext, resetPlayerSessionInContext } from "./base/playerSessionMiddleware";
 import { ExampleCharacter, ExampleCharacterAlias } from "./characters/ExampleCharacter";
 import { ExampleItem, ExampleItemAlias } from "./items/ExampleItem";
+import { axeItem, axeItemAlias } from "./items/axeItem";
+import { keyItem, keyItemAlias } from "./items/keyItem";
+import { maceItem, maceItemAlias } from "./items/maceItem";
+import { shieldItem, shieldItemAlias } from "./items/shieldItem";
+import { swordItem, swordItemAlias } from "./items/swordItem";
 import { ExampleRoom, ExampleRoomAlias } from "./rooms/ExampleRoom";
 import { StartupRoom, StartupRoomAlias } from "./rooms/StartupRoom";
 import { armoryRoom, armoryRoomAlias } from "./rooms/armoryRoom";
@@ -74,6 +79,22 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
     switch (alias) {
         case ExampleItemAlias:
             return new ExampleItem();
+        
+        case swordItemAlias:
+            return new swordItem();
+
+        case maceItemAlias:
+            return new maceItem();
+
+        case axeItemAlias:
+            return new axeItem();
+
+        case shieldItemAlias:
+            return new shieldItem();
+
+        case keyItemAlias:
+            return new keyItem();
+
 
         case ExampleCharacterAlias:
             return new ExampleCharacter();
