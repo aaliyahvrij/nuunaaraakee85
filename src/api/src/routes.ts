@@ -18,7 +18,7 @@ import {
 } from "./instances";
 import { PlayerSession } from "./types";
 import { ExampleAction, ExampleActionAlias } from "./actions/ExampleAction";
-import { PickupActionAlias } from "./actions/PickupAction";
+import { PickupAction, PickupActionAlias } from "./actions/PickupAction";
 
 export const router: Router = Router();
 
