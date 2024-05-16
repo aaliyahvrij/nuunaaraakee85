@@ -6,7 +6,7 @@ export class GameObjectForm extends LitElement {
 
     public render(): TemplateResult {
         return html`
-            <p>Hello world!</p>
+            <p>Hello world! hey</p>
         `;
     }
 }
