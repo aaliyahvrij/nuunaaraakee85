@@ -2,6 +2,7 @@ import { GameObject } from "./base/gameObjects/GameObject";
 import { Room } from "./base/gameObjects/Room";
 import { getPlayerSessionFromContext, resetPlayerSessionInContext } from "./base/playerSessionMiddleware";
 import { ExampleCharacter, ExampleCharacterAlias } from "./characters/ExampleCharacter";
+import { guardCharacter, guardCharacterAlias } from "./characters/guardCharacter";
 import { ExampleItem, ExampleItemAlias } from "./items/ExampleItem";
 import { axeItem, axeItemAlias } from "./items/axeItem";
 import { keyItem, keyItemAlias } from "./items/keyItem";
@@ -94,6 +95,9 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
 
         case keyItemAlias:
             return new keyItem();
+
+        case guardCharacterAlias:
+            return new guardCharacter();
 
 
         case ExampleCharacterAlias:

@@ -3,8 +3,10 @@ import { TextActionResult } from "../base/actionResults/TextActionResult";
 import { Action } from "../base/actions/Action";
 import { CustomAction } from "../base/actions/CustomAction";
 import { ExamineAction } from "../base/actions/ExamineAction";
+import { TalkAction } from "../base/actions/TalkAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
+import { guardCharacter } from "../characters/guardCharacter";
 import { axeItem } from "../items/axeItem";
 import { keyItem } from "../items/keyItem";
 import { maceItem } from "../items/maceItem";
@@ -33,13 +35,13 @@ export class armoryRoom extends Room {
     }
 
     public actions(): Action[] {
-        return [new ExamineAction(), new CustomAction("test-me", "Inspect the Armory", false)];
+        return [new ExamineAction(), new TalkAction(), new CustomAction("test-me", "Inspect the Armory", false, )];
     }
 
 
 
     public objects(): GameObject[] {
-        return [this,  new shieldItem(), new maceItem(), new swordItem(), new axeItem(), new keyItem() ]; 
+        return [this,  new shieldItem(), new maceItem(), new swordItem(), new axeItem(), new keyItem(), new guardCharacter() ]; 
     }
 
     public examine(): ActionResult | undefined {
