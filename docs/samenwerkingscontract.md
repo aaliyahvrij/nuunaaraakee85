@@ -31,8 +31,8 @@ Wij bespreken beiden wat we van de beslissing vinden maken er vanuit daar een be
 
 ## Afspraken m.b.t. deadlines
 
-Altijd aanwezig zijn in de lessen en dus de samenkomsten. Als je van tevoren al weet dat je deadline niet gaat halen bespreek dit dan met je duo en bedenk samen een oplossing. Als er niet genoeg tijd is kan er nog samen thuis online gewerkt worden.
+Altijd aanwezig zijn in de lessen en dus de samenkomsten. Als je van tevoren al weet dat je deadline niet gaat halen bespreek dit dan met je team en bedenk samen een oplossing. Als er niet genoeg tijd is kan er nog samen thuis online gewerkt worden.
 
 ## Consequenties bij niet nakomen van afspraken of conflicten (ziekte, afwezigheid, stoppen met opleiding, verhindering)
 
-Zorg ervoor dat je duidelijk communiceert naar je duo, en haal een andere tijd in wat je gemist hebt.
+Zorg ervoor dat je duidelijk communiceert naar je team, en haal een andere tijd in wat je gemist hebt.

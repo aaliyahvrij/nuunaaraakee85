@@ -6,7 +6,7 @@ import { ExamineAction } from "../base/actions/ExamineAction";
 import { TalkAction } from "../base/actions/TalkAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
-import { PaintingCharacter } from "../characters/paintingcharacter";
+import { PaintingCharacter } from "../characters/PaintingCharacter";
 import { painting } from "../items/FireplaceItem";
 
 export const BigHallRoomAlias: string = "BigHall";

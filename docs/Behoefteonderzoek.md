@@ -52,7 +52,8 @@ Dit spel draait om verkennen, problemen oplossen en het ontrafelen van de geheim
 5. Vond je de puzzels en uitdagingen in het spel passend bij het niveau van moeilijkheid dat je zoekt in de game?
 6. Wat vind u ervan dat je moet navigeren tussen de verschillende ruimtes en de voorwaarden om van ruimte te veranderen?
 7. Was de diversiteit van ruimtes, objecten, items en karakters voldoende om je interesse vast te houden?
-8. Zou je dit spel (als die af is) aanbevelen aan anderen, en zo ja, waarom wel of niet?
+8. Zou u liever een simpele lay-out willen of een geavanceerde?
+9. Zou je dit spel (als die af is) aanbevelen aan anderen, en zo ja, waarom wel of niet?
 
 ## Hoe boeiend vindt u het concept van de verhaallijn van het text-based adventure spel?
 
@@ -103,9 +104,32 @@ Binck: De diversiteit van ruimtes en objecten lijkt veelbelovend, maar ik hoop d
 Juan: Ik verwacht dat de diversiteit van ruimtes, objecten en karakters genoeg afwisseling biedt om me betrokken te houden bij het spel.
 Tom: Ik hoop dat de diversiteit van de spelwereld me blijft boeien en me aanmoedigt om nieuwe gebieden te verkennen en te ontdekken.
 
+
+## Zou u liever een simpele lay-out willen of een geavanceerde?
+
+Koen: Een simpele lay-out zou voor mij beter werken, dan zal ik de besturing van het spel ook beter kunnen begrijpen.
+Binck: Ik zou een variate van beide willen zien, ik wil natuurlijk wel met een afbeelding kunnen zien in welke kamer ik ben.
+Juan: Een simpele lay-out zou top zijn, dan kan ik het spel snel begrijpen zonder eerst te moeten uitvogelen hoe alles werkt.
+Tom: Ook voor mij zou een simpele lay-out top zijn, ik game zelf al veel en als het er te lastig uit ziet, dan schrikt dat toch wel een beetje af en zal ik het spel misschien niet afmaken.
+
+
 ## Zou u dit spel aanbevelen aan anderen, en zo ja, waarom?
 
 Koen: Ik denk dat ik dit spel aan anderen zou aanbevelen vanwege de veelbelovende concepten en de potentie om een meeslepende spelervaring te bieden.
 Binck: Als het spel aan mijn verwachtingen voldoet, zou ik het zeker aanbevelen aan vrienden die op zoek zijn naar een boeiende text-based adventure.
 Juan: Als het spel goed uitgevoerd is en de beloofde elementen bevat, zou ik het zeker aanbevelen aan anderen die geïnteresseerd zijn in het genre.
 Tom: Als het spel de beloofde elementen bevat en een uitdagende en boeiende spelervaring biedt, zou ik het zeker aanbevelen aan andere gamers die op zoek zijn naar iets nieuws en spannends om te spelen.
+ 
+## Conclusies:
+
+- De spelers zijn over het algemeen enthousiast over het concept van het text-based adventure spel.
+
+- Ze zijn geinteresseerd door de veelbelovende verhaallijn en kijken uit naar de verschillende ruimtes en interacties die het spel te bieden heeft.
+
+- De diversiteit aan objecten, items en karakters wordt als positief ervaren, maar er wordt ook gehoopt op voldoende diepgang en variatie om de interesse op lange termijn vast te houden.
+
+- Wat betreft de lay-out, zien ze graag een simpele lay-out, maar met enige visuele indicaties om de navigatie te vergemakkelijken.
+
+- Als het spel aan de verwachtingen voldoet, zijn de spelers bereid om het aan anderen aan te bevelen, vooral vanwege de potentie om een meeslepende en uitdagende spelervaring te bieden.
+
+- Volgens de gebruikers lijkt het spel goed op weg te zijn om een leuke text-based adventure te worden, als de beloofde afspraken goed worden uitgevoerd.

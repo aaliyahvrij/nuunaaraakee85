@@ -2,7 +2,7 @@ import { GameObject } from "./base/gameObjects/GameObject";
 import { Room } from "./base/gameObjects/Room";
 import { getPlayerSessionFromContext, resetPlayerSessionInContext } from "./base/playerSessionMiddleware";
 import { ExampleCharacter, ExampleCharacterAlias } from "./characters/ExampleCharacter";
-import { PaintingCharacter, PaintingCharacterAlias } from "./characters/paintingCharacter";
+import { PaintingCharacter, PaintingCharacterAlias } from "./characters/PaintingCharacter";
 import { ExampleItem, ExampleItemAlias } from "./items/ExampleItem";
 import { PaintingItemAlias, painting } from "./items/FireplaceItem";
 import { BigHall, BigHallRoomAlias } from "./rooms/BigHall";
