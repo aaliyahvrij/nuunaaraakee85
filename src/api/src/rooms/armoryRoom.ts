@@ -27,7 +27,7 @@ export class armoryRoom extends Room {
 
     public images(): string[] {
         return [
-            // hier komt de foto
+            "Armory room"
         ];
         
     }
