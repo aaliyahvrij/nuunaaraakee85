@@ -64,61 +64,61 @@ Tom: Ik ben enthousiast over het concept van de verhaallijn, vooral omdat het be
 
 ## Welke ruimte spreekt u het meest aan en waarom?
 
-Koen: Ik ben benieuwd naar de mogelijkheden van de observatoriumkamer, vooral met betrekking tot de interactie met de sterrenbeelden.
-Binck: De tuinzaal lijkt me fascinerend vanwege de exotische planten en geuren die het kan bevatten.
-Juan: Ik kijk uit naar het verkennen van de kelder, omdat ik denk dat verborgen ruimtes veel potentie hebben voor spannende ontdekkingen.
+- Koen: Ik ben benieuwd naar de mogelijkheden van de observatoriumkamer, vooral met betrekking tot de interactie met de sterrenbeelden.
+- Binck: De tuinzaal lijkt me fascinerend vanwege de exotische planten en geuren die het kan bevatten.
+- - Juan: Ik kijk uit naar het verkennen van de kelder, omdat ik denk dat verborgen ruimtes veel potentie hebben voor spannende ontdekkingen.
 Tom: Ik ben nieuwsgierig naar de wapenkamer en hoop historische artefacten te vinden die het verhaal verrijken.
 
 ## Welke interacties met objecten, items of karakters hoopt u te ervaren?
 
-Koen: Ik hoop op interacties die de wereld levendig maken en me uitdagen om na te denken over mijn keuzes.
-Binck: Ik kijk uit naar dialogen die natuurlijk aanvoelen en de karakters tot leven brengen binnen de spelomgeving.
-Juan: Ik hoop op interacties die betekenisvolle informatie onthullen en me helpen om het verhaal beter te begrijpen.
-Tom: Ik verwacht interacties die mijn verbeelding prikkelen en me aanmoedigen om de wereld van het spel verder te verkennen.
+- Koen: Ik hoop op interacties die de wereld levendig maken en me uitdagen om na te denken over mijn keuzes.
+- Binck: Ik kijk uit naar dialogen die natuurlijk aanvoelen en de karakters tot leven brengen binnen de spelomgeving.
+- Juan: Ik hoop op interacties die betekenisvolle informatie onthullen en me helpen om het verhaal beter te begrijpen.
+- Tom: Ik verwacht interacties die mijn verbeelding prikkelen en me aanmoedigen om de wereld van het spel verder te verkennen.
 
 ## Welke nieuwe interacties met objecten, items of karakters zou u graag zien?
 
-Koen: Ik zou graag interacties zien die innovatief zijn en nieuwe mogelijkheden bieden om de puzzels op te lossen.
-Binck: Het zou leuk zijn om interacties te hebben met dieren of andere levende wezens die de spelomgeving verrijken.
-Juan: Interacties met mysterieuze figuren of voorwerpen die verborgen geheimen onthullen, zouden een leuke toevoeging zijn.
-Tom: Meer interacties die variatie bieden en beloningen opleveren voor de ontdekkingen die ik tijdens het spel doe.
+- Koen: Ik zou graag interacties zien die innovatief zijn en nieuwe mogelijkheden bieden om de puzzels op te lossen.
+- Binck: Het zou leuk zijn om interacties te hebben met dieren of andere levende wezens die de spelomgeving verrijken.
+- Juan: Interacties met mysterieuze figuren of voorwerpen die verborgen geheimen onthullen, zouden een leuke toevoeging zijn.
+- Tom: Meer interacties die variatie bieden en beloningen opleveren voor de ontdekkingen die ik tijdens het spel doe.
 
 ## Verwacht u dat de puzzels en uitdagingen in het spel passen bij het niveau van moeilijkheid dat u zoekt?
 
-Koen: Ik hoop dat de puzzels uitdagend genoeg zijn om me bezig te houden zonder te frustreren.
-Binck: Ik verwacht dat de moeilijkheidsgraad van de puzzels goed gebalanceerd is en dat ze me uitdagen om creatief te zijn in mijn oplossingen.
-Juan: Ik hoop dat de puzzels voldoende variatie bieden en me stimuleren om mijn vaardigheden te gebruiken om ze op te lossen.
-Tom: Ik verwacht dat de puzzels me uitdagen en me belonen voor mijn doorzettingsvermogen en slimme oplossingen.
+- Koen: Ik hoop dat de puzzels uitdagend genoeg zijn om me bezig te houden zonder te frustreren.
+- Binck: Ik verwacht dat de moeilijkheidsgraad van de puzzels goed gebalanceerd is en dat ze me uitdagen om creatief te zijn in mijn oplossingen.
+- Juan: Ik hoop dat de puzzels voldoende variatie bieden en me stimuleren om mijn vaardigheden te gebruiken om ze op te lossen.
+- Tom: Ik verwacht dat de puzzels me uitdagen en me belonen voor mijn doorzettingsvermogen en slimme oplossingen.
 
 ## Wat vindt u van het concept van navigeren tussen verschillende ruimtes en de voorwaarden om van ruimte te veranderen?
 
-Koen: Het concept van navigatie tussen ruimtes lijkt me een interessante toevoeging die potentie heeft om de gameplay te verrijken.
-Binck: Ik denk dat het concept van navigatie tussen ruimtes een mooie manier kan zijn om diepte aan de spelervaring toe te voegen, mits goed uitgevoerd.
-Juan: Ik ben benieuwd naar hoe het navigeren tussen ruimtes zal worden geïmplementeerd. Het kan een boeiende dynamiek toevoegen aan het spel als het op een intuïtieve manier wordt gedaan.
-Tom: Het idee van navigeren tussen verschillende ruimtes lijkt me een interessante uitdaging die de verkenning van het spel kan verbeteren, maar ik hoop dat het niet te ingewikkeld wordt.
+- Koen: Het concept van navigatie tussen ruimtes lijkt me een interessante toevoeging die potentie heeft om de gameplay te verrijken.
+- Binck: Ik denk dat het concept van navigatie tussen ruimtes een mooie manier kan zijn om diepte aan de spelervaring toe te voegen, mits goed uitgevoerd.
+- Juan: Ik ben benieuwd naar hoe het navigeren tussen ruimtes zal worden geïmplementeerd. Het kan een boeiende dynamiek toevoegen aan het spel als het op een intuïtieve manier wordt gedaan.
+- Tom: Het idee van navigeren tussen verschillende ruimtes lijkt me een interessante uitdaging die de verkenning van het spel kan verbeteren, maar ik hoop dat het niet te ingewikkeld wordt.
 
 ## Verwacht u dat de diversiteit van ruimtes, objecten, items en karakters voldoende is om uw interesse vast te houden?
 
-Koen: Ik hoop dat de diversiteit van de spelwereld me blijft verrassen en uitnodigen om verder te verkennen.
-Binck: De diversiteit van ruimtes en objecten lijkt veelbelovend, maar ik hoop dat er genoeg variatie is om mijn interesse op lange termijn vast te houden.
-Juan: Ik verwacht dat de diversiteit van ruimtes, objecten en karakters genoeg afwisseling biedt om me betrokken te houden bij het spel.
-Tom: Ik hoop dat de diversiteit van de spelwereld me blijft boeien en me aanmoedigt om nieuwe gebieden te verkennen en te ontdekken.
+- Koen: Ik hoop dat de diversiteit van de spelwereld me blijft verrassen en uitnodigen om verder te verkennen.
+- Binck: De diversiteit van ruimtes en objecten lijkt veelbelovend, maar ik hoop dat er genoeg variatie is om mijn interesse op lange termijn vast te houden.
+- Juan: Ik verwacht dat de diversiteit van ruimtes, objecten en karakters genoeg afwisseling biedt om me betrokken te houden bij het spel.
+- Tom: Ik hoop dat de diversiteit van de spelwereld me blijft boeien en me aanmoedigt om nieuwe gebieden te verkennen en te ontdekken.
 
 
 ## Zou u liever een simpele lay-out willen of een geavanceerde?
 
-Koen: Een simpele lay-out zou voor mij beter werken, dan zal ik de besturing van het spel ook beter kunnen begrijpen.
-Binck: Ik zou een variate van beide willen zien, ik wil natuurlijk wel met een afbeelding kunnen zien in welke kamer ik ben.
-Juan: Een simpele lay-out zou top zijn, dan kan ik het spel snel begrijpen zonder eerst te moeten uitvogelen hoe alles werkt.
-Tom: Ook voor mij zou een simpele lay-out top zijn, ik game zelf al veel en als het er te lastig uit ziet, dan schrikt dat toch wel een beetje af en zal ik het spel misschien niet afmaken.
+- Koen: Een simpele lay-out zou voor mij beter werken, dan zal ik de besturing van het spel ook beter kunnen begrijpen.
+- Binck: Ik zou een variate van beide willen zien, ik wil natuurlijk wel met een afbeelding kunnen zien in welke kamer ik ben.
+- Juan: Een simpele lay-out zou top zijn, dan kan ik het spel snel begrijpen zonder eerst te moeten uitvogelen hoe alles werkt.
+- Tom: Ook voor mij zou een simpele lay-out top zijn, ik game zelf al veel en als het er te lastig uit ziet, dan schrikt dat toch wel een beetje af en zal ik het spel misschien niet afmaken.
 
 
 ## Zou u dit spel aanbevelen aan anderen, en zo ja, waarom?
 
-Koen: Ik denk dat ik dit spel aan anderen zou aanbevelen vanwege de veelbelovende concepten en de potentie om een meeslepende spelervaring te bieden.
-Binck: Als het spel aan mijn verwachtingen voldoet, zou ik het zeker aanbevelen aan vrienden die op zoek zijn naar een boeiende text-based adventure.
-Juan: Als het spel goed uitgevoerd is en de beloofde elementen bevat, zou ik het zeker aanbevelen aan anderen die geïnteresseerd zijn in het genre.
-Tom: Als het spel de beloofde elementen bevat en een uitdagende en boeiende spelervaring biedt, zou ik het zeker aanbevelen aan andere gamers die op zoek zijn naar iets nieuws en spannends om te spelen.
+- Koen: Ik denk dat ik dit spel aan anderen zou aanbevelen vanwege de veelbelovende concepten en de potentie om een meeslepende spelervaring te bieden.
+- Binck: Als het spel aan mijn verwachtingen voldoet, zou ik het zeker aanbevelen aan vrienden die op zoek zijn naar een boeiende text-based adventure.
+- Juan: Als het spel goed uitgevoerd is en de beloofde elementen bevat, zou ik het zeker aanbevelen aan anderen die geïnteresseerd zijn in het genre.
+- Tom: Als het spel de beloofde elementen bevat en een uitdagende en boeiende spelervaring biedt, zou ik het zeker aanbevelen aan andere gamers die op zoek zijn naar iets nieuws en spannends om te spelen.
  
 ## Conclusies:
 
