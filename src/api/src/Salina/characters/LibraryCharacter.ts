@@ -1,12 +1,12 @@
-import { ActionResult } from "../base/actionResults/ActionResult";
-import { TalkActionResult } from "../base/actionResults/TalkActionResult";
-import { TextActionResult } from "../base/actionResults/TextActionResult";
-import { Examine, ExamineActionAlias } from "../base/actions/ExamineAction";
-import { TalkChoiceAction } from "../base/actions/TalkAction";
-import { Character } from "../base/gameObjects/Character";
-import { getPlayerSession } from "../instances";
+import { ActionResult } from "../../base/actionResults/ActionResult";
+import { TalkActionResult } from "../../base/actionResults/TalkActionResult";
+import { TextActionResult } from "../../base/actionResults/TextActionResult";
+import { Examine, ExamineActionAlias } from "../../base/actions/ExamineAction";
+import { TalkChoiceAction } from "../../base/actions/TalkAction";
+import { Character } from "../../base/gameObjects/Character";
+import { getPlayerSession } from "../../instances";
 import { ParchmentItemAlias } from "../items/ParchmentItem";
-import { PlayerSession } from "../types";
+import { PlayerSession } from "../../types";
 
 export const LibraryCharacterAlias: string = "portrait";
 
@@ -26,6 +26,7 @@ export class LibraryCharacter extends Character implements Examine {
 
 
     public talk(choiceId?: number | undefined): ActionResult | undefined {
+      
         const playerSession: PlayerSession = getPlayerSession();
 
         if (choiceId === 1) {
@@ -34,6 +35,7 @@ export class LibraryCharacter extends Character implements Examine {
         else if(choiceId === 2) {
             return new TextActionResult(["Goodbye Pookie..."]);
         }
+      
         else if(choiceId === 3){
 
             playerSession.inventory = [];
@@ -56,6 +58,4 @@ export class LibraryCharacter extends Character implements Examine {
             ["hi pookie!"], 
             choiceActions
         );
-    }
-
-}
+    }}

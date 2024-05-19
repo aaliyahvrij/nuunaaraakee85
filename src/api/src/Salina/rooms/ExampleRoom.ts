@@ -1,13 +1,13 @@
 import { Example, ExampleAction, ExampleActionAlias } from "../actions/ExampleAction";
-import { ActionResult } from "../base/actionResults/ActionResult";
-import { TextActionResult } from "../base/actionResults/TextActionResult";
-import { Action } from "../base/actions/Action";
-import { ExamineAction } from "../base/actions/ExamineAction";
-import { TalkAction } from "../base/actions/TalkAction";
-import { GameObject } from "../base/gameObjects/GameObject";
-import { Room } from "../base/gameObjects/Room";
+import { ActionResult } from "../../base/actionResults/ActionResult";
+import { TextActionResult } from "../../base/actionResults/TextActionResult";
+import { Action } from "../../base/actions/Action";
+import { ExamineAction } from "../../base/actions/ExamineAction";
+import { TalkAction } from "../../base/actions/TalkAction";
+import { GameObject } from "../../base/gameObjects/GameObject";
+import { Room } from "../../base/gameObjects/Room";
 import { ExampleCharacter } from "../characters/ExampleCharacter";
-import { getGameObjectsFromInventory } from "../instances";
+import { getGameObjectsFromInventory } from "../../instances";
 import { ExampleItem } from "../items/ExampleItem";
 
 export const ExampleRoomAlias: string = "example-room";

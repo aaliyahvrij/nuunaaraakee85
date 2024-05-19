@@ -17,8 +17,8 @@ import {
     getGameObjectsByAliases,
 } from "./instances";
 import { PlayerSession } from "./types";
-import { ExampleAction, ExampleActionAlias } from "./actions/ExampleAction";
-import { PickupAction, PickupActionAlias } from "./actions/PickupAction";
+import { ExampleAction, ExampleActionAlias } from "./Salina/actions/ExampleAction";
+import { PickupAction, PickupActionAlias } from "./Salina/actions/PickupAction";
 
 export const router: Router = Router();
 

@@ -1,13 +1,13 @@
 import { GameObject } from "./base/gameObjects/GameObject";
 import { Room } from "./base/gameObjects/Room";
 import { getPlayerSessionFromContext, resetPlayerSessionInContext } from "./base/playerSessionMiddleware";
-import { ExampleCharacter, ExampleCharacterAlias } from "./characters/ExampleCharacter";
-import { LibraryCharacter, LibraryCharacterAlias } from "./characters/LibraryCharacter";
-import { ExampleItem, ExampleItemAlias } from "./items/ExampleItem";
-import { ParchmentItem, ParchmentItemAlias } from "./items/ParchmentItem";
-import { ExampleRoom, ExampleRoomAlias } from "./rooms/ExampleRoom";
-import { LibraryRoom, LibraryRoomAlias } from "./rooms/LibraryRoom";
-import { StartupRoom, StartupRoomAlias } from "./rooms/StartupRoom";
+import { ExampleCharacter, ExampleCharacterAlias } from "./Salina/characters/ExampleCharacter";
+import { LibraryCharacter, LibraryCharacterAlias } from "./Salina/characters/LibraryCharacter";
+import { ExampleItem, ExampleItemAlias } from "./Salina/items/ExampleItem";
+import { ParchmentItem, ParchmentItemAlias } from "./Salina/items/ParchmentItem";
+import { ExampleRoom, ExampleRoomAlias } from "./Salina/rooms/ExampleRoom";
+import { LibraryRoom, LibraryRoomAlias } from "./Salina/rooms/LibraryRoom";
+import { StartupRoom, StartupRoomAlias } from "./Salina/rooms/StartupRoom";
 import { PlayerSession } from "./types";
 
 /**

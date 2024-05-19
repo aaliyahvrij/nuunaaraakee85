@@ -1,16 +1,16 @@
 import { PickupAction } from "../actions/PickupAction";
-import { ActionResult } from "../base/actionResults/ActionResult";
-import { TextActionResult } from "../base/actionResults/TextActionResult";
-import { Action } from "../base/actions/Action";
-import { CustomAction } from "../base/actions/CustomAction";
-import { ExamineAction } from "../base/actions/ExamineAction";
-import { TalkAction } from "../base/actions/TalkAction";
-import { GameObject } from "../base/gameObjects/GameObject";
-import { Room } from "../base/gameObjects/Room";
+import { ActionResult } from "../../base/actionResults/ActionResult";
+import { TextActionResult } from "../../base/actionResults/TextActionResult";
+import { Action } from "../../base/actions/Action";
+import { CustomAction } from "../../base/actions/CustomAction";
+import { ExamineAction } from "../../base/actions/ExamineAction";
+import { TalkAction } from "../../base/actions/TalkAction";
+import { GameObject } from "../../base/gameObjects/GameObject";
+import { Room } from "../../base/gameObjects/Room";
 import { LibraryCharacter } from "../characters/LibraryCharacter";
-import { getGameObjectsFromInventory, getPlayerSession } from "../instances";
-import { ParchmentItem,  } from "../items/ParchmentItem";
-import { PlayerSession } from "../types";
+import { getGameObjectsFromInventory, getPlayerSession } from "../../instances";
+import { ParchmentItem, ParchmentItemAlias,  } from "../items/ParchmentItem";
+import { PlayerSession } from "../../types";
 
 export const LibraryRoomAlias: string = "library-room";
 
@@ -27,7 +27,7 @@ export class LibraryRoom extends Room {
     public images(): string[] {
         return [
             "library room",
-            "example"
+             "example"
         ];
     }
     public actions(): Action[] {
@@ -38,17 +38,21 @@ export class LibraryRoom extends Room {
     }
 
     public objects(): GameObject[] {
+    
         const playerSession: PlayerSession = getPlayerSession();
+      
 
-       
         const objects: GameObject[] = [this,  ...getGameObjectsFromInventory()];
-
-        if (!playerSession.pickedUpParchment) {
+        
+        if (!playerSession.inventory.includes(ParchmentItemAlias)) {
             objects.push(new ParchmentItem());
         }
         objects.push(new LibraryCharacter());
 
+      
         return objects;
+
+      // return [ this, new ParchmentItem(), new librarycharacter()];
     }
 
     public examine(): ActionResult | undefined {
