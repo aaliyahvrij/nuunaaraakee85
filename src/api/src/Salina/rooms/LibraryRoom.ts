@@ -26,10 +26,10 @@ export class LibraryRoom extends Room {
 
     public images(): string[] {
         return [
-            "library room",
-             "example"
+            "LibraryRoom"
         ];
     }
+    
     public actions(): Action[] {
         return [new ExamineAction(),
         new PickupAction(),

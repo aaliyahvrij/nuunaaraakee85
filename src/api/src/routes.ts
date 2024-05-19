@@ -17,9 +17,9 @@ import {
     getGameObjectsByAliases,
 } from "./instances";
 import { PlayerSession } from "./types";
-import { ExampleAction, ExampleActionAlias } from "./Salina/actions/ExampleAction";
-import { PickupAction, PickupActionAlias } from "./Salina/actions/PickupAction";
-
+import { handleRoutes as handleRoutesSalina } from "./Salina/routes";
+import { router as routerSalina } from "./Salina/routes";
+// import { handleRoutes as handleRoutesJustin } from "./Salina/routes";
 export const router: Router = Router();
 
 router.get("/", (_, res) => {
@@ -27,6 +27,8 @@ router.get("/", (_, res) => {
 });
 
 router.use(playerSessionMiddleware("game", createNewPlayerSession));
+
+router.use("/Salina,", routerSalina);
 
 router.get("/state", (_, res) => {
     const playerSession: PlayerSession = getPlayerSession();
@@ -83,6 +85,7 @@ router.post("/action", (req, res) => {
     res.json(gameState);
 });
 
+
 function handleActionInRoom(room: Room, alias: string, objectAliases?: string[]): ActionResult | undefined {
     const gameObjects: GameObject[] = getGameObjectsByAliases(objectAliases);
 
@@ -113,19 +116,25 @@ function handleActionInRoom(room: Room, alias: string, objectAliases?: string[])
         return TalkAction.handle(character, choiceId);
     }
 
-    switch (alias) {
-        case ExamineActionAlias:
-            return ExamineAction.handle(gameObjects[0]);
-
-        case ExampleActionAlias:
-            return ExampleAction.handle(gameObjects[0]);
-
-            case PickupActionAlias:
-                return PickupAction.handle(gameObjects[0]);
+    if (alias === ExamineActionAlias) {
+        return ExamineAction.handle(gameObjects[0]);
     }
+
+    const actionResult: ActionResult | undefined = handleRoutesSalina(room, alias, gameObjects);
+
+    if (actionResult) {
+        return actionResult;
+    }
+
+    //actionResult = handleRoutesJustin(room, alias, gameObjects);
+   
+  //  if (actionResult) {
+ //       return actionResult;
+ //   }
 
     return CustomAction.handle(alias, gameObjects);
 }
+
 
 function convertActionResultToGameState(actionResult?: ActionResult): GameState | undefined {
     //NOTE: Seems like repeated code, but the room can have changed after performing an action!

@@ -1,3 +1,4 @@
+
 import { GameObject } from "./base/gameObjects/GameObject";
 import { Room } from "./base/gameObjects/Room";
 import { getPlayerSessionFromContext, resetPlayerSessionInContext } from "./base/playerSessionMiddleware";
@@ -5,9 +6,7 @@ import { ExampleCharacter, ExampleCharacterAlias } from "./Salina/characters/Exa
 import { LibraryCharacter, LibraryCharacterAlias } from "./Salina/characters/LibraryCharacter";
 import { ExampleItem, ExampleItemAlias } from "./Salina/items/ExampleItem";
 import { ParchmentItem, ParchmentItemAlias } from "./Salina/items/ParchmentItem";
-import { ExampleRoom, ExampleRoomAlias } from "./Salina/rooms/ExampleRoom";
-import { LibraryRoom, LibraryRoomAlias } from "./Salina/rooms/LibraryRoom";
-import { StartupRoom, StartupRoomAlias } from "./Salina/rooms/StartupRoom";
+import { getRoomByAlias as getRoomByAliasSalina } from "./Salina/instances";
 import { PlayerSession } from "./types";
 
 /**
@@ -47,17 +46,11 @@ export function resetPlayerSession(): void {
  * @returns Instance of the room
  */
 export function getRoomByAlias(alias: string): Room | undefined {
-    switch (alias) {
-        case StartupRoomAlias:
-            return new StartupRoom();
+    const room: Room | undefined = getRoomByAliasSalina(alias);
 
-        case ExampleRoomAlias:
-            return new ExampleRoom();
-
-        case LibraryRoomAlias:
-            return new LibraryRoom();
+    if (room) {
+        return room;
     }
-
     return undefined;
 }
 
