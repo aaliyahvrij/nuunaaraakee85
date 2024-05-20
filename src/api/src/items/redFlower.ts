@@ -16,10 +16,12 @@ export class redFlowerItem extends Item implements Examine, Pickup {
     }
 
     public examine(): ActionResult | undefined {
-        return new TextActionResult(["its red hihi"]);
+        return new TextActionResult([
+            "This striking flower has vibrant red and yellow petals that curl back dramatically, creating a flame-like appearance. It seems to originate from distant, exotic lands.",
+        ]);
     }
 
     public pickup(): ActionResult | undefined {
-        return new TextActionResult(["omg u pick up red bloem"]);
+        return new TextActionResult(["you pick up the red flower"]);
     }
 }
