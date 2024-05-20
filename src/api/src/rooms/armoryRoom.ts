@@ -1,3 +1,4 @@
+import { chooseWeaponAction } from "../actions/chooseWeaponAction";
 import { ActionResult } from "../base/actionResults/ActionResult";
 import { TextActionResult } from "../base/actionResults/TextActionResult";
 import { Action } from "../base/actions/Action";
@@ -35,13 +36,25 @@ export class armoryRoom extends Room {
     }
 
     public actions(): Action[] {
-        return [new ExamineAction(), new TalkAction(), new CustomAction("test-me", "Inspect the Armory", false, )];
+        return [new ExamineAction(), 
+            new TalkAction(), 
+            new CustomAction("test-me", "Inspect the Armory", false,),
+            new chooseWeaponAction()
+        ];
     }
 
 
 
     public objects(): GameObject[] {
-        return [this,  new shieldItem(), new maceItem(), new swordItem(), new axeItem(), new keyItem(), new guardCharacter() ]; 
+        return [this,  
+            new shieldItem(), 
+            new maceItem(), 
+            new swordItem(), 
+            new axeItem(), 
+            new keyItem(), 
+            new guardCharacter(),
+            
+         ]; 
     }
 
     public examine(): ActionResult | undefined {
