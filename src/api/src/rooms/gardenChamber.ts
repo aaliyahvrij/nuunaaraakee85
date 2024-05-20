@@ -1,3 +1,4 @@
+import { PickupAction } from "../actions/PickupAction";
 import { ActionResult } from "../base/actionResults/ActionResult";
 import { TextActionResult } from "../base/actionResults/TextActionResult";
 import { Action } from "../base/actions/Action";
@@ -30,6 +31,6 @@ export class gardenChamber extends Room {
     }
 
     public actions(): Action[] {
-        return [new ExamineAction()];
+        return [new ExamineAction(), new PickupAction()];
     }
 }
