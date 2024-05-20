@@ -6,7 +6,7 @@ import { Item } from "../base/gameObjects/Item";
 
 export const blackFlowerAlias: string = "black-flower";
 
-export class redFlowerItem extends Item implements Examine, Pickup {
+export class blackFlowerItem extends Item implements Examine, Pickup {
     public constructor() {
         super(blackFlowerAlias, ExamineActionAlias, PickupActionAlias);
     }
