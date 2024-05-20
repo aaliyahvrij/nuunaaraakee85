@@ -3,8 +3,10 @@ import { Room } from "./base/gameObjects/Room";
 import { getPlayerSessionFromContext, resetPlayerSessionInContext } from "./base/playerSessionMiddleware";
 import { ExampleCharacter, ExampleCharacterAlias } from "./characters/ExampleCharacter";
 import { ExampleItem, ExampleItemAlias } from "./items/ExampleItem";
+import { redFlowerAlias, redFlowerItem } from "./items/redFlower";
 import { ExampleRoom, ExampleRoomAlias } from "./rooms/ExampleRoom";
 import { StartupRoom, StartupRoomAlias } from "./rooms/StartupRoom";
+import { gardenChamber, gardenChamberAlias } from "./rooms/gardenChamber";
 import { PlayerSession } from "./types";
 
 /**
@@ -49,6 +51,9 @@ export function getRoomByAlias(alias: string): Room | undefined {
 
         case ExampleRoomAlias:
             return new ExampleRoom();
+
+        case gardenChamberAlias:
+            return new gardenChamber();
     }
 
     return undefined;
@@ -68,6 +73,9 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
 
         case ExampleCharacterAlias:
             return new ExampleCharacter();
+
+        case redFlowerAlias:
+            return new redFlowerItem();
 
         //NOTE: Fall back to rooms, since those are game objects too.
         default:
