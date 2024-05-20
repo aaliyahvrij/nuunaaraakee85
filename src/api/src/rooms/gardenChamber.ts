@@ -5,7 +5,12 @@ import { Action } from "../base/actions/Action";
 import { ExamineAction } from "../base/actions/ExamineAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
+import { blackFlowerItem } from "../items/blackFlower";
+import { pinkFlowerItem } from "../items/pinkFlower";
+import { rainbowFlowerItem } from "../items/rainbowFlower";
 import { redFlowerItem } from "../items/redFlower";
+import { whiteFlowerItem } from "../items/whiteFlower";
+import { yellowFlowerItem } from "../items/yellowFlower";
 
 export const gardenChamberAlias: string = "garden";
 
@@ -27,7 +32,15 @@ export class gardenChamber extends Room {
     }
 
     public objects(): GameObject[] {
-        return [this, new redFlowerItem()];
+        return [
+            this,
+            new redFlowerItem(),
+            new yellowFlowerItem(),
+            new pinkFlowerItem(),
+            new blackFlowerItem(),
+            new whiteFlowerItem(),
+            new rainbowFlowerItem(),
+        ];
     }
 
     public actions(): Action[] {
