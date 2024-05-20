@@ -3,7 +3,12 @@ import { Room } from "./base/gameObjects/Room";
 import { getPlayerSessionFromContext, resetPlayerSessionInContext } from "./base/playerSessionMiddleware";
 import { ExampleCharacter, ExampleCharacterAlias } from "./characters/ExampleCharacter";
 import { ExampleItem, ExampleItemAlias } from "./items/ExampleItem";
+import { blackFlowerAlias, blackFlowerItem } from "./items/blackFlower";
+import { pinkFlowerAlias, pinkFlowerItem } from "./items/pinkFlower";
+import { rainbowFlowerAlias, rainbowFlowerItem } from "./items/rainbowFlower";
 import { redFlowerAlias, redFlowerItem } from "./items/redFlower";
+import { whiteFlowerAlias, whiteFlowerItem } from "./items/whiteFlower";
+import { yellowFlowerAlias, yellowFlowerItem } from "./items/yellowFlower";
 import { ExampleRoom, ExampleRoomAlias } from "./rooms/ExampleRoom";
 import { StartupRoom, StartupRoomAlias } from "./rooms/StartupRoom";
 import { gardenChamber, gardenChamberAlias } from "./rooms/gardenChamber";
@@ -76,6 +81,21 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
 
         case redFlowerAlias:
             return new redFlowerItem();
+
+        case yellowFlowerAlias:
+            return new yellowFlowerItem();
+
+        case blackFlowerAlias:
+            return new blackFlowerItem();
+
+        case whiteFlowerAlias:
+            return new whiteFlowerItem();
+
+        case rainbowFlowerAlias:
+            return new rainbowFlowerItem();
+
+        case pinkFlowerAlias:
+            return new pinkFlowerItem();
 
         //NOTE: Fall back to rooms, since those are game objects too.
         default:
