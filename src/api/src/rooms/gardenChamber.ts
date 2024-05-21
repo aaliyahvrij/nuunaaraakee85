@@ -5,12 +5,14 @@ import { Action } from "../base/actions/Action";
 import { ExamineAction } from "../base/actions/ExamineAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
-import { blackFlowerItem } from "../items/blackFlower";
-import { pinkFlowerItem } from "../items/pinkFlower";
-import { rainbowFlowerItem } from "../items/rainbowFlower";
-import { redFlowerItem } from "../items/redFlower";
-import { whiteFlowerItem } from "../items/whiteFlower";
-import { yellowFlowerItem } from "../items/yellowFlower";
+import { getGameObjectsFromInventory, getPlayerSession } from "../instances";
+import { blackFlowerAlias, blackFlowerItem } from "../items/blackFlower";
+import { pinkFlowerAlias, pinkFlowerItem } from "../items/pinkFlower";
+import { rainbowFlowerAlias, rainbowFlowerItem } from "../items/rainbowFlower";
+import { redFlowerAlias, redFlowerItem } from "../items/redFlower";
+import { whiteFlowerAlias, whiteFlowerItem } from "../items/whiteFlower";
+import { yellowFlowerAlias, yellowFlowerItem } from "../items/yellowFlower";
+import { PlayerSession } from "../types";
 
 export const gardenChamberAlias: string = "garden";
 
@@ -32,15 +34,35 @@ export class gardenChamber extends Room {
     }
 
     public objects(): GameObject[] {
-        return [
-            this,
-            new redFlowerItem(),
-            new yellowFlowerItem(),
-            new pinkFlowerItem(),
-            new blackFlowerItem(),
-            new whiteFlowerItem(),
-            new rainbowFlowerItem(),
-        ];
+        const playerSession: PlayerSession = getPlayerSession();
+
+        const objects: GameObject[] = [this, ...getGameObjectsFromInventory()];
+
+        if (!playerSession.inventory.includes(redFlowerAlias)) {
+            objects.push(new redFlowerItem());
+        }
+
+        if (!playerSession.inventory.includes(blackFlowerAlias)) {
+            objects.push(new blackFlowerItem());
+        }
+
+        if (!playerSession.inventory.includes(yellowFlowerAlias)) {
+            objects.push(new yellowFlowerItem());
+        }
+
+        if (!playerSession.inventory.includes(pinkFlowerAlias)) {
+            objects.push(new pinkFlowerItem());
+        }
+
+        if (!playerSession.inventory.includes(whiteFlowerAlias)) {
+            objects.push(new whiteFlowerItem());
+        }
+
+        if (!playerSession.inventory.includes(rainbowFlowerAlias)) {
+            objects.push(new rainbowFlowerItem());
+        }
+
+        return objects;
     }
 
     public actions(): Action[] {
