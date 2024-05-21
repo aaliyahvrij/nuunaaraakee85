@@ -5,9 +5,12 @@ import { ExampleCharacter, ExampleCharacterAlias } from "./characters/ExampleCha
 import { guardCharacter, guardCharacterAlias } from "./characters/guardCharacter";
 import { ExampleItem, ExampleItemAlias } from "./items/ExampleItem";
 import { axeItem, axeItemAlias } from "./items/axeItem";
-import { keyItem, keyItemAlias } from "./items/keyItem";
+import { crossbowItem, crossbowItemAlias } from "./items/crossbowItem";
+import { daggerItem, daggerItemAlias } from "./items/daggerItem";
+import { hammerItem, hammerItemAlias } from "./items/hammerItem";
 import { maceItem, maceItemAlias } from "./items/maceItem";
 import { shieldItem, shieldItemAlias } from "./items/shieldItem";
+import { spearItem, spearItemAlias } from "./items/spearItem";
 import { swordItem, swordItemAlias } from "./items/swordItem";
 import { ExampleRoom, ExampleRoomAlias } from "./rooms/ExampleRoom";
 import { StartupRoom, StartupRoomAlias } from "./rooms/StartupRoom";
@@ -23,6 +26,7 @@ export function createNewPlayerSession(): PlayerSession {
     return {
         currentRoom: "startup",
         inventory: [],
+        chooseWeapons: boolean
     };
 }
 
@@ -84,6 +88,9 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
         case swordItemAlias:
             return new swordItem();
 
+        case daggerItemAlias:
+            return new daggerItem();
+
         case maceItemAlias:
             return new maceItem();
 
@@ -93,8 +100,15 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
         case shieldItemAlias:
             return new shieldItem();
 
-        case keyItemAlias:
-            return new keyItem();
+        case spearItemAlias:
+            return new spearItem();
+
+        case crossbowItemAlias:
+            return new crossbowItem();
+
+        case hammerItemAlias:
+            return new hammerItem();
+
 
         case guardCharacterAlias:
             return new guardCharacter();

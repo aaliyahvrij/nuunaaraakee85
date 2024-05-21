@@ -8,29 +8,29 @@ import { PlayerSession } from "../types";
 
 
 
-export const swordItemAlias: string = "sword";
+export const crossbowItemAlias: string = "crossbow";
 
-export class swordItem extends Item implements Examine, chooseWeapon{
+export class crossbowItem extends Item implements Examine, chooseWeapon{
     public constructor(){
-        super(swordItemAlias, ExamineActionAlias, chooseWeaponActionAlias);
+        super(crossbowItemAlias, ExamineActionAlias, chooseWeaponActionAlias);
     }
     
  
     public name(): string {
-        return "Sword";
+        return "Crossbow";
     }
 
     public examine(): ActionResult | undefined {
-        return new TextActionResult(["You see a sword. An old and rusty sword that might still be usable."]);
+        return new TextActionResult(["You see a crossbow. It's light and powerful, perfect for ranged attacks."]);
     }
 
     public chooseWeapon(): ActionResult | undefined {
        const playerSession: PlayerSession = getPlayerSession();
 
-       if(!playerSession.inventory.includes(swordItemAlias)) {
-          playerSession.inventory.push(swordItemAlias);
+       if(!playerSession.inventory.includes(crossbowItemAlias)) {
+          playerSession.inventory.push(crossbowItemAlias);
 
-        return new TextActionResult(["YOU choose the Sword give to the guard"]);
+        return new TextActionResult(["You choose the Crossbow give to the guard"]);
 
        }
 
