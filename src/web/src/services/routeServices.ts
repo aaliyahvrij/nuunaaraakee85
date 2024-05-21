@@ -1,18 +1,70 @@
 import { GameObjectFormResult } from "@shared/GameObjectFormResult";
 
-// Functie om game-objecten op te halen van het API-endpoint
-export async function queryGameObjects(): Promise<any[]> {
+export async function queryGameObjects(): Promise<GameObjectFormResult[]> {
     try {
-        const response:any = await fetch("/api/gameobjects");
+        const response: Response = await fetch(`${viteConfiguration.API_URL}gameobjects`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
         if (!response.ok) {
-            throw new Error("Failed to fetch game objects");
+            throw new Error(`Failed to fetch game objects: ${response.statusText}`);
         }
-        return await response.json() as any[]; // Type-annotatie toegevoegd
+
+        const data: GameObjectFormResult[] = await response.json();
+        return data;
     } catch (error) {
-        console.error("Error querying game objects:", error);
+        console.error("Error fetching game objects:", error);
         throw error;
     }
 }
+
+
+export async function deleteGameObject(id: number): Promise<boolean> {
+    try {
+        const response: Response = await fetch(`${viteConfiguration.API_URL}gameobject/${id}/delete`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to delete game object: ${response.statusText}`);
+        }
+
+        return true;
+    } catch (error) {
+        console.error("Error deleting game object:", error);
+        return false;
+    }
+}
+
+export async function editGameObject(id: number, gameObjectData: GameObjectFormResult): Promise<boolean> {
+    try {
+        const response: Response = await fetch(`${viteConfiguration.API_URL}gameobject/${id}/edit`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(gameObjectData),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to edit game object: ${response.statusText}`);
+        }
+
+        return true;
+    } catch (error) {
+        console.error("Error editing game object:", error);
+        return false;
+    }
+}
+
+
+
 
 export async function addGameObject(formData: GameObjectFormResult): Promise<boolean> {
     try {
@@ -31,16 +83,3 @@ export async function addGameObject(formData: GameObjectFormResult): Promise<boo
     }
 }
 
-// Functie om een game-object te verwijderen via het API-endpoint
-export async function deleteGameObject(id: number): Promise<boolean> {
-    try {
-        const response: Response = await fetch(`/api/gameobject/${id}/delete`, {
-            method: "DELETE",
-        });
-
-        return response.ok;
-    } catch (error) {
-        console.error("Error deleting game object:", error);
-        return false;
-    }
-}
