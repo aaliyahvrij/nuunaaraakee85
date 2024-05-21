@@ -19,16 +19,22 @@ router.get("/gameobjects", asyncHandler(async (req: Request, res: Response) => {
 
 // Endpoint om een nieuw game object toe te voegen
 router.post("/gameobject/add", asyncHandler(async (req: Request, res: Response) => {
+    let connection: any; // Declareer de variabele hier om te gebruiken in het finally-blok
+
     try {
-        const connection: any = await getConnection();
+        connection = await getConnection();
+
+        // Uitpakken van de gegevens van het verzoek
         const { alias, name, description, type, price, hp }: { alias: string, name: string, description: string, type: string, price?: number, hp?: number } = req.body;
         const normalizedType: string = type.toLowerCase();
 
+        // Controleren op vereiste velden
         if (!alias || !name || !description || !normalizedType) {
             res.status(400).send("Alias, name, description, and type are required.");
             return;
         }
 
+        // Controleren op vereiste velden afhankelijk van het type
         if (normalizedType === "item" && price === undefined) {
             res.status(400).send("Price is required for an Item.");
             return;
@@ -39,10 +45,14 @@ router.post("/gameobject/add", asyncHandler(async (req: Request, res: Response) 
             return;
         }
 
+        // Query voor het invoegen van een GameObject
         const gameObjectQuery: string = "INSERT INTO gameobject (alias, name, description, type) VALUES (?, ?, ?, ?)";
         const gameObjectValues: any[] = [alias, name, description, normalizedType];
-        const gameObjectResult: ResultSetHeader = await queryDatabase<ResultSetHeader>(connection, gameObjectQuery, gameObjectValues);
+        const gameObjectResult: ResultSetHeader = await queryDatabase<ResultSetHeader>(connection, gameObjectQuery, ...gameObjectValues);
 
+        console.log("Inserted into gameobject table. Insert ID:", gameObjectResult.insertId);
+
+        // Gebruik de gegenereerde id voor het invoegen van de gerelateerde record
         let specificGameObjectQuery: string;
         let specificGameObjectValues: any[];
 
@@ -63,13 +73,30 @@ router.post("/gameobject/add", asyncHandler(async (req: Request, res: Response) 
                 throw new Error("Unknown type");
         }
 
+        // Uitvoeren van de query voor het specifieke type GameObject
         await queryDatabase<ResultSetHeader>(connection, specificGameObjectQuery, specificGameObjectValues);
+
+        // Commit transaction
+        await connection.commit();
+
         res.status(204).send();
     } catch (error) {
         console.error("Error adding game object:", error);
+        if (connection) {
+            try {
+                await connection.rollback();
+            } catch (rollbackError) {
+                console.error("Error during transaction rollback:", rollbackError);
+            }
+        }
         res.status(400).send("Error adding game object");
+    } finally {
+        if (connection) {
+            await connection.release(); // Zorg ervoor dat de verbinding wordt vrijgegeven
+        }
     }
 }));
+
 
 // Endpoint om een game object te verwijderen
 router.delete("/gameobject/:id/delete", asyncHandler(async (req: Request, res: Response) => {
@@ -86,6 +113,7 @@ router.delete("/gameobject/:id/delete", asyncHandler(async (req: Request, res: R
     }
 }));
 
+// Endpoint om een game object te bewerken
 router.put("/gameobject/:id/edit", asyncHandler(async (req: Request, res: Response) => {
     const id: number = parseInt(req.params.id);
     const { name, description, alias, type } = req.body;
@@ -118,7 +146,6 @@ router.put("/gameobject/:id/edit", asyncHandler(async (req: Request, res: Respon
 }));
 
 
-
 router.get("/", (req, res) => {
     res.json({
         hello: "world",
@@ -132,3 +159,4 @@ interface ResultSetHeader {
     warningCount: number;
 }
 
+export default router;
