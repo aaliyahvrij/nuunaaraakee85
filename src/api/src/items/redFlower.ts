@@ -3,8 +3,7 @@ import { ActionResult } from "../base/actionResults/ActionResult";
 import { TextActionResult } from "../base/actionResults/TextActionResult";
 import { Examine, ExamineActionAlias } from "../base/actions/ExamineAction";
 import { Item } from "../base/gameObjects/Item";
-import { getPlayerSession } from "../instances";
-import { PlayerSession } from "../types";
+import { resetPlayerSession } from "../instances";
 
 export const redFlowerAlias: string = "red-flower";
 
@@ -24,14 +23,8 @@ export class redFlowerItem extends Item implements Examine, Pickup {
     }
 
     public pickup(): ActionResult | undefined {
-        const playerSession: PlayerSession = getPlayerSession();
+        resetPlayerSession();
 
-        if (!playerSession.inventory.includes(redFlowerAlias)) {
-            playerSession.inventory.push(redFlowerAlias);
-
-            return new TextActionResult(["you pick up the red flower"]);
-        }
-
-        return undefined;
+        return new TextActionResult(["you pick up the red flower", "it's poison stabs u"]);
     }
 }
