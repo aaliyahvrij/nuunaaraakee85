@@ -37,3 +37,11 @@ Kruisboog: Als de speler op het kruisboogsymbool klikt, worden ze uitgedaagd om 
 Kroon: Wanneer de speler op het kroonsymbool klikt, worden ze meegenomen naar een verhaal over een glorieuze koning die triomfen viert. De speler wordt uitgedaagd om te bewijzen dat ze waardig zijn om naast de koning te staan door een reeks koninklijke taken uit te voeren. Hoewel ze glorie kunnen ervaren, leidt dit niet direct tot het openen van de tunnel.
 
 Drakenhoofd: Als de speler op het drakenhoofdsymbool klikt, worden ze geconfronteerd met een denkbeeldige draak die hen uitdaagt voor een episch gevecht. De speler moet hun moed en slimheid tonen om de draak te verslaan. Hoewel dit een spannende uitdaging kan zijn, leidt het niet direct tot het vinden van de schat.
+
+
+
+
+
+
+
+# 
