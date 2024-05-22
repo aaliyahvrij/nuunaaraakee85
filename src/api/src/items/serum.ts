@@ -26,7 +26,6 @@ export class serumItem extends Item implements Examine, Pickup {
 
         if (!playerSession.inventory.includes(serumALias)) {
             playerSession.inventory.push(serumALias);
-
             return new TextActionResult(["this might open the door!!!"]);
         }
 

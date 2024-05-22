@@ -13,7 +13,7 @@ import { redFlowerItem } from "../items/redFlower";
 import { whiteFlowerAlias, whiteFlowerItem } from "../items/whiteFlower";
 import { yellowFlowerAlias, yellowFlowerItem } from "../items/yellowFlower";
 import { PlayerSession } from "../types";
-import { serumItem } from "../items/serum";
+import { serumALias, serumItem } from "../items/serum";
 
 export const gardenChamberAlias: string = "garden";
 
@@ -56,6 +56,10 @@ export class gardenChamber extends Room {
         }
 
         if (playerSession.inventory.length === 4) {
+            playerSession.inventory.push(serumALias);
+        }
+
+        if (playerSession.inventory.includes(serumALias)) {
             objects.push(new serumItem());
         }
 
