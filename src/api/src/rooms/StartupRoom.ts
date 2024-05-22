@@ -5,7 +5,7 @@ import { CustomAction } from "../base/actions/CustomAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
 import { getPlayerSession, getRoomByAlias } from "../instances";
-import { ExampleRoom } from "./ExampleRoom";
+//import { ExampleRoom } from "./ExampleRoom";
 import { ObservatoryRoom, ObservatoryRoomAlias } from "./ObservatoryRoom";
 
 export const StartupRoomAlias: string = "startup";
