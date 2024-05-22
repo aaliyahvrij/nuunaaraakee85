@@ -102,37 +102,41 @@ Feedback: "Dit is niet het juiste wapen. Probeer opnieuw."
 * raadsel ?
 
 
-## vragen
+
+
+
+# Behoefteonderzoek 
+
+## Vragen
 Wat zijn jouw verwachtingen van een interactieve armory room?
-1.
+1. Aaliyah: Dat er veel wapens zullen zijn die ik kan bekijken en dat ik iets met ze kan doen om door te komen.
 2.
 3.
 
 Wat voor soort interacties zou je willen hebben met de wapens en het schild in de armory room?
-1.
+1. Aaliyah: waarschijnlijk dat ik ze dus kan bekijken en dat ik dan informatie krijg en dat ik dan weet welke goed is als ik het oppak.
 2.
 3.
 
 
 Hoe belangrijk is het voor jou dat de armory room een verhaallijn of thema heeft? Zo ja, welk soort verhaallijn zou jou het meest aanspreken?
-1.
+1. Aaliyah: hartstikke belangrijk het zou mij veel meer in de game en kamer houden als ik bijvoorbeeld de geschiedenis wist van elk wapen
 2.
 3.
 
 Zou je graag puzzels of uitdagingen willen tegenkomen tijdens het verkennen van de armory room? Zo ja, wat voor soort puzzels zou je interessant vinden?
-1.
+1. Aaliyah: ja natuurlijk ik zou het leuk vinden als bijvoorbeeld en wapen me zou aanvallen of als je het oppakt je gameover krijgt
 2
 3.
 
-Welke technologieën of tools zou je graag zien gebruiken in de armory room om de interactie te verbeteren?
-1.
-2.
-3.
-
 Heb je nog andere suggesties of ideeën die de armory room leuker of boeiender zouden maken?
-1.
+1. Aaliyah: ja dus zoals ik al zei het is heeel leuk als er historische teksten bij de wapens en objecten zitten en ook dat er game obver scenarios zijn. 
 2.
 3.
 
 
-## feedback
+## feedback (My Armory room test)
+
+Aaliyah: tops: kleuren zijn heel consequint, veel keuze tops: talk to optie pas als je de guard hebt examined, instructies zodat ik weet wat ik doe
+
+
