@@ -17,7 +17,7 @@ import { serumALias, serumItem } from "../items/serum";
 
 export const gardenChamberAlias: string = "garden";
 
-export class gardenChamber extends Room {
+export class GardenChamber extends Room {
     public constructor() {
         super(gardenChamberAlias);
     }
@@ -58,7 +58,7 @@ export class gardenChamber extends Room {
             objects.push(new whiteFlowerItem());
         }
 
-        if (playerSession.inventory.length === 4) {
+        if (playerSession.inventory.entries()) {
             playerSession.inventory.push(serumALias);
         }
 

@@ -11,8 +11,9 @@ import { whiteFlowerAlias, whiteFlowerItem } from "./items/whiteFlower";
 import { yellowFlowerAlias, yellowFlowerItem } from "./items/yellowFlower";
 import { ExampleRoom, ExampleRoomAlias } from "./rooms/ExampleRoom";
 import { StartupRoom, StartupRoomAlias } from "./rooms/StartupRoom";
-import { gardenChamber, gardenChamberAlias } from "./rooms/gardenChamber";
+import { GardenChamber, gardenChamberAlias } from "./rooms/GardenChamber";
 import { PlayerSession } from "./types";
+import { serumALias, serumItem } from "./items/serum";
 
 /**
  * Create a new player session object
@@ -58,7 +59,7 @@ export function getRoomByAlias(alias: string): Room | undefined {
             return new ExampleRoom();
 
         case gardenChamberAlias:
-            return new gardenChamber();
+            return new GardenChamber();
     }
 
     return undefined;
@@ -97,6 +98,8 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
         case pinkFlowerAlias:
             return new pinkFlowerItem();
 
+        case serumALias:
+            return new serumItem();
         //NOTE: Fall back to rooms, since those are game objects too.
         default:
             return getRoomByAlias(alias);

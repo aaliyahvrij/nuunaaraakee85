@@ -5,7 +5,7 @@ import { CustomAction } from "../base/actions/CustomAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
 import { getPlayerSession } from "../instances";
-import { gardenChamber } from "./gardenChamber";
+import { gardenChamber } from "./GardenChamber";
 
 export const StartupRoomAlias: string = "startup";
 
