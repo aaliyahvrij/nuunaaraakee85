@@ -44,4 +44,95 @@ Drakenhoofd: Als de speler op het drakenhoofdsymbool klikt, worden ze geconfront
 
 
 
-# 
+# Protoype
+
+
+![alt text](ArmoryCanva.png)
+
+## 1. Startscherm:
+Titel: Welkom in de Armory Room
+Beschrijving: Hier, zul je de wapens van je bestemming smeden. Selecteer een wapen dat past bij het schild in het midden van de kamer.
+
+## 2. Interactieve elementen:
+* Schild: Klikbaar object in het midden van de kamer
+
+Beschrijving: Een schild met een specifiek embleem. Dit geeft een aanwijzing over welk wapen je moet kiezen.
+Interactie: "Het juiste wapen is zowel licht als dodelijk."
+
+* Wapens: Klikbare objecten in de kamer
+
+Zwaard:
+
+Beschrijving: Een oud en roestig zwaard dat nog steeds bruikbaar lijkt.
+Interactie: "Je hebt het zwaard gekozen. Geef het aan de bewaker."
+
+Dolk:
+
+Beschrijving: Een dolk. Licht en scherp, perfect voor snelle aanvallen.
+Interactie: "Je hebt de dolk gekozen. Het voelt dodelijk, maar is het de juiste keuze?"
+
+Bijl:
+
+Beschrijving: Een zware bijl, krachtig en destructief.
+Interactie: "Je hebt de bijl gekozen. Probeer opnieuw."
+
+Kruisboog:
+
+Beschrijving: Een kruisboog, krachtig en nauwkeurig.
+Interactie: "Je hebt de kruisboog gekozen. Probeer opnieuw."
+
+3. Bewaker:
+Beschrijving: Een streng uitziende bewaker staat op wacht in de wapenruimte.
+Interactieopties:
+"Vraag om meer details over het schild."
+"Vraag om hints over de wapens."
+
+4. Resultaten:
+Correcte Wapenkeuze (Zwaard):
+
+Actie: Het sleutelgat naast het luik gaat open.
+Feedback: "Het zwaard is het juiste antwoord! Het sleutelgat opent en je krijgt toegang tot de tunnel."
+Verkeerde Wapenkeuze:
+
+Actie: Waarschuwingssignaal en verder zoeken.
+Feedback: "Dit is niet het juiste wapen. Probeer opnieuw."
+
+## Extra puzzel
+* timer ?
+* raadsel ?
+
+
+## vragen
+Wat zijn jouw verwachtingen van een interactieve armory room?
+1.
+2.
+3.
+
+Wat voor soort interacties zou je willen hebben met de wapens en het schild in de armory room?
+1.
+2.
+3.
+
+
+Hoe belangrijk is het voor jou dat de armory room een verhaallijn of thema heeft? Zo ja, welk soort verhaallijn zou jou het meest aanspreken?
+1.
+2.
+3.
+
+Zou je graag puzzels of uitdagingen willen tegenkomen tijdens het verkennen van de armory room? Zo ja, wat voor soort puzzels zou je interessant vinden?
+1.
+2
+3.
+
+Welke technologieën of tools zou je graag zien gebruiken in de armory room om de interactie te verbeteren?
+1.
+2.
+3.
+
+Heb je nog andere suggesties of ideeën die de armory room leuker of boeiender zouden maken?
+1.
+2.
+3.
+
+
+## feedback
