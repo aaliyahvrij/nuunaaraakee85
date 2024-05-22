@@ -1,6 +1,6 @@
 # Room 3
 
-In this file I will
+In this file I will explain how the room works and all the components ive made.
 
 Storyline: “De tuinzaal is een grote, glazen serre die overwoekerd is met allerlei planten en bloemen. In deze kamer hangt een lichte, mysterieuze geur van exotische planten. Je moet de verschillende planten onderzoeken en combineren om een special serum te maken. Dit serum gebruik je om een oude, verroeste deur in de tuinzaal te openen, die Leidt naar een ondergrondse passage. Hierin vind je verdere aanwijzingen over de historie van het kasteel en de vorige eigenaars, die crucial zijn voor het begrijpen van de laatste puzzels in de torenkamer.”
 
