@@ -23,7 +23,10 @@ export class gardenChamber extends Room {
     }
 
     public examine(): ActionResult | undefined {
-        return new TextActionResult(["yappa yappa yappa", "yappy blala"]);
+        return new TextActionResult([
+            "Its filled with exotic flowers and plants but looks somewhat overgrown",
+            "u decide to investigate the flowers",
+        ]);
     }
 
     public name(): string {
