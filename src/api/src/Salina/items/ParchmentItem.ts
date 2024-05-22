@@ -29,7 +29,7 @@ export const ParchmentItemAlias: string = "parchment";
         if (!playerSession.inventory.includes(ParchmentItemAlias)) {
             playerSession.inventory.push(ParchmentItemAlias);
 
-            console.log("Parchment picked up. Updated player session:", playerSession); // Debugging after update
+            console.log("Parchment picked up. Updated player session:", playerSession);
             return new TextActionResult(["You pick up the parchment."]);
         }
   

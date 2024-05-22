@@ -21,7 +21,7 @@ export class LibraryCharacter extends Character implements Examine {
     }
 
     public examine(): ActionResult | undefined {
-        return new TextActionResult(["It's a portrait."]);
+        return new TextActionResult(["It's a portrait. Apperently it can be talked to."]);
     }
 
 
@@ -30,10 +30,10 @@ export class LibraryCharacter extends Character implements Examine {
         const playerSession: PlayerSession = getPlayerSession();
 
         if (choiceId === 1) {
-            return new TextActionResult(["Pookie.. You're making me nervous. O///O"]);
+            return new TextActionResult(["Maybe if u shed some LIGHT on the parchment, maybe it will help you see better."]);
         }
         else if(choiceId === 2) {
-            return new TextActionResult(["Goodbye Pookie..."]);
+            return new TextActionResult(["Goodbye. I wish you goodluck."]);
         }
       
         else if(choiceId === 3){
@@ -46,7 +46,7 @@ export class LibraryCharacter extends Character implements Examine {
 
 
         const choiceActions: TalkChoiceAction[] = [
-            new TalkChoiceAction(1, "Oogle at the painting"), new TalkChoiceAction(2, "Leave the painting alone")
+            new TalkChoiceAction(1, "Give me a hint"), new TalkChoiceAction(2, "Leave the painting alone")
         ];
 
    
@@ -55,7 +55,7 @@ export class LibraryCharacter extends Character implements Examine {
     }
     
         return new TalkActionResult(this, 
-            ["hi pookie!"], 
+            ["Hello! I am the librarian. No one has been here for a long time. You need to solve the puzzle here if you want to go to the next room."], 
             choiceActions
         );
     }}
