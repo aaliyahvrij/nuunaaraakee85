@@ -40,8 +40,13 @@ export class StartupRoom extends Room {
 
             return room.examine();
             
-            /*const room: Room | undefined = getRoomByAlias(ObservatoryRoomAlias);
-            return room?.examine();*/
+            // const room: Room | undefined = getRoomByAlias(ObservatoryRoomAlias);
+            // if (room){
+            //     getPlayerSession().currentRoom = room.alias
+            //     return room.examine();
+            // }
+            // return room
+            
         }
 
         return undefined;

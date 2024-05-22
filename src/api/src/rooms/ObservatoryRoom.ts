@@ -1,3 +1,4 @@
+//import { TelescopeAction } from "../actions/TelescopeAction";
 import { ActionResult } from "../base/actionResults/ActionResult";
 import { TextActionResult } from "../base/actionResults/TextActionResult";
 import { Action } from "../base/actions/Action";
@@ -28,7 +29,14 @@ export class ObservatoryRoom extends Room {
     }
 
     public actions(): Action[] {
-        return [new ExamineAction(), new CustomAction("use-telescope", "Use telescope", false)];
+        return [new ExamineAction(), new CustomAction("look-closer", "Use Telescope", false)]
+    }
+
+    public custom(alias: string, _gameObjects: GameObject[] | undefined): ActionResult | undefined {
+        if(alias === "telescope-action") {
+            return new TextActionResult(["You look into the telescope"])
+        }
+        return undefined;
     }
 
     public examine(): ActionResult | undefined {
