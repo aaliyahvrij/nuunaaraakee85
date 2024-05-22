@@ -4,6 +4,7 @@ import { getPlayerSessionFromContext, resetPlayerSessionInContext } from "./base
 import { ExampleCharacter, ExampleCharacterAlias } from "./characters/ExampleCharacter";
 import { ExampleItem, ExampleItemAlias } from "./items/ExampleItem";
 import { ExampleRoom, ExampleRoomAlias } from "./rooms/ExampleRoom";
+import { ObservatoryRoom, ObservatoryRoomAlias } from "./rooms/ObservatoryRoom";
 import { StartupRoom, StartupRoomAlias } from "./rooms/StartupRoom";
 import { PlayerSession } from "./types";
 
@@ -49,6 +50,10 @@ export function getRoomByAlias(alias: string): Room | undefined {
 
         case ExampleRoomAlias:
             return new ExampleRoom();
+
+        case ObservatoryRoomAlias:
+            return new ObservatoryRoom();
+            
     }
 
     return undefined;

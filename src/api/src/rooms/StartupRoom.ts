@@ -4,8 +4,9 @@ import { Action } from "../base/actions/Action";
 import { CustomAction } from "../base/actions/CustomAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
-import { getPlayerSession } from "../instances";
+import { getPlayerSession, getRoomByAlias } from "../instances";
 import { ExampleRoom } from "./ExampleRoom";
+import { ObservatoryRoom, ObservatoryRoomAlias } from "./ObservatoryRoom";
 
 export const StartupRoomAlias: string = "startup";
 
@@ -32,12 +33,15 @@ export class StartupRoom extends Room {
 
     public custom(alias: string, _gameObjects?: GameObject[]): ActionResult | undefined {
         if (alias === "start-game") {
-            const room: ExampleRoom = new ExampleRoom();
+            const room: ObservatoryRoom = new ObservatoryRoom();
 
             //Set the current room to the example room
             getPlayerSession().currentRoom = room.alias;
 
             return room.examine();
+            
+            /*const room: Room | undefined = getRoomByAlias(ObservatoryRoomAlias);
+            return room?.examine();*/
         }
 
         return undefined;
