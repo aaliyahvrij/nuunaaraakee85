@@ -109,35 +109,116 @@ Feedback: "Dit is niet het juiste wapen. Probeer opnieuw."
 
 
 ## Inleiding
-Voor dit behoeftenonderzoek naar de interactieve armory room heb ik gebruikgemaakt van de AOCM-methode (Afwijkingenonderzoek en Corrigerende Maatregelen). Deze methode is afgeleid van het onderzoek uitgevoerd bij het Nederlands Talen Instituut (NTI) te Leiden, gericht op het identificeren van afwijkingen en het formuleren van corrigerende maatregelen met betrekking tot de automatiseringsafdeling.
+Voor dit behoeftenonderzoek naar de interactieve wapenkamer heb ik de AOCM-methode (Afwijkingenonderzoek en Corrigerende Maatregelen) gebruikt. Deze methode komt van een onderzoek bij het Nederlands Talen Instituut (NTI) in Leiden. Het gaat om het vinden van afwijkingen en het maken van oplossingen voor problemen bij de automatiseringsafdeling.
 
 # Methode
-1. Identificatie van afwijkingen: In de eerste fase van het onderzoek zijn afwijkingen geïdentificeerd met betrekking tot de verwachtingen en voorkeuren van spelers met betrekking tot de armory room. Dit omvatte het uitvoeren van interviews met spelers zoals Aaliyah en Megan om hun verwachtingen en voorkeuren te begrijpen.
+1. Identificatie van afwijkingen: In de eerste fase van het onderzoek zijn afwijkingen gevonden op basis van de verwachtingen en voorkeuren van spelers over de wapenkamer. Dit gebeurde door interviews met spelers zoals Mary, Aaliyah en Megan om hun verwachtingen en voorkeuren te begrijpen.
 
-2. Opstellen van taakgebieden: Op basis van de geconstateerde afwijkingen zijn verschillende taakgebieden opgesteld die de interactie met de armory room dekken. Deze taakgebieden zijn afgeleid van de verwachtingen en voorkeuren van spelers zoals geïdentificeerd tijdens de interviews.
+2. Opstellen van taakgebieden: Gebaseerd op de gevonden afwijkingen zijn verschillende taakgebieden opgesteld die te maken hebben met de interactie in de wapenkamer. Deze taakgebieden komen voort uit de verwachtingen en voorkeuren van de spelers die tijdens de interviews zijn genoemd.
 
-3. Formulering van aanbevelingen en actiepunten: Na de identificatie van afwijkingen zijn aanbevelingen en actiepunten geformuleerd om de gewenste interactieve ervaring in de armory room te realiseren. Deze aanbevelingen zijn gebaseerd op de behoeften en voorkeuren van spelers zoals geuit tijdens de interviews.
-
-4. Uitwerking van must have procedures: Een specifiek actiepunt uit het onderzoek betrof het opstellen van procedures voor de interacties binnen de armory room. Deze procedures zijn geformuleerd op basis van de verwachtingen en voorkeuren van spelers zoals geïdentificeerd tijdens de interviews.
-
-5. Reflectie op huidige situatie: De huidige situatie van de armory room is geanalyseerd door eerst een tekstuele beschrijving en een schematische weergave op te stellen. Knelpunten zijn geïdentificeerd en vergeleken met de gewenste interactieve ervaring.
-
-6. Formulering van de gewenste situatie: Op basis van de aanbevelingen en actiepunten is de gewenste interactieve ervaring geformuleerd, inclusief een tekstuele beschrijving en een schematische weergave.
+3. Reflectie op huidige situatie: De huidige situatie van de wapenkamer is bekeken door eerst een beschrijving en een schema van de situatie te maken. Problemen zijn gevonden en vergeleken met de gewenste interactieve ervaring.
 
 
-
+# Behoeftenonderzoeksvragen
 
 1. Zijn er aspecten van de armory room die niet aan je verwachtingen voldoen?
+Mary: Ja, ik had meer verschillende soorten wapens verwacht.
+Aaliyah: Nee, de meeste dingen waren zoals ik had verwacht.
+Megan: Ja, ik vond het te donker, ik kon niet goed zien wat er was.
+
 2. Zijn er functionaliteiten binnen de armory room die niet goed werken of problemen veroorzaken tijdens het gebruik?
+Mary: Nee, ik had geen problemen met de functionaliteiten.
+Aaliyah: Ja, het informatiepaneel werkte soms niet.
+Megan: Soms wel, de deuren gingen niet altijd open wanneer ze zouden moeten.
+
+
 3. Zijn er inconsistenties of tegenstrijdigheden in de armory room die de spelervaring verstoren?
+Mary: Niet echt, alles leek wel goed te passen.
+Aaliyah: Ja, de volgorde van de wapens leek niet logisch.
+Megan: Ja, sommige puzzels leken niet in lijn met het verhaal.
+
 4. Zijn er gebieden binnen de armory room waar je vaak vastloopt of waar je moeite hebt om te navigeren?
+Mary: Ja, bij de ingang van de geheime kamer liep ik vaak vast.
+Aaliyah: Nee, ik kon overal goed doorheen komen.
+Megan: Ja, de trappen waren verwarrend en ik wist niet waar ik heen moest.
+
+
 5. Zijn er functies of interacties die je zou verwachten, maar die ontbreken in de armory room?
+Mary: Ja, ik miste een kaart van de kamer.
+Aaliyah: Nee, alles wat ik verwachtte was er wel.
+Megan: Ja, ik had verwacht dat er meer NPC's zouden zijn om mee te praten.
 
 
 # Conclusie
 De AOCM-methode heeft geholpen bij het systematisch identificeren van afwijkingen en het formuleren van corrigerende maatregelen om de gewenste interactieve ervaring in de armory room te realiseren.
 
-[Bron: Kloos, M. (2004). Analyse en aanbevelingen ten behoeve van de automatiseringsafdeling, een onderzoek naar afwijkingen & corrigerende maatregelen, operationele procedures en ICT beveiliging. De Haagse Hogeschool ]
+[Bron: Kloos, M. (2004). Analyse en aanbevelingen ten behoeve van de automatiseringsafdeling, een onderzoek naar afwijkingen & corrigerende maatregelen, operationele procedures en ICT beveiliging. De Haagse Hogeschool]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
