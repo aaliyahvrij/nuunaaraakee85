@@ -44,7 +44,7 @@ Drakenhoofd: Als de speler op het drakenhoofdsymbool klikt, worden ze geconfront
 
 
 
-# Protoype
+# Prototype
 
 
 ![alt text](ArmoryCanva.png)
