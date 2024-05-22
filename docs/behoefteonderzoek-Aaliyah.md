@@ -125,3 +125,7 @@ Ik heb een vragenlijst gemaakt en deze vragenlijst ga ik gebruiken om te onderzo
 
     - **Persoon 1**:
     - **Persoon 2**:
+
+## Literatuurlijst(APA)
+
+-   Bovy, P., & Houtvast, L. (2019). Uw hulp in een waaier: Een behoefteonderzoek ter ontwikkeling van een hulpwaaier doof-/slechthorendheid in de toekomst. Zuyd Hogeschool.
