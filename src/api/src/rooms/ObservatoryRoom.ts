@@ -8,6 +8,9 @@ export class ObservatoryRoom extends Room {
     public constructor() {
         super(ObservatoryRoomAlias)
     }
+    public name(): string {
+        return "Observatory";
+    }
     public examine(): ActionResult | undefined {
         return new TextActionResult(["This is the Observatory.", "There is a telescope in the middle of the room"]);
     }
