@@ -13,7 +13,7 @@ import { redFlowerItem } from "../items/redFlower";
 import { whiteFlowerAlias, whiteFlowerItem } from "../items/whiteFlower";
 import { yellowFlowerAlias, yellowFlowerItem } from "../items/yellowFlower";
 import { PlayerSession } from "../types";
-import { serumALias, serumItem } from "../items/serum";
+import { serumItem } from "../items/serum";
 
 export const gardenChamberAlias: string = "garden";
 
@@ -42,6 +42,8 @@ export class GardenChamber extends Room {
 
         const objects: GameObject[] = [this, ...getGameObjectsFromInventory()];
 
+        const flowers: string[] = [blackFlowerAlias, yellowFlowerAlias, pinkFlowerAlias, whiteFlowerAlias];
+
         if (!playerSession.inventory.includes(blackFlowerAlias)) {
             objects.push(new blackFlowerItem());
         }
@@ -58,11 +60,7 @@ export class GardenChamber extends Room {
             objects.push(new whiteFlowerItem());
         }
 
-        if (playerSession.inventory.entries()) {
-            playerSession.inventory.push(serumALias);
-        }
-
-        if (playerSession.inventory.includes(serumALias)) {
+        if (flowers.every((flower) => playerSession.inventory.includes(flower))) {
             objects.push(new serumItem());
         }
 

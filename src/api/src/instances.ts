@@ -11,9 +11,9 @@ import { whiteFlowerAlias, whiteFlowerItem } from "./items/whiteFlower";
 import { yellowFlowerAlias, yellowFlowerItem } from "./items/yellowFlower";
 import { ExampleRoom, ExampleRoomAlias } from "./rooms/ExampleRoom";
 import { StartupRoom, StartupRoomAlias } from "./rooms/StartupRoom";
-import { GardenChamber, gardenChamberAlias } from "./rooms/GardenChamber";
 import { PlayerSession } from "./types";
 import { serumALias, serumItem } from "./items/serum";
+import { GardenChamber, gardenChamberAlias } from "./rooms/GardenChamber";
 
 /**
  * Create a new player session object
