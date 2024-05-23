@@ -131,3 +131,5 @@ Het merendeel van de mensen (80%) vond de lengte van het spel prima tot perfect,
 Deze conclusies geven ons waardevolle informatie over wat mensen leuk vinden aan het spel en waar er nog ruimte is voor verbetering.
 
 
+## Bronvermelding
+Grendel Games. (z.d.). Voor wie zijn serious games? Grendel Games. Geraadpleegd op [23-05-2024], van https://grendelgames.com/nl/voor-wie-zijn-serious-games/#:~:text=De%20gemiddelde%20leeftijd%20van%20een,%25%20man%20en%2041%25%20vrouw.
