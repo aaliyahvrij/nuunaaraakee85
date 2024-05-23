@@ -126,6 +126,13 @@ Ik heb een vragenlijst gemaakt en deze vragenlijst ga ik gebruiken om te onderzo
     - **Persoon 1**:
     - **Persoon 2**:
 
+## Concept foto en Prototype
+
+Ik stuurde met de vragenlijst ook een recording van een bijna werkende prototype van mijn kamer(het is nog lang niet wat het moet zijn). En een concept foto. Ik zei erbij dat ze deze alleen bij vraag 8(en 6 voor concept foto) mochten bekijken.
+
+![Concept foto](/docs/sprint%201/concept-foto.png "Concept foto")
+![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg "a title")
+
 ## Literatuurlijst(APA)
 
 -   Bovy, P., & Houtvast, L. (2019). Uw hulp in een waaier: Een behoefteonderzoek ter ontwikkeling van een hulpwaaier doof-/slechthorendheid in de toekomst. Zuyd Hogeschool.
