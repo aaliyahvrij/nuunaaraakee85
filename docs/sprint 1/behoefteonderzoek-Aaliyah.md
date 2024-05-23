@@ -128,10 +128,10 @@ Ik heb een vragenlijst gemaakt en deze vragenlijst ga ik gebruiken om te onderzo
 
 ## Concept foto en Prototype
 
-Ik stuurde met de vragenlijst ook een recording van een bijna werkende prototype van mijn kamer(het is nog lang niet wat het moet zijn). En een concept foto. Ik zei erbij dat ze deze alleen bij vraag 8(en 6 voor concept foto) mochten bekijken.
+Ik stuurde met de vragenlijst ook een recording van een bijna werkende prototype van mijn kamer(het is nog lang niet wat het moet zijn). En een concept foto. Ik zei erbij dat ze deze alleen bij vraag 8(en 6 voor concept foto) mochten bekijken. De prototype verstuurde ik als video maar ik heb hier een screenshot aangegeven.
 
 ![Concept foto](/docs/sprint%201/concept-foto.png "Concept foto")
-![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg "a title")
+![Prototype foto](/docs/sprint%201/Prototype%20foto.png "Prototype foto")
 
 ## Literatuurlijst(APA)
 
