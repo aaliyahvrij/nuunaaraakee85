@@ -27,6 +27,9 @@ export class DoorCharacter extends Character implements Examine {
     }
     public talk(choiceId?: number | undefined): ActionResult | undefined {
         const playerSession: PlayerSession = getPlayerSession();
+
+        playerSession.hasTalkedToDoorCharacter = true;
+
         if (choiceId === 1) {
             return new TextActionResult(["whaaattt.....doooo...uuuuu...waaannttt??"]);
         } else if (choiceId === 2) {

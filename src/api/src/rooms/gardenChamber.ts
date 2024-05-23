@@ -25,9 +25,11 @@ export class GardenChamber extends Room {
     }
 
     public examine(): ActionResult | undefined {
+        const playerSession: PlayerSession = getPlayerSession();
+        playerSession.isViewingflowers = true;
         return new TextActionResult([
             "Its filled with exotic flowers and plants but looks somewhat overgrown",
-            "u decide to investigate the flowers",
+            "You decide to investigate the flowers",
         ]);
     }
 
@@ -36,6 +38,16 @@ export class GardenChamber extends Room {
     }
 
     public images(): string[] {
+        const playerSession: PlayerSession = getPlayerSession();
+
+        if (playerSession.hasTalkedToDoorCharacter) {
+            return ["door"];
+        }
+
+        if (playerSession.isViewingflowers) {
+            return ["garden_1"];
+        }
+
         return ["garden_1"];
     }
 
