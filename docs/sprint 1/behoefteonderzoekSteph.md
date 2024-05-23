@@ -48,6 +48,12 @@ Drakenhoofd: Als de speler op het drakenhoofdsymbool klikt, worden ze geconfront
 
 
 ![alt text](ArmoryCanva.png)
+![alt text](ArmoryCanva2.png)
+![alt text](ArmoryCanva3.png) 
+![alt text](ArmoryCanva4.png) 
+![alt text](ArmoryCanva5.png) 
+
+
 
 ## 1. Startscherm:
 Titel: Welkom in de Armory Room
