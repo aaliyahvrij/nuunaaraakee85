@@ -12,39 +12,44 @@ import { painting } from "../items/FireplaceItem";
 export const BigHallRoomAlias: string = "BigHall";
 
 export class BigHall extends Room {
+    private paintingCharacter: PaintingCharacter;
+
     public constructor() {
         super(BigHallRoomAlias);
+        this.paintingCharacter = new PaintingCharacter();
     }
 
     public name(): string {
         return "BigHall";
     }
 
-
     public images(): string[] {
-        return [
-            "bighall"
-        ];
+        return ["bighall"];
     }
 
     public actions(): Action[] {
-        return [new ExamineAction(), new TalkAction(), new CustomAction("Leftdoor", "Take left door", false)];
+        if (this.paintingCharacter.hasCompletedJewelDialogue()) {
+            return [
+                new ExamineAction(),
+                new TalkAction(),
+                new CustomAction("Leftdoor", "Take left door", false)
+            ];
+        }
+        return [new ExamineAction(), new TalkAction()];
     }
 
     public objects(): GameObject[] {
-        return [this, new painting(), new PaintingCharacter];
-        
+        return [this, new painting(), this.paintingCharacter];
     }
 
     public custom(alias: string, _gameObjects: GameObject[] | undefined): ActionResult | undefined {
-        if(alias === "Leftdoor") {
+        if (alias === "Leftdoor") {
             return new TextActionResult(["You took the left door and went to the library"]);
         }
         return undefined;
     }
 
     public examine(): ActionResult | undefined {
-        return new TextActionResult(["It's a big hall", "You can also see the beautifull painting there!"]);
+        return new TextActionResult(["It's a big hall", "You can also see the beautiful painting there!"]);
     }
-
 }

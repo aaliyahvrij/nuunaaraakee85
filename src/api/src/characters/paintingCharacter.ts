@@ -9,8 +9,7 @@ export const PaintingCharacterAlias: string = "Painting";
 
 export class PaintingCharacter extends Character implements Examine {
     private hasGreeted: boolean = false;
-    private toldJuwel: boolean = false;
-    private whereto: boolean = false;
+    public toldJewel: boolean = false;
 
     public constructor() {
         super(PaintingCharacterAlias, ExamineActionAlias);
@@ -36,7 +35,7 @@ export class PaintingCharacter extends Character implements Examine {
             );
             
         } else if (choiceId === 2) {
-            this.toldJuwel = true;
+            this.toldJewel = true;
             return new TalkActionResult(
                 this,
                 ["Ah, you seek the Nico Jewel... A truly formidable artifact shrouded in mystery and allure."],
@@ -61,4 +60,9 @@ export class PaintingCharacter extends Character implements Examine {
     
         return new TextActionResult(["The painting remains silent."]);
     }
+   // Add a method to check if the necessary dialogue has been completed
+public hasCompletedJewelDialogue(): boolean {
+    return this.hasGreeted && (this.toldJewel ?? false);  // Ensure toldJewel is treated as boolean
+}
+
 }
