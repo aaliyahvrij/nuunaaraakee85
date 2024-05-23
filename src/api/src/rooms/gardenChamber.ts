@@ -14,12 +14,14 @@ import { whiteFlowerAlias, whiteFlowerItem } from "../items/whiteFlower";
 import { yellowFlowerAlias, yellowFlowerItem } from "../items/yellowFlower";
 import { PlayerSession } from "../types";
 import { serumItem } from "../items/serum";
+import { DoorCharacter } from "../characters/DoorCharacter";
+import { TalkAction } from "../base/actions/TalkAction";
 
-export const gardenChamberAlias: string = "garden";
+export const GardenChamberAlias: string = "garden";
 
 export class GardenChamber extends Room {
     public constructor() {
-        super(gardenChamberAlias);
+        super(GardenChamberAlias);
     }
 
     public examine(): ActionResult | undefined {
@@ -64,12 +66,12 @@ export class GardenChamber extends Room {
             objects.push(new serumItem());
         }
 
-        objects.push(new redFlowerItem(), new rainbowFlowerItem());
+        objects.push(new redFlowerItem(), new rainbowFlowerItem(), new DoorCharacter());
 
         return objects;
     }
 
     public actions(): Action[] {
-        return [new ExamineAction(), new PickupAction()];
+        return [new ExamineAction(), new PickupAction(), new TalkAction()];
     }
 }

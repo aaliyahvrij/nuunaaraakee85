@@ -13,7 +13,8 @@ import { ExampleRoom, ExampleRoomAlias } from "./rooms/ExampleRoom";
 import { StartupRoom, StartupRoomAlias } from "./rooms/StartupRoom";
 import { PlayerSession } from "./types";
 import { serumALias, serumItem } from "./items/serum";
-import { GardenChamber, gardenChamberAlias } from "./rooms/GardenChamber";
+import { GardenChamber, GardenChamberAlias } from "./rooms/GardenChamber";
+import { DoorCharacter, DoorCharacterAlias } from "./characters/DoorCharacter";
 
 /**
  * Create a new player session object
@@ -58,7 +59,7 @@ export function getRoomByAlias(alias: string): Room | undefined {
         case ExampleRoomAlias:
             return new ExampleRoom();
 
-        case gardenChamberAlias:
+        case GardenChamberAlias:
             return new GardenChamber();
     }
 
@@ -100,6 +101,9 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
 
         case serumALias:
             return new serumItem();
+
+        case DoorCharacterAlias:
+            return new DoorCharacter();
         //NOTE: Fall back to rooms, since those are game objects too.
         default:
             return getRoomByAlias(alias);
