@@ -10,7 +10,7 @@ We hadden allemaal onze punten opgeschreven en hebben daarna ze opgeplakt onder 
 
 Maar met die verbeterpunten moet iets natuurlijk. Het idee van de retro is dus ook dat we ook echt iets gaan doen aan die verbeterpunten, maar dan is het natuurlijk wel handig om te kijken welke verbeterpunten echt de hoogste prioriteit hebben in vergelijking naar andere punten. Daarom hadden we een cirkel gemaakt waarin we gingen bepalen welke punten we echt belangrijk vinden, en welke minder. [IndelingRetro](IndelingRetro.jpeg) 
 
-Daarna hebben we bepaald wie welk punt gaat handhaven. Dus als voorbeeld heb ik(mats), het handhaven van daily stand-ups. Dus als we dan allemaal op school aanwezig zijn, dat ik dan tegen iedereen zeg kom staan we doen nu een stand up. Datzelfde geld voor iedereen, dus salina gaat bijvoorbeeld pushen om met zijn alleen datapunten te gaan verzamelen.
+Daarna hebben we bepaald wie welk punt gaat handhaven. Dus als voorbeeld heb ik(mats), het handhaven van daily stand-ups. Dus als we dan allemaal op school aanwezig zijn, dat ik dan tegen iedereen zeg kom staan we doen nu een stand up. Datzelfde geld voor iedereen, dus salina gaat bijvoorbeeld pushen om met zijn alleen datapunten te gaan verzamelen. [Handhaven](IndelingRetro.jpeg)
 
 Daarna zijn we even nagegaan wat we van de retro vonden, en eigenlijk was dit wel de beste retro die we hadden gehad allemaal. We gaven het een 4,2 ster, aangezien het enige puntje was dat de verdeling van praten, dus Mats praatte meer dan Aaliyah bijvorbeeld. [SterrenRetro](HandRating.jpeg).
 
