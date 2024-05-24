@@ -25,7 +25,7 @@ Interactie: Mogelijkheid om het schilderij en de haard te onderzoeken voor extra
 ## Prototype:
 - Documentatie staat op Docs 
 - Kleur: Donkerblauw
-![alt text](matsRoom.jpg)
+![alt text](matsRoom.png)
 
 
 
