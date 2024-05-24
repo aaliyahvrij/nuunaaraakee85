@@ -16,15 +16,18 @@ Het visuele ontwerp moet consistent zijn met het thema om de immersie te verster
 
 ## Beschrijving:
 Een grote hal met een schilderij van de voormalige kasteelheer boven een open haard.
-Drie deuren met cryptische aanwijzingen.
+Twee deuren waarvan er maar een open is.
+Je kan pas door naar de volgende kamer als je een gesprek hebt gehad met het schilderij.
 
 ## Belangrijkste Beslissingen:
-Visuele Cues: Duidelijke markeringen voor de drie deuren.
+Visuele Cues: Duidelijke markeringen voor de twee deuren.
 Interactie: Mogelijkheid om het schilderij en de haard te onderzoeken voor extra aanwijzingen.
 
 ## Prototype:
-- ducumentatie staat op Docs 
+- Documentatie staat op Docs 
 - Kleur: Onbekend, kan worden vastgesteld tijdens verdere ontwikkeling.
+
+
 
 
 # Kamer 1 - De Bibliotheek (Salina)
