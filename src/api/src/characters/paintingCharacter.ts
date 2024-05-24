@@ -58,11 +58,7 @@ export class PaintingCharacter extends Character implements Examine {
         }
 
     
-        return new TextActionResult(["The painting remains silent."]);
-    }
-   // Add a method to check if the necessary dialogue has been completed
-public hasCompletedJewelDialogue(): boolean {
-    return this.hasGreeted && (this.toldJewel ?? false);  // Ensure toldJewel is treated as boolean
-}
+        return new TextActionResult(["The painting remains silent."])
 
+    }
 }
