@@ -11,7 +11,6 @@ Inzichten:
 Spelers willen duidelijke, maar uitdagende aanwijzingen.
 Het visuele ontwerp moet consistent zijn met het thema om de immersie te versterken.
 
-
 # Startkamer - De Grote Hal (Mats)
 
 ## Beschrijving:
@@ -25,7 +24,8 @@ Interactie: Mogelijkheid om het schilderij en de haard te onderzoeken voor extra
 
 ## Prototype:
 - Documentatie staat op Docs 
-- Kleur: Onbekend, kan worden vastgesteld tijdens verdere ontwikkeling.
+- Kleur: Donkerblauw
+![alt text](matsRoom.jpg)
 
 
 
@@ -43,6 +43,8 @@ Geheime Lade: Animatie bij het openen van de lade voor een visueel aantrekkelijk
 ## Prototype:
 - ducumentatie staat op Docs
 - Kleur: Grijs
+![alt text](salinaRoom.jpg)
+
 
 
 # Kamer 2 - De Wapenkamer (Stephanie)
@@ -58,6 +60,7 @@ Schild Mechanisme: Animatie voor het ontgrendelen van het schild en het luik.
 ## Prototype:
 - ducumentatie staat op Docs
 - Kleur: Bruin
+![alt text](stephRoom.png)
 
 
 
@@ -74,6 +77,7 @@ Serum Creatie: Stapsgewijze begeleiding bij het maken van het serum.
 ## Prototype:
 - ducumentatie staat op Docs
 - Kleur: Groen
+![alt text](aaliyahRoom.png)
 
 
 # Kamer 4 - De Observatoriumkamer (Christopher)
@@ -88,7 +92,10 @@ Sterrenkaart: Duidelijke visuele weergave van sterrenbeelden.
 
 ## Prototype:
 - ducumentatie staat op Docs (is nog niet gemaakt)
-- Kleur: Donkerblauw
+- Kleur: paars
+ ![alt text](ChrisRoom.jpg)  
+
+ 
 
 # Eindkamer - De Torenkamer (Mats)
 
