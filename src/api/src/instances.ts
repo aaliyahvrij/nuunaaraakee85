@@ -1,4 +1,3 @@
-
 import { GameObject } from "./base/gameObjects/GameObject";
 import { Room } from "./base/gameObjects/Room";
 import { getPlayerSessionFromContext, resetPlayerSessionInContext } from "./base/playerSessionMiddleware";
@@ -6,8 +5,10 @@ import { ExampleCharacter, ExampleCharacterAlias } from "./Salina/characters/Exa
 import { LibraryCharacter, LibraryCharacterAlias } from "./Salina/characters/LibraryCharacter";
 import { ExampleItem, ExampleItemAlias } from "./Salina/items/ExampleItem";
 import { ParchmentItem, ParchmentItemAlias } from "./Salina/items/ParchmentItem";
+import { BookItem, BookItemAlias } from "./Salina/items/BookItem";
 import { getRoomByAlias as getRoomByAliasSalina } from "./Salina/instances";
 import { PlayerSession } from "./types";
+import { WindowItemAlias, WindowItem } from "./Salina/items/WindowItem";
 
 /**
  * Create a new player session object
@@ -74,6 +75,12 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
 
         case LibraryCharacterAlias:
             return new LibraryCharacter();
+
+        case BookItemAlias:
+            return new BookItem();
+
+        case WindowItemAlias:
+            return new WindowItem();
 
         //NOTE: Fall back to rooms, since those are game objects too.
         default:
