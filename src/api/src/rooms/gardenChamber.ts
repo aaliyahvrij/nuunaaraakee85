@@ -5,7 +5,7 @@ import { Action } from "../base/actions/Action";
 import { ExamineAction } from "../base/actions/ExamineAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
-import { getGameObjectsFromInventory, getPlayerSession } from "../instances";
+import { getGameObjectsFromInventory, getPlayerSession, getRoomByAlias } from "../instances";
 import { blackFlowerAlias, blackFlowerItem } from "../items/blackFlower";
 import { pinkFlowerAlias, pinkFlowerItem } from "../items/pinkFlower";
 import { rainbowFlowerItem } from "../items/rainbowFlower";
@@ -17,7 +17,7 @@ import { serumItem } from "../items/serum";
 import { DoorCharacter } from "../characters/DoorCharacter";
 import { TalkAction } from "../base/actions/TalkAction";
 import { CustomAction } from "../base/actions/CustomAction";
-import { StartupRoom } from "./StartupRoom";
+import { StartupRoom, StartupRoomAlias } from "./StartupRoom";
 
 export const GardenChamberAlias: string = "garden";
 
@@ -96,9 +96,13 @@ export class GardenChamber extends Room {
 
     public custom(alias: string, _gameObjects: GameObject[] | undefined): ActionResult | undefined {
         if (alias === "NextRoom") {
-            const nextRoom: Room = new StartupRoom();
-            getPlayerSession().currentRoom = nextRoom.alias;
-            return nextRoom.examine();
+            const nextRoom: Room | undefined = getRoomByAlias(StartupRoomAlias);
+            if (nextRoom) {
+                getPlayerSession().currentRoom = nextRoom.alias;
+                return nextRoom.examine();
+            } else {
+                return new TextActionResult(["You made a coding error :-("]);
+            }
         }
         return undefined;
     }
