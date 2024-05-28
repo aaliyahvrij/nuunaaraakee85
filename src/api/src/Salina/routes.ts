@@ -26,7 +26,8 @@ export function handleRoutes(_room: Room, alias: string, gameObjects: GameObject
 
     case UseActionAlias:
       if (targetObjectAlias) {
-        return UseAction.perform(gameObjects[0], targetObjectAlias);
+        const useAction:any = new UseAction();
+        return useAction.perform(gameObjects[0], targetObjectAlias);
       }
       return undefined;
 
@@ -34,6 +35,7 @@ export function handleRoutes(_room: Room, alias: string, gameObjects: GameObject
       return undefined;
   }
 }
+
 
 
 

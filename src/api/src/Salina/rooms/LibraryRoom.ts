@@ -12,7 +12,7 @@ import { getGameObjectsFromInventory, getPlayerSession } from "../../instances";
 import { ParchmentItem, ParchmentItemAlias } from "../items/ParchmentItem";
 import { PlayerSession } from "../../types";
 import { BookItem, BookItemAlias } from "../items/BookItem";
-import { WindowItem } from "../items/WindowItem";
+import { WindowItem, WindowItemAlias } from "../items/WindowItem";
 import { UseAction } from "../actions/UseAction";
 
 export const LibraryRoomAlias: string = "library-room";
@@ -37,7 +37,8 @@ export class LibraryRoom extends Room {
             new PickupAction(),
             new TalkAction(),
             new UseAction(),
-            new CustomAction("test-me", "Look at the floor", false)
+            new CustomAction("test-me", "Look at the floor", false),
+            new CustomAction("reveal-code", "Reveal the code with the hint", false)
         ];
     }
 
@@ -48,12 +49,14 @@ export class LibraryRoom extends Room {
         if (!playerSession.inventory.includes(ParchmentItemAlias)) {
             objects.push(new ParchmentItem());
         }
-        if (!playerSession.inventory.includes(BookItemAlias)) {
+        else if  (!playerSession.inventory.includes(BookItemAlias)) {
             objects.push(new BookItem());
         }
+       else if (!playerSession.inventory.includes(WindowItemAlias)) {
+            objects.push(new WindowItem());
+        }
+        
         objects.push(new LibraryCharacter());
-        objects.push(new WindowItem());
-
         return objects;
     }
 
@@ -61,14 +64,25 @@ export class LibraryRoom extends Room {
         return new TextActionResult(["It's a beautiful library!!", "You can see a lot of roughed up books and papers."]);
     }
 
-    public custom(alias: string, _gameObjects: GameObject[] | undefined): ActionResult | undefined {
-        const playerSession: PlayerSession = getPlayerSession();
+    public custom(alias: string, gameObjects: GameObject[] | undefined): ActionResult | undefined {
+        if (alias === "reveal-code" && gameObjects) {
+            const inventory: GameObject[] = getGameObjectsFromInventory();    
+            const window: GameObject | undefined = gameObjects.find(obj => obj.alias === WindowItemAlias) || inventory.find(obj => obj.alias === WindowItemAlias);
+            const parchment: GameObject | undefined = gameObjects.find(obj => obj.alias === ParchmentItemAlias) || inventory.find(obj => obj.alias === ParchmentItemAlias);
 
-        if (alias === "test-me") {
-            playerSession.windowExamined = true;
+            if (!window) {
+                return new TextActionResult(["The window is missing from the game objects."]);
+            }
+
+            if (!parchment) {
+                return new TextActionResult(["The parchment is missing from the game objects."]);
+            }
+
+            const useAction: any = new UseAction();
+            return useAction.perform(window);
+        } else if (alias === "test-me") {
             return new TextActionResult(["You looked at the floor. It's a boring floor."]);
         }
-   
 
         return undefined;
     }

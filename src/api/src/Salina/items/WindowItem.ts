@@ -4,13 +4,17 @@ import { Item } from "../../base/gameObjects/Item";
 //import { getPlayerSession } from "../../instances";
 //import { PlayerSession } from "../../types";
 import { ActionResult } from "../../base/actionResults/ActionResult";
+import { Pickup, PickupActionAlias } from "../actions/PickupAction";
+import { PlayerSession } from "../../types";
+import { getPlayerSession } from "../../instances";
+
 
 
 export const WindowItemAlias: string = "window";
 
- export class WindowItem extends Item implements Examine{
+ export class WindowItem extends Item implements Examine, Pickup{
     public constructor() {
-        super(WindowItemAlias, ExamineActionAlias);
+        super(WindowItemAlias, ExamineActionAlias, PickupActionAlias);
     }
 
     public name(): string {
@@ -23,15 +27,16 @@ export const WindowItemAlias: string = "window";
 
 
     public pickup(): ActionResult | undefined {
-   /*     const playerSession: PlayerSession = getPlayerSession();
+     const playerSession: PlayerSession = getPlayerSession();
 
         if (!playerSession.inventory.includes(WindowItemAlias)) {
             playerSession.inventory.push(WindowItemAlias);
 
-            console.log("Parchment picked up. Updated player session:", playerSession);
-            return new TextActionResult(["You pick up the book."]);
-        }*/
+
+            return new TextActionResult(["You use the window."]);
+        }
   
-        return undefined;
-    }
+    return undefined;
+        
 }
+ }
