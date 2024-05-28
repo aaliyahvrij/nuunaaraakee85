@@ -16,6 +16,8 @@ import { PlayerSession } from "../types";
 import { serumItem } from "../items/serum";
 import { DoorCharacter } from "../characters/DoorCharacter";
 import { TalkAction } from "../base/actions/TalkAction";
+import { CustomAction } from "../base/actions/CustomAction";
+import { StartupRoom } from "./StartupRoom";
 
 export const GardenChamberAlias: string = "garden";
 
@@ -84,6 +86,20 @@ export class GardenChamber extends Room {
     }
 
     public actions(): Action[] {
-        return [new ExamineAction(), new PickupAction(), new TalkAction()];
+        return [
+            new ExamineAction(), 
+            new PickupAction(), 
+            new TalkAction(),
+            new CustomAction("NextRoom", "Next Room", false)
+        ];
+    }
+
+    public custom(alias: string, _gameObjects: GameObject[] | undefined): ActionResult | undefined {
+        if (alias === "NextRoom") {
+            const nextRoom: Room = new StartupRoom();
+            getPlayerSession().currentRoom = nextRoom.alias;
+            return nextRoom.examine();
+        }
+        return undefined;
     }
 }
