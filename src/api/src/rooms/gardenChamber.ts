@@ -17,13 +17,13 @@ import { serumItem } from "../items/serum";
 import { DoorCharacter } from "../characters/DoorCharacter";
 import { TalkAction } from "../base/actions/TalkAction";
 import { CustomAction } from "../base/actions/CustomAction";
-import { StartupRoom, StartupRoomAlias } from "./StartupRoom";
+import { StartupRoomAlias } from "./StartupRoom";
 
-export const GardenChamberAlias: string = "garden";
+export const Room3Alias: string = "garden";
 
 export class GardenChamber extends Room {
     public constructor() {
-        super(GardenChamberAlias);
+        super(Room3Alias);
     }
 
     public examine(): ActionResult | undefined {
