@@ -21,7 +21,7 @@ import { StartupRoomAlias } from "./StartupRoom";
 
 export const Room3Alias: string = "garden";
 
-export class GardenChamber extends Room {
+export class Room3 extends Room {
     public constructor() {
         super(Room3Alias);
     }
@@ -36,7 +36,7 @@ export class GardenChamber extends Room {
     }
 
     public name(): string {
-        return "Garden Chambers";
+        return "Room 3";
     }
 
     public images(): string[] {

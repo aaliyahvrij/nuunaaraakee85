@@ -13,7 +13,7 @@ import { ExampleRoom, ExampleRoomAlias } from "./rooms/ExampleRoom";
 import { StartupRoom, StartupRoomAlias } from "./rooms/StartupRoom";
 import { PlayerSession } from "./types";
 import { serumALias, serumItem } from "./items/serum";
-import { GardenChamber, Room3Alias } from "./rooms/GardenChamber";
+import { Room3, Room3Alias } from "./rooms/Room3";
 import { DoorCharacter, DoorCharacterAlias } from "./characters/DoorCharacter";
 
 /**
@@ -60,7 +60,7 @@ export function getRoomByAlias(alias: string): Room | undefined {
             return new ExampleRoom();
 
         case Room3Alias:
-            return new GardenChamber();
+            return new Room3();
     }
 
     return undefined;
