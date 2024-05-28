@@ -18,7 +18,6 @@ import { UseAction } from "../actions/UseAction";
 export const LibraryRoomAlias: string = "library-room";
 
 export class LibraryRoom extends Room {
-
     public constructor() {
         super(LibraryRoomAlias);
     }
@@ -36,27 +35,34 @@ export class LibraryRoom extends Room {
             new ExamineAction(),
             new PickupAction(),
             new TalkAction(),
-            new UseAction(),
             new CustomAction("test-me", "Look at the floor", false),
             new CustomAction("reveal-code", "Reveal the code with the hint", false)
         ];
     }
 
     public objects(): GameObject[] {
+        const objects: GameObject[] = [this];
         const playerSession: PlayerSession = getPlayerSession();
-        const objects: GameObject[] = [this, ...getGameObjectsFromInventory()];
 
+        // Debug log
+        console.log("Current inventory before objects:", playerSession.inventory);
+
+        // Voeg items toe aan de kamer, zodat ze kunnen worden opgepakt
         if (!playerSession.inventory.includes(ParchmentItemAlias)) {
             objects.push(new ParchmentItem());
         }
-        else if  (!playerSession.inventory.includes(BookItemAlias)) {
+        if (!playerSession.inventory.includes(BookItemAlias)) {
             objects.push(new BookItem());
         }
-       else if (!playerSession.inventory.includes(WindowItemAlias)) {
+        if (!playerSession.inventory.includes(WindowItemAlias)) {
             objects.push(new WindowItem());
         }
-        
+
         objects.push(new LibraryCharacter());
+
+        // Debug log
+        console.log("Objects in the room:", objects.map(obj => obj.alias));
+
         return objects;
     }
 
@@ -66,16 +72,16 @@ export class LibraryRoom extends Room {
 
     public custom(alias: string, gameObjects: GameObject[] | undefined): ActionResult | undefined {
         if (alias === "reveal-code" && gameObjects) {
-            const inventory: GameObject[] = getGameObjectsFromInventory();    
+            const inventory: GameObject[] = getGameObjectsFromInventory();
             const window: GameObject | undefined = gameObjects.find(obj => obj.alias === WindowItemAlias) || inventory.find(obj => obj.alias === WindowItemAlias);
             const parchment: GameObject | undefined = gameObjects.find(obj => obj.alias === ParchmentItemAlias) || inventory.find(obj => obj.alias === ParchmentItemAlias);
 
             if (!window) {
-                return new TextActionResult(["The window is missing from the game objects."]);
+                return new TextActionResult(["No, that can't be right..."]);
             }
 
             if (!parchment) {
-                return new TextActionResult(["The parchment is missing from the game objects."]);
+                return new TextActionResult(["No, that doesnt seem right..?"]);
             }
 
             const useAction: any = new UseAction();

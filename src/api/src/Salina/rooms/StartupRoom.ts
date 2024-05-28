@@ -4,8 +4,8 @@ import { Action } from "../../base/actions/Action";
 import { CustomAction } from "../../base/actions/CustomAction";
 import { GameObject } from "../../base/gameObjects/GameObject";
 import { Room } from "../../base/gameObjects/Room";
-import { getPlayerSession} from "../../instances";
-import { LibraryRoom } from "../../Salina/rooms/LibraryRoom";
+import { getPlayerSession } from "../../instances";
+import { ExampleRoom } from "./ExampleRoom";
 
 export const StartupRoomAlias: string = "startup";
 
@@ -32,7 +32,7 @@ export class StartupRoom extends Room {
 
     public custom(alias: string, _gameObjects?: GameObject[]): ActionResult | undefined {
         if (alias === "start-game") {
-            const room: LibraryRoom = new LibraryRoom();
+            const room: ExampleRoom = new ExampleRoom();
 
             //Set the current room to the example room
             getPlayerSession().currentRoom = room.alias;

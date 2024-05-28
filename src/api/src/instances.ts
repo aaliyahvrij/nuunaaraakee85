@@ -20,6 +20,7 @@ export function createNewPlayerSession(): PlayerSession {
         currentRoom: "startup",
         inventory: [],
         pickedUpParchment: false,
+        bookGivenToPortrait: false,
     };
 }
 
