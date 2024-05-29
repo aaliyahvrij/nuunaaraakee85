@@ -26,7 +26,7 @@ export function createNewPlayerSession(): PlayerSession {
     return {
         currentRoom: "startup",
         inventory: [],
-        chooseWeapons: true,
+        chooseWeapons: false,
     };
 }
 

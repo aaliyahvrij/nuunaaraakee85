@@ -26,7 +26,7 @@ export class maceItem extends Item implements Examine, chooseWeapon{
     public chooseWeapon(): ActionResult | undefined {
         const playerSession: PlayerSession = getPlayerSession();
 
-       if(!playerSession.inventory.includes(maceItemAlias)) {
+        if(!playerSession.inventory.includes(maceItemAlias)) {
           playerSession.inventory.push(maceItemAlias);
 
         return new TextActionResult(["You choose the Crossbow give to the guard"]);
