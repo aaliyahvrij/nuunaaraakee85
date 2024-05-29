@@ -98,14 +98,15 @@ export class armoryRoom extends Room {
     }
 
     public examine(): ActionResult | undefined {
-        return new TextActionResult(["Welcome to the Armory!", "Here, you'll forge the weapons of your destiny."]);
+        return new TextActionResult(["Welcome to the Armory!", "Here, you'll forge the weapons of your destiny. Inspect the Armory "]);
     }
 
     public custom(alias: string, _gameObjects: GameObject[] | undefined): ActionResult | undefined {
         if (alias === "test-me")
 
-            return new TextActionResult([" You notice a particular weapon on the wall that seems significant.", 
-            "It might be worth examining it more closely to see if it matches the shield in the center of the room."]);
+            return new TextActionResult([ "Inspect all the weapons and the shield in the armory to find clues.",
+            "The shield holds a clue to which weapon is the right choice.",
+            "Once you find the right weapon, talk to the guard and give it to him."]);
 
             return undefined;
 

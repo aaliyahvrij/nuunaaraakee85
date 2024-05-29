@@ -57,28 +57,6 @@ export class guardCharacter extends Character implements Examine {
             return new TextActionResult(["This is not the correct weapon. Try again."]);
         }
 
-        // if(choiceId === 5) {
-        //     playerSession.inventory = [];
-        //     return new TextActionResult(["Tis is not the correct weapon. Try again."]);
-        // }
-
-        // if(choiceId === 6) {
-        //     playerSession.inventory = [];
-        //     return new TextActionResult(["Tis is not the correct weapon. Try again."]);
-        // }
-
-        // if(choiceId === 7) {
-        //     playerSession.inventory = [];
-        //     return new TextActionResult(["Tis is not the correct weapon. Try again."]);
-        // }
-
-        // if(choiceId === 8) {
-        //     playerSession.inventory = [];
-        //     return new TextActionResult(["Tis is not the correct weapon. Try again."]);
-        // }
-
-        
-
 
 
         const  choiceActions: TalkChoiceAction[] = [
