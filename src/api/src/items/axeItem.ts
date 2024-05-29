@@ -27,7 +27,8 @@ export class axeItem extends Item implements Examine, chooseWeapon{
     public chooseWeapon(): ActionResult | undefined {
         const playerSession: PlayerSession = getPlayerSession();
 
-       if(!playerSession.inventory.includes(axeItemAlias)) {
+       if(!playerSession.chooseWeapons) {
+          playerSession.chooseWeapons = true;
           playerSession.inventory.push(axeItemAlias);
 
         return new TextActionResult(["You choose the Axe give to the guard"]);
