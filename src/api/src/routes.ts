@@ -59,7 +59,7 @@ router.post("/gameobject/add", asyncHandler(async (req, res) => {
             } else if (type === "character") {
                 await queryDatabase<ResultSetHeader>(
                     connection,
-                    "INSERT INTO Character (id, hp) VALUES (?, ?)",
+                    "INSERT INTO `Character` (id, hp) VALUES (?, ?)",
                     gameObjectId, hp
                 );
             } else if (type === "room") {

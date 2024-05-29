@@ -11,7 +11,7 @@ export async function addGameObject(formData: GameObjectFormResult): Promise <bo
             body: JSON.stringify(formData),
         });
 
-        if (response){
+        if (response.ok){
             return true;   
         } else {
             return false;
