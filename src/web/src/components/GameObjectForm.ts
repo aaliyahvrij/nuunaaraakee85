@@ -43,7 +43,6 @@ export class GameObjectForm extends LitElement {
         } else {
             console.error("error:", Error);
         }
-        // console.log("Form Data:", this.formData);
     }
 
     public render(): TemplateResult {
