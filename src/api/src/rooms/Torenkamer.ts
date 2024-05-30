@@ -6,46 +6,34 @@ import { ExamineAction } from "../base/actions/ExamineAction";
 import { TalkAction } from "../base/actions/TalkAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
-import { FoundJewelInfo, PaintingCharacter } from "../characters/PaintingCharacter";
-import { getPlayerSession } from "../instances";
-import { painting } from "../items/FireplaceItem";
-import { PlayerSession } from "../types";
+import { table } from "../items/AniqueTable";
 
-export const BigHallRoomAlias: string = "BigHall";
+export const TorenkamerAlias: string = "Torenkamer";
 
-export class BigHall extends Room {
+export class Torenkamer extends Room {
     public constructor() {
-        super(BigHallRoomAlias);
+        super(TorenkamerAlias);
     }
 
     public name(): string {
-        return "BigHall";
+        return "Torenkamer";
     }
 
 
     public images(): string[] {
         return [
-            "bighall"
+            "Torenkamer"
         ];
     }
 
-    public actions(): Action[] {
-        let actions: Action[] = [new ExamineAction(), new TalkAction()];
-        const playerSession: PlayerSession = getPlayerSession();
-
-        console.log(playerSession);
-        if(playerSession.actionsTaken.includes(FoundJewelInfo)){
-            actions.push(new CustomAction("Leftdoor", "Take left door", false))
-        }
-
-        return actions;
-    }
-
     public objects(): GameObject[] {
-        return [this, new painting(), new PaintingCharacter];
+        return [this, new table()];
         
     }
 
+    public actions(): Action[] {
+        return [new ExamineAction(), new TalkAction(), new CustomAction("Leftdoor", "Take left door", false)];
+    }
     public custom(alias: string, _gameObjects: GameObject[] | undefined): ActionResult | undefined {
         if(alias === "Leftdoor") {
             return new TextActionResult(["You took the left door and went to the library"]);
@@ -54,7 +42,7 @@ export class BigHall extends Room {
     }
 
     public examine(): ActionResult | undefined {
-        return new TextActionResult(["It's a big hall", "You can also see the beautifull painting there!"]);
+        return new TextActionResult(["A dark, old tower room with echoes. There's a table with a riddle. A small space in the wall has a jewel on a cushion. The room has magic symbols and carvings."]);
     }
 
 }

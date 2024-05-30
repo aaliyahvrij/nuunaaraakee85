@@ -2,10 +2,9 @@ import { GameObject } from "./base/gameObjects/GameObject";
 import { Room } from "./base/gameObjects/Room";
 import { getPlayerSessionFromContext, resetPlayerSessionInContext } from "./base/playerSessionMiddleware";
 import { ExampleCharacter, ExampleCharacterAlias } from "./characters/ExampleCharacter";
-import { PaintingCharacter, PaintingCharacterAlias } from "./characters/PaintingCharacter";
 import { ExampleItem, ExampleItemAlias } from "./items/ExampleItem";
-import { PaintingItemAlias, painting } from "./items/FireplaceItem";
-import { BigHall, BigHallRoomAlias } from "./rooms/BigHall";
+import { TableItemAlias, table } from "./items/AniqueTable";
+import { Torenkamer, TorenkamerAlias } from "./rooms/Torenkamer";
 import { ExampleRoom, ExampleRoomAlias } from "./rooms/ExampleRoom";
 import { StartupRoom, StartupRoomAlias } from "./rooms/StartupRoom";
 import { PlayerSession } from "./types";
@@ -54,8 +53,8 @@ export function getRoomByAlias(alias: string): Room | undefined {
         case ExampleRoomAlias:
             return new ExampleRoom();
             
-            case BigHallRoomAlias:
-                return new BigHall();
+            case TorenkamerAlias:
+                return new Torenkamer();
     }
 
     return undefined;
@@ -76,11 +75,8 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
         case ExampleCharacterAlias:
             return new ExampleCharacter();
 
-        case PaintingItemAlias:
-            return new painting();
-
-        case PaintingCharacterAlias:
-            return new PaintingCharacter();      
+        case TableItemAlias:
+            return new table();   
         //NOTE: Fall back to rooms, since those are game objects too.
         default:
             return getRoomByAlias(alias);

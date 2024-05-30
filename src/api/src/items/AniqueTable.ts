@@ -3,16 +3,16 @@ import { TextActionResult } from "../base/actionResults/TextActionResult";
 import { Examine, ExamineActionAlias } from "../base/actions/ExamineAction";
 import { Item } from "../base/gameObjects/Item";
 
-export const PaintingItemAlias: string = "painting";
+export const TableItemAlias: string = "painting";
 
-export class painting extends Item implements Examine{
+export class table extends Item implements Examine{
     public constructor() {
-        super(PaintingItemAlias, ExamineActionAlias);
+        super(TableItemAlias, ExamineActionAlias);
     }
 public name(): string {
-    return "Fireplace";
+    return "Anique Table";
 }
 public examine(): ActionResult | undefined {
-    return new TextActionResult(["It's burning fireplace in an abandoned castle, weird...."]);
+    return new TextActionResult(["It's a really old table in the middle of the room."]);
 }
 }
