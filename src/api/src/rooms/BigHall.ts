@@ -6,8 +6,10 @@ import { ExamineAction } from "../base/actions/ExamineAction";
 import { TalkAction } from "../base/actions/TalkAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
-import { PaintingCharacter } from "../characters/PaintingCharacter";
+import { FoundJewelInfo, PaintingCharacter } from "../characters/PaintingCharacter";
+import { getPlayerSession } from "../instances";
 import { painting } from "../items/FireplaceItem";
+import { PlayerSession } from "../types";
 
 export const BigHallRoomAlias: string = "BigHall";
 
@@ -28,7 +30,15 @@ export class BigHall extends Room {
     }
 
     public actions(): Action[] {
-        return [new ExamineAction(), new TalkAction(), new CustomAction("Leftdoor", "Take left door", false)];
+        let actions: Action[] = [new ExamineAction(), new TalkAction()];
+        const playerSession: PlayerSession = getPlayerSession();
+
+        console.log(playerSession);
+        if(playerSession.actionsTaken.includes(FoundJewelInfo)){
+            actions.push(new CustomAction("Leftdoor", "Take left door", false))
+        }
+
+        return actions;
     }
 
     public objects(): GameObject[] {

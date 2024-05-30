@@ -4,12 +4,14 @@ import { TextActionResult } from "../base/actionResults/TextActionResult";
 import { Examine, ExamineActionAlias } from "../base/actions/ExamineAction";
 import { TalkChoiceAction } from "../base/actions/TalkAction";
 import { Character } from "../base/gameObjects/Character";
+import { getPlayerSession } from "../instances";
+import { PlayerSession } from "../types";
 
 export const PaintingCharacterAlias: string = "Painting";
+export const FoundJewelInfo: string = "found-jewel-info";
 
 export class PaintingCharacter extends Character implements Examine {
     private hasGreeted: boolean = false;
-    public toldJewel: boolean = false;
 
     public constructor() {
         super(PaintingCharacterAlias, ExamineActionAlias);
@@ -35,7 +37,6 @@ export class PaintingCharacter extends Character implements Examine {
             );
             
         } else if (choiceId === 2) {
-            this.toldJewel = true;
             return new TalkActionResult(
                 this,
                 ["Ah, you seek the Nico Jewel... A truly formidable artifact shrouded in mystery and allure."],
@@ -44,6 +45,8 @@ export class PaintingCharacter extends Character implements Examine {
         }
         
         if(choiceId === 3) {
+            const playerSession: PlayerSession = getPlayerSession();
+            playerSession.actionsTaken.push(FoundJewelInfo);
             return new TextActionResult (
                 ["The Nico Jewel is not a destination, but a journey. Seek it where the stars kiss the sea, on the Isle of Whispers.", "Or just take the left door, and seek it yourself"]);
         }
