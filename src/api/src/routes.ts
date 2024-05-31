@@ -19,12 +19,12 @@ router.get("/gameobjects", asyncHandler(async (req: Request, res: Response) => {
 
 // Endpoint om een nieuw game object toe te voegen
 router.post("/gameobject/add", asyncHandler(async (req: Request, res: Response) => {
-    let connection: any; // Declareer de variabele hier om te gebruiken in het finally-blok
+    let connection: any;
 
     try {
         connection = await getConnection();
+        await connection.beginTransaction(); // Begin transaction
 
-        // Uitpakken van de gegevens van het verzoek
         const { alias, name, description, type, price, hp }: { alias: string, name: string, description: string, type: string, price?: number, hp?: number } = req.body;
         const normalizedType: string = type.toLowerCase();
 
@@ -66,15 +66,18 @@ router.post("/gameobject/add", asyncHandler(async (req: Request, res: Response) 
                 specificGameObjectValues = [gameObjectResult.insertId, price];
                 break;
             case "character":
-                specificGameObjectQuery = "INSERT INTO character (id, hp) VALUES (?, ?)";
+                specificGameObjectQuery = "INSERT INTO `character` (id, hp) VALUES (?, ?)";
                 specificGameObjectValues = [gameObjectResult.insertId, hp];
                 break;
             default:
                 throw new Error("Unknown type");
         }
 
+        // Log de query en de waarden
+        console.log("Executing specific query:", specificGameObjectQuery, specificGameObjectValues);
+
         // Uitvoeren van de query voor het specifieke type GameObject
-        await queryDatabase<ResultSetHeader>(connection, specificGameObjectQuery, specificGameObjectValues);
+        await queryDatabase<ResultSetHeader>(connection, specificGameObjectQuery, ...specificGameObjectValues);
 
         // Commit transaction
         await connection.commit();
@@ -96,7 +99,6 @@ router.post("/gameobject/add", asyncHandler(async (req: Request, res: Response) 
         }
     }
 }));
-
 
 // Endpoint om een game object te verwijderen
 router.delete("/gameobject/:id/delete", asyncHandler(async (req: Request, res: Response) => {
@@ -144,7 +146,6 @@ router.put("/gameobject/:id/edit", asyncHandler(async (req: Request, res: Respon
         res.status(500).send(`Error updating game object: ${error.message}`);
     }
 }));
-
 
 router.get("/", (req, res) => {
     res.json({
