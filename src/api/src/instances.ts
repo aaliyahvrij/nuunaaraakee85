@@ -3,11 +3,12 @@ import { Room } from "./base/gameObjects/Room";
 import { getPlayerSessionFromContext, resetPlayerSessionInContext } from "./base/playerSessionMiddleware";
 import { ExampleCharacter, ExampleCharacterAlias } from "./characters/ExampleCharacter";
 import { ExampleItem, ExampleItemAlias } from "./items/ExampleItem";
-import { TableItemAlias, table } from "./items/AniqueTable";
+import { TableItemAlias, table } from "./items/AntiqueTable";
 import { Torenkamer, TorenkamerAlias } from "./rooms/Torenkamer";
 import { ExampleRoom, ExampleRoomAlias } from "./rooms/ExampleRoom";
 import { StartupRoom, StartupRoomAlias } from "./rooms/StartupRoom";
 import { PlayerSession } from "./types";
+import { MagicalBookAlias, MagicalBookCharacter } from "./characters/MagicalBookCharacter";
 
 /**
  * Create a new player session object
@@ -75,8 +76,15 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
         case ExampleCharacterAlias:
             return new ExampleCharacter();
 
+            case MagicalBookAlias:
+                return new MagicalBookCharacter();
+    
+
         case TableItemAlias:
             return new table();   
+
+            case MagicalBookAlias:
+                return new MagicalBook();   
         //NOTE: Fall back to rooms, since those are game objects too.
         default:
             return getRoomByAlias(alias);
@@ -102,3 +110,5 @@ export function getGameObjectsByAliases(objectAliases?: string[]): GameObject[] 
 export function getGameObjectsFromInventory(): GameObject[] {
     return getGameObjectsByAliases(getPlayerSession().inventory);
 }
+
+
