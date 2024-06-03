@@ -61,22 +61,6 @@ export class GameObjectForm extends LitElement {
     }
 
     public render(): TemplateResult {
-        let additionalInput: TemplateResult | null = null;
-
-        if (this.selectedOption === "item") {
-            additionalInput = html`<div>
-                <label for="itemPrice">Item price:</label>
-                <input type="number" @input="${this.changePrice} id" ="price" min="0" step="0.1" />
-            </div>`;
-        }
-
-        if (this.selectedOption === "character") {
-            additionalInput = html`<div>
-                <label for="CharacterHP">Character Health Points:</label>
-                <input type="number" @input="${this.changeHp} id" ="hp" min="0" step="1" />
-            </div>`;
-        }
-
         return html`
            <p>Hello world!</p>
 
@@ -92,14 +76,14 @@ export class GameObjectForm extends LitElement {
             <label for="description">Description:</label>
             <textarea id="description" @input=${this.changeDescription}  name="description"></textarea>
 
-            <label for="type">Choose a type:</label>
-            <select name="type" id="type"  @change="${this.selectOption}">
-            <option value="item">Item</option>
-            <option value="room"> Room</option>
-            <option value="character">Character</option>
-            </select>
+            <label for="gameobject">Type gameobject:</label>
+                <select @change="${this.handleChange}" id="gameobject_select">
+                    <option value="item">Item</option>
+                    <option value="room">Room</option>
+                    <option value="character">Character</option>
+                </select>
 
-                ${additionalInput}
+               ${this.additionalInput()}<br>
 
                 <button @click="${this.handleButtonClick}">Add ${this.selectedOption}</button>
             </div>
@@ -121,11 +105,6 @@ export class GameObjectForm extends LitElement {
         this.formData.name = input.value;
     }
 
-    private selectOption(event: Event): void {
-        const selectElement: HTMLSelectElement = event.target as HTMLSelectElement;
-        this.selectedOption = selectElement.value;
-    }
-
     private changePrice(event: Event): void {
         const input: HTMLInputElement = event.target as HTMLInputElement;
         this.formData.price = parseFloat(input.value);
@@ -134,5 +113,28 @@ export class GameObjectForm extends LitElement {
     private changeHp(event: Event): void {
         const input: HTMLInputElement = event.target as HTMLInputElement;
         this.formData.hp = parseFloat(input.value);
+    }
+
+    private additionalInput(): TemplateResult {
+        if (this.selectedOption === "item") {
+            return html`
+                <label for="price">Price:</label>
+                <input
+                    type="number"
+                    @input=${this.changePrice}
+                    id="price"
+                    name="price"
+                    min="0"
+                    step="0.01"
+                /><br />
+            `;
+        } else if (this.selectedOption === "character") {
+            return html`
+                <label for="hp">Health Points:</label>
+                <input type="number" @input=${this.changeHp} id="hp" name="hp" min="0" step="1" /><br />
+            `;
+        } else {
+            return html``;
+        }
     }
 }
