@@ -55,7 +55,9 @@ export class GameObjectForm extends LitElement {
                 this.messageResponse = "error";
                 console.error(" Adding GameObject was unsuccesfull");
             }
-        } catch (error) {}
+        } catch (error) {
+            ("something went wrong");
+        }
     }
 
     public render(): TemplateResult {
@@ -64,39 +66,73 @@ export class GameObjectForm extends LitElement {
         if (this.selectedOption === "item") {
             additionalInput = html`<div>
                 <label for="itemPrice">Item price:</label>
-                <input type="number" id="price" min="0" step="0.1" />
+                <input type="number" @input="${this.changePrice} id" ="price" min="0" step="0.1" />
             </div>`;
         }
 
         if (this.selectedOption === "character") {
             additionalInput = html`<div>
                 <label for="CharacterHP">Character Health Points:</label>
-                <input type="number" id="hp" min="0" step="1" />
+                <input type="number" @input="${this.changeHp} id" ="hp" min="0" step="1" />
             </div>`;
         }
 
         return html`
-            <p>Hello world!</p>
-            <div>
-                <label for="alias">Alias: </label>
-                <input type="text" id="alias" />
+           <p>Hello world!</p>
 
-                <label for="name">Name:</label>
-                <input type="text" id="name" />
+            <div class="${this.messageResponse}">${this.messageField}</div>
 
-                <label for="description">Description:</label>
-                <textarea id="description" cols="30" rows="10"></textarea>
+            <label for="alias">Alias:</label>
+            <input type="text" @input=${this.changeAlias}  id="alias" name="alias">
 
-                <label for="gameobject">Type gameobject:</label>
-                <select @change="${this.handleChange}" id="gameobject_select">
-                    <option value="item">Item</option>
-                    <option value="room">Room</option>
-                    <option value="character">Character</option>
-                </select>
+
+            <label for="name">Name:</label>
+            <input type="text" @input=${this.changeName}  id="name" name="name">
+
+            <label for="description">Description:</label>
+            <textarea id="description" @input=${this.changeDescription}  name="description"></textarea>
+
+            <label for="type">Choose a type:</label>
+            <select name="type" id="type"  @change="${this.selectOption}">
+            <option value="item">Item</option>
+            <option value="room"> Room</option>
+            <option value="character">Character</option>
+            </select>
+
                 ${additionalInput}
 
                 <button @click="${this.handleButtonClick}">Add ${this.selectedOption}</button>
             </div>
         `;
+    }
+
+    private changeAlias(event: Event): void {
+        const input: HTMLInputElement = event.target as HTMLInputElement;
+        this.formData.alias = input.value;
+    }
+
+    private changeDescription(event: Event): void {
+        const input: HTMLInputElement = event.target as HTMLInputElement;
+        this.formData.description = input.value;
+    }
+
+    private changeName(event: Event): void {
+        const input: HTMLInputElement = event.target as HTMLInputElement;
+        this.formData.name = input.value;
+    }
+
+    private selectOption(event: Event): void {
+        const selectElement: HTMLSelectElement = event.target as HTMLSelectElement;
+        this.selectedOption = selectElement.value;
+    }
+
+    private changePrice(event: Event): void {
+        const input: HTMLInputElement = event.target as HTMLInputElement;
+        this.formData.price = parseFloat(input.value);
+    }
+
+    private changeHp(event: Event): void {
+        const input: HTMLInputElement = event.target as HTMLInputElement;
+        this.formData.hp = parseFloat(input.value);
     }
 }
