@@ -1,11 +1,11 @@
-import { html, LitElement, TemplateResult } from "lit";
+import { css, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { GameObjectFormResult } from "../shared/GameObjectFormResult";
 import { addGameObject } from "../services/routeService";
 
 @customElement("gameobject-form")
 export class GameObjectForm extends LitElement {
-    @property({ type: String }) private selectedOption: string = "";
+    @property() private selectedOption: string = "";
     @property() public formData: GameObjectFormResult = {
         alias: "",
         name: "",
@@ -20,29 +20,42 @@ export class GameObjectForm extends LitElement {
         this.selectedOption = target.value;
     }
 
+    @property() public messageField: string = "";
+    @property() public messageResponse: string = "";
+
+    public static styles = css`
+        .valid {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    `;
+
     private async handleButtonClick(): Promise<void> {
         this.formData = {
-            alias: (this.shadowRoot!.getElementById("alias") as HTMLInputElement).value, //getelementbyid niet de beste manier
-            name: (this.shadowRoot!.getElementById("name") as HTMLInputElement).value,
-            description: (this.shadowRoot!.getElementById("description") as HTMLInputElement).value,
+            alias: this.formData.alias,
+            name: this.formData.name,
+            description: this.formData.description,
             type: this.selectedOption,
-            price:
-                this.selectedOption === "item"
-                    ? parseFloat((this.shadowRoot!.getElementById("price") as HTMLInputElement).value)
-                    : undefined,
-            hp:
-                this.selectedOption === "character"
-                    ? parseInt((this.shadowRoot!.getElementById("hp") as HTMLInputElement).value)
-                    : undefined,
+            price: this.selectedOption === "item" ? this.formData.price : undefined,
+            hp: this.selectedOption === "character" ? this.formData.hp : undefined,
         };
 
-        const addingGameObject: boolean = await addGameObject(this.formData);
+        console.log("Data:", this.formData);
 
-        if (addingGameObject) {
-            console.log("Gameobject was succesfull");
-        } else {
-            console.error("error:", Error);
-        }
+        try {
+            const addingGameObject: boolean = await addGameObject(this.formData);
+            if (addingGameObject) {
+                this.messageField = "Adding GameObject was succesfull";
+                this.messageResponse = "valid";
+                console.log("added GameObject succesfull");
+            } else {
+                this.messageField = " Adding GameObject was unsuccesfull";
+                this.messageResponse = "error";
+                console.error(" Adding GameObject was unsuccesfull");
+            }
+        } catch (error) {}
     }
 
     public render(): TemplateResult {
