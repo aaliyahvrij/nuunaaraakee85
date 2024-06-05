@@ -5,8 +5,10 @@ import { GameObjectFormResult } from "@shared/GameObjectFormResult";
 import { deleteGameObject, fetchGameObjects, updateGameObject } from "../services/gameObjectService";
 
 
+
 @customElement("gameobject-view")
 export class GameObjectView extends LitElement {
+    
     @property({ type: Array }) public gameObjects: GameObjectFormResult[] = [];
 
     public static styles = css`
@@ -41,6 +43,7 @@ public async connectedCallback(): Promise<void> {
         // Behandel fouten bij het ophalen van gegevens
     }
 }
+
 
 
 private async confirmDelete(id: number): Promise<void> {
@@ -101,10 +104,8 @@ private async confirmUpdate(gameObject: GameObjectFormResult): Promise<void> {
 
 
 
-
-
     public render(): TemplateResult {
-
+        
         return html`
             <table>
                 <thead>
@@ -118,7 +119,7 @@ private async confirmUpdate(gameObject: GameObjectFormResult): Promise<void> {
                     </tr>
                 </thead> 
                 <tbody>
-                    ${this.gameObjects.map((gameObject) => html`
+                ${this.gameObjects.map((gameObject) => html`
                         <tr>
                             <td>${gameObject.alias}</td>
                             <td>${gameObject.name}</td>

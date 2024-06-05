@@ -91,3 +91,20 @@ router.post("/gameobject/add", asyncHandler(async (req, res) => {
         res.status(400).send("Database connection error");
     }
 }));
+
+
+
+router.get("/gameobjects", asyncHandler(async (_req, res) => {
+    try {
+        const connection: PoolConnection = await getConnection();
+        const [rows] = await queryDatabase(connection, "SELECT * FROM GameObject");
+        connection.release();
+        res.json(rows);
+    } catch (error) {
+        console.error("Error fetching game objects:", error);
+        res.status(500).send("Error fetching game objects");
+    }
+}));
+
+
+

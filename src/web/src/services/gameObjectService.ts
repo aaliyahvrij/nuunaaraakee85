@@ -2,7 +2,13 @@ import { GameObjectFormResult } from "@shared/GameObjectFormResult";
 
 export async function fetchGameObjects(): Promise<GameObjectFormResult[]> {
     try {
-        const response: Response = await fetch("/gameobjects");
+        const response: Response = await fetch(`${viteConfiguration.API_URL}gameobjects`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
         if (response.ok) {
             return await response.json();
         } else {
@@ -14,10 +20,14 @@ export async function fetchGameObjects(): Promise<GameObjectFormResult[]> {
     }
 }
 
+
 export async function deleteGameObject(id: number): Promise<void> {
     try {
         const response: Response = await fetch(`/gameobjects/${id}`, {
             method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
         });
         if (!response.ok) {
             throw new Error("Failed to delete game object");
