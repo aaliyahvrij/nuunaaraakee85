@@ -30,6 +30,7 @@ export class swordItem extends Item implements Examine, chooseWeapon{
        if(playerSession.chooseWeapons) { //  als de room klaar is zet een  false waarde  zodat de item niet meer in de wereld bevindt 
           playerSession.chooseWeapons = true;
           playerSession.inventory.push(swordItemAlias);
+          
 
         return new TextActionResult(["YOU choose the Sword give to the guard"]);
 

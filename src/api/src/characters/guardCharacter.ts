@@ -27,12 +27,16 @@ export class guardCharacter extends Character implements Examine {
         return "Guard";
     }
 
+    
+
 
     public examine(): ActionResult | undefined {
         return new TextActionResult(["You see a A stern-looking guard stands watch in the armory."]);
     } 
 
     public talk(choiceId?: number | undefined): ActionResult | undefined {
+
+        
 
         const playerSession: PlayerSession = getPlayerSession();
 
@@ -47,11 +51,12 @@ export class guardCharacter extends Character implements Examine {
         }
 
         // the descreption of the items when the player choose one of the talkchoices
-        if(choiceId === 3){
+        if (choiceId === 3) {
             playerSession.inventory = [];
+            playerSession.hasGivenCorrectWeapon = true; // Mark that the correct weapon was given
             return new TextActionResult(["The sword is the right answer! You've chosen wisely. The keyhole opens."]);
         }
-
+        
         if(choiceId === 4 || choiceId === 5 || choiceId === 6 || choiceId === 7 || choiceId === 8 ){
             playerSession.inventory = [];
             return new TextActionResult(["This is not the correct weapon. Try again."]);

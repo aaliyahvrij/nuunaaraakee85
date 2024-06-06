@@ -8,7 +8,7 @@ import { TalkAction } from "../base/actions/TalkAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
 import { guardCharacter } from "../characters/guardCharacter";
-import { getGameObjectsFromInventory, getPlayerSession } from "../instances";
+import { getGameObjectsFromInventory, getPlayerSession, getRoomByAlias } from "../instances";
 import { axeItem, axeItemAlias } from "../items/axeItem";
 import { crossbowItem, crossbowItemAlias } from "../items/crossbowItem";
 import { daggerItem, daggerItemAlias } from "../items/daggerItem";
@@ -18,6 +18,7 @@ import { shieldItem } from "../items/shieldItem";
 import { spearItem, spearItemAlias } from "../items/spearItem";
 import { swordItem, swordItemAlias } from "../items/swordItem";
 import { PlayerSession } from "../types";
+import { StartupRoomAlias } from "./StartupRoom";
 
 export const armoryRoomAlias: string = "Armory";
 
@@ -41,13 +42,20 @@ export class armoryRoom extends Room {
     }
 
     public actions(): Action[] {
-        return [new ExamineAction(), 
-            new TalkAction(), 
-            new CustomAction("test-me", "Inspect the Armory", false,),
+        const actions: Action[] = [
+            new ExamineAction(),
+            new TalkAction(),
+            new CustomAction("test-me", "Inspect the Armory", false),
             new chooseWeaponAction()
         ];
-    }
 
+        const playerSession: PlayerSession = getPlayerSession();
+        if (playerSession.hasGivenCorrectWeapon) { // Controleren of de speler het juiste wapen heeft gegeven
+            actions.push(new CustomAction("unlock-door", "Unlock the door", false));
+        }
+
+        return actions;
+    }
 
 
     public objects(): GameObject[] {
@@ -102,20 +110,37 @@ export class armoryRoom extends Room {
     }
 
     public custom(alias: string, _gameObjects: GameObject[] | undefined): ActionResult | undefined {
-        if (alias === "test-me")
+        const playerSession: PlayerSession = getPlayerSession();
+        if (alias === "test-me") {
+            return new TextActionResult([
+                "Inspect all the weapons and the shield in the armory to find clues.",
+                "The shield holds a clue to which weapon is the right choice.",
+                "Once you find the right weapon, talk to the guard and give it to him."
+            ]);
+        }
 
-            return new TextActionResult([ "Inspect all the weapons and the shield in the armory to find clues.",
-            "The shield holds a clue to which weapon is the right choice.",
-            "Once you find the right weapon, talk to the guard and give it to him."]);
+        if (alias === "unlock-door") {
+            if (playerSession.hasGivenCorrectWeapon) {
+                const startupRoom: Room | undefined = getRoomByAlias(StartupRoomAlias);
+                if (startupRoom) {
+                    playerSession.currentRoom = startupRoom.alias;
+                    return startupRoom.examine();
+                } else {
+                    return new TextActionResult(["You made a coding error :-("]);
+                }
+            } else {
+                return new TextActionResult(["The door remains locked. You need to give the correct weapon to the guard first."]);
+            }
+        }
 
-            return undefined;
-
+        return undefined;
     }
-
+}
+   
 
     
 
 
 
-}
+
   
