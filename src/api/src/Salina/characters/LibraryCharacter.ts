@@ -28,17 +28,19 @@ export class LibraryCharacter extends Character implements Examine {
         const playerSession: PlayerSession = getPlayerSession();
 
         if (choiceId === 1) {
-            return new TextActionResult(["Maybe if you shed some light on the parchment, maybe it will help you see better."]);
+            return new TextActionResult(["I will give you a hint. But only after you find a book for me. You see, i lost it and i can't really move around... Help me and i'll help you."]);
         } else if(choiceId === 2) {
             return new TextActionResult(["Goodbye. I wish you good luck."]);
         } else if(choiceId === 3) {
             playerSession.inventory = [];
-            return new TextActionResult(["You gave the book to the painting."]);
-        }
-
+            return new TextActionResult(["Thank you so much! As promised, here is my hint: If you shed some light on the parchment, maybe it will help you see better."]);
+        } else if(choiceId === 4) {
+        return new TextActionResult(["You need to get the key in order to leave this room. To do that you need to put the books in right order. But watch out! The bookshelf is enchanted! So you have to look closely."]);
+    }
         const choiceActions: TalkChoiceAction[] = [
             new TalkChoiceAction(1, "Give me a hint"),
-            new TalkChoiceAction(2, "Leave the painting alone")
+            new TalkChoiceAction(2, "Leave the painting alone"),
+            new TalkChoiceAction(4, "How do i solve the puzzle here?"),
         ];
    
         if (playerSession.inventory.includes(BookItemAlias)) {

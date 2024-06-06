@@ -11,15 +11,29 @@ import { LibraryCharacter } from "../characters/LibraryCharacter";
 import { getGameObjectsFromInventory, getPlayerSession } from "../../instances";
 import { ParchmentItem, ParchmentItemAlias } from "../items/ParchmentItem";
 import { PlayerSession } from "../../types";
-import { BookItem, BookItemAlias } from "../items/BookItem";
 import { WindowItem, WindowItemAlias } from "../items/WindowItem";
 import { UseAction } from "../actions/UseAction";
+import { BookType, BookshelfItem } from "../items/BookshelfItem";
+import { KeyItem } from "../items/KeyItem";
+import { BookItem, BookItemAlias } from "../items/BookItem";
 
 export const LibraryRoomAlias: string = "library-room";
 
 export class LibraryRoom extends Room {
+    private bookshelf: BookshelfItem;
+    private correctOrder: BookType[];
+    private allowedShuffles: BookType[][] = [
+        [BookType.Blue, BookType.Red, BookType.Green, BookType.Orange],
+        [BookType.Red, BookType.Orange, BookType.Blue, BookType.Green],
+        [BookType.Green, BookType.Blue, BookType.Orange, BookType.Red],
+        [BookType.Orange, BookType.Green, BookType.Red, BookType.Blue],
+        [BookType.Red, BookType.Blue, BookType.Orange, BookType.Green]
+    ];
+
     public constructor() {
         super(LibraryRoomAlias);
+        this.bookshelf = new BookshelfItem();
+        this.correctOrder = [BookType.Blue, BookType.Red, BookType.Green, BookType.Orange];
     }
 
     public name(): string {
@@ -35,6 +49,8 @@ export class LibraryRoom extends Room {
             new ExamineAction(),
             new PickupAction(),
             new TalkAction(),
+            new CustomAction("examine-bookshelf", "Examine the bookshelf", false),
+            new CustomAction("check-puzzle", "Check if the puzzle is solved", false),
             new CustomAction("test-me", "Look at the floor", false),
             new CustomAction("reveal-code", "Reveal the code with the hint", false)
         ];
@@ -54,10 +70,11 @@ export class LibraryRoom extends Room {
         if (!playerSession.inventory.includes(BookItemAlias)) {
             objects.push(new BookItem());
         }
+       
         if (!playerSession.inventory.includes(WindowItemAlias)) {
             objects.push(new WindowItem());
         }
-
+        objects.push(new BookshelfItem());
         objects.push(new LibraryCharacter());
 
         // Debug log
@@ -70,8 +87,26 @@ export class LibraryRoom extends Room {
         return new TextActionResult(["It's a beautiful library!!", "You can see a lot of roughed up books and papers."]);
     }
 
-    public custom(alias: string, gameObjects: GameObject[] | undefined): ActionResult | undefined {
-        if (alias === "reveal-code" && gameObjects) {
+    public custom(alias: string, gameObjects: GameObject[] | undefined, _targetObjectAlias?: string): TextActionResult | undefined {
+        if (alias === "examine-bookshelf") {
+            const books: BookType[] = this.bookshelf.getBooks();
+            const booksString: string = books.map(book => book.toString()).join(", ");
+            return new TextActionResult([`The books on the bookshelf are: ${booksString}`]);
+        } else if (alias === "shuffle-books") {
+            this.bookshelf.shuffleBooks();
+            if (this.checkPuzzle()) {
+                this.updatePlayerInventoryWithKey();
+                return new TextActionResult(["Congratulations! You solved the puzzle by shuffling the books and found the key! Now you can go to the next room!"]);
+            }
+            return new TextActionResult(["You shuffled the books on the bookshelf."]);
+        } else if (alias === "check-puzzle") {
+            if (this.checkPuzzle()) {
+                this.updatePlayerInventoryWithKey();
+                return new TextActionResult(["Congratulations! You solved the puzzle and found the key! Now you can go to the next room!"]);
+            } else {
+                return new TextActionResult(["The puzzle is not solved yet."]);
+            }
+        } else if (alias === "reveal-code" && gameObjects) {
             const inventory: GameObject[] = getGameObjectsFromInventory();
             const window: GameObject | undefined = gameObjects.find(obj => obj.alias === WindowItemAlias) || inventory.find(obj => obj.alias === WindowItemAlias);
             const parchment: GameObject | undefined = gameObjects.find(obj => obj.alias === ParchmentItemAlias) || inventory.find(obj => obj.alias === ParchmentItemAlias);
@@ -81,7 +116,7 @@ export class LibraryRoom extends Room {
             }
 
             if (!parchment) {
-                return new TextActionResult(["No, that doesnt seem right..?"]);
+                return new TextActionResult(["No, that doesn't seem right...?"]);
             }
 
             const useAction: any = new UseAction();
@@ -89,7 +124,24 @@ export class LibraryRoom extends Room {
         } else if (alias === "test-me") {
             return new TextActionResult(["You looked at the floor. It's a boring floor."]);
         }
-
         return undefined;
+    }
+
+    private checkPuzzle(): boolean {
+        const currentOrder: BookType[] = this.bookshelf.getBooks();
+        for (let i:any = 0; i < this.correctOrder.length; i++) {
+            if (currentOrder[i] !== this.correctOrder[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private updatePlayerInventoryWithKey(): void {
+        const playerSession: PlayerSession = getPlayerSession();
+        const keyItem:any = new KeyItem();
+        if (!playerSession.inventory.includes(keyItem.alias)) {
+            playerSession.inventory.push(keyItem.alias);
+        }
     }
 }

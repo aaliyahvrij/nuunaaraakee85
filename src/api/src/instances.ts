@@ -9,6 +9,11 @@ import { BookItem, BookItemAlias } from "./Salina/items/BookItem";
 import { getRoomByAlias as getRoomByAliasSalina } from "./Salina/instances";
 import { PlayerSession } from "./types";
 import { WindowItemAlias, WindowItem } from "./Salina/items/WindowItem";
+import { BlueBookItemAlias, BlueBookItem } from "./Salina/items/BlueBookItem";
+import { GreenBookItem, GreenBookItemAlias } from "./Salina/items/GreenBookItem";
+import { RedBookItem, RedBookItemAlias } from "./Salina/items/RedBookItem";
+import { OrangeBookItem, OrangeBookItemAlias } from "./Salina/items/OrangeBookItem";
+import { BookshelfItem, BookshelfItemAlias } from "./Salina/items/BookshelfItem";
 
 /**
  * Create a new player session object
@@ -82,6 +87,22 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
 
         case WindowItemAlias:
             return new WindowItem();
+
+        case BlueBookItemAlias:
+            return new BlueBookItem();
+
+        case GreenBookItemAlias:
+            return new GreenBookItem();
+
+        case RedBookItemAlias:
+            return new RedBookItem();
+
+        case OrangeBookItemAlias:
+            return new OrangeBookItem();
+
+       case BookshelfItemAlias:
+             return new BookshelfItem();
+            
 
         //NOTE: Fall back to rooms, since those are game objects too.
         default:

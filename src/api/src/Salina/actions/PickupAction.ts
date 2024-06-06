@@ -10,7 +10,7 @@ export interface Pickup {
 }
 export class PickupAction extends Action {
     public constructor() {
-        super(PickupActionAlias, "Pickup", true);
+        super(PickupActionAlias, "Use", true);
     }
     public static handle(gameObject: GameObject): ActionResult | undefined {
         if (implementsInterface(gameObject, PickupActionAlias)) {

@@ -24,6 +24,7 @@ export function handleRoutes(_room: Room, alias: string, gameObjects: GameObject
     case PickupActionAlias:
       return PickupAction.handle(gameObjects[0]);
 
+  
     case UseActionAlias:
       if (targetObjectAlias) {
         const useAction:any = new UseAction();
