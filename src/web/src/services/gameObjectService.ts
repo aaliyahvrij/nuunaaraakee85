@@ -20,16 +20,17 @@ export async function fetchGameObjects(): Promise<GameObjectFormResult[]> {
     }
 }
 
-
 export async function deleteGameObject(id: number): Promise<void> {
     try {
-        const response: Response = await fetch(`/gameobjects/${id}`, {
+        const response: Response = await fetch(`${viteConfiguration.API_URL}gameobjects/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
             },
         });
-        if (!response.ok) {
+        if (response.ok) {
+            return await response.json();
+        } else {
             throw new Error("Failed to delete game object");
         }
     } catch (error) {
@@ -42,14 +43,16 @@ export async function deleteGameObject(id: number): Promise<void> {
 
 export async function updateGameObject(gameObject: GameObjectFormResult): Promise<void> {
     try {
-        const response: Response = await fetch(`/gameobjects/${gameObject.id}`, {
+        const response: Response = await fetch(`${viteConfiguration.API_URL}gameobjects/${gameObject.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(gameObject),
         });
-        if (!response.ok) {
+        if (response.ok) {
+            return await response.json();
+        } else {
             throw new Error("Failed to update game object");
         }
     } catch (error) {

@@ -97,7 +97,7 @@ router.post("/gameobject/add", asyncHandler(async (req, res) => {
 router.get("/gameobjects", asyncHandler(async (_req, res) => {
     try {
         const connection: PoolConnection = await getConnection();
-        const [rows] = await queryDatabase(connection, "SELECT * FROM GameObject");
+        const rows: GameObjectFormResult [] = await queryDatabase(connection, "SELECT * FROM GameObject");
         connection.release();
         res.json(rows);
     } catch (error) {
@@ -108,3 +108,92 @@ router.get("/gameobjects", asyncHandler(async (_req, res) => {
 
 
 
+router.delete("/gameobjects/:id", asyncHandler(async (_req, res) => {
+    const { id } = _req.params;
+
+    try {
+        const connection: PoolConnection = await getConnection();
+        
+        try {
+            await connection.beginTransaction();
+
+            const deleteResult: ResultSetHeader = await queryDatabase<ResultSetHeader>(
+                connection,
+                "DELETE FROM GameObject WHERE id = ?",
+                [id]
+            );
+
+            if (deleteResult.affectedRows === 0) {
+                console.error(`GameObject with id ${id} not found`);
+                res.status(404).send("GameObject not found");
+                return;
+            }
+
+            await connection.commit();
+
+            res.status(204).send();
+        } catch (error) {
+            await connection.rollback();
+            console.error("Transaction error:", error);
+            res.status(500).send("Error occurred during transaction");
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        console.error("Database connection error:", error);
+        res.status(500).send("Database connection error");
+    }
+}));
+
+
+
+router.put("/gameobjects/:id", asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const { alias, name, description, type, price, hp }: GameObjectFormResult = req.body;
+
+    if (!alias || !name || !description || !type) {
+        res.status(400).send("Invalid input");
+        return;
+    }
+
+    try {
+        const connection: PoolConnection = await getConnection();
+
+        try {
+            await connection.beginTransaction();
+
+            await queryDatabase<ResultSetHeader>(
+                connection,
+                "UPDATE GameObject SET alias = ?, name = ?, description = ?, type = ? WHERE id = ?",
+                alias, name, description, type, id
+            );
+
+            if (type === "item" && price !== undefined) {
+                await queryDatabase<ResultSetHeader>(
+                    connection,
+                    "REPLACE INTO Item (id, price) VALUES (?, ?)",
+                    id, price
+                );
+            } else if (type === "character" && hp !== undefined) {
+                await queryDatabase<ResultSetHeader>(
+                    connection,
+                    "REPLACE INTO `Character` (id, hp) VALUES (?, ?)",
+                    id, hp
+                );
+            }
+
+            await connection.commit();
+
+            res.status(200).send("GameObject updated successfully");
+        } catch (error) {
+            await connection.rollback();
+            console.error("Transaction error:", error);
+            res.status(500).send("Error occurred during transaction");
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        console.error("Database connection error:", error);
+        res.status(500).send("Database connection error");
+    }
+}));
