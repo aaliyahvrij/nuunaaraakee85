@@ -52,6 +52,7 @@ export class guardCharacter extends Character implements Examine {
 
         // the descreption of the items when the player choose one of the talkchoices
         if (choiceId === 3) {
+            
             playerSession.inventory = [];
             playerSession.hasGivenCorrectWeapon = true; // Mark that the correct weapon was given
             return new TextActionResult(["The sword is the right answer! You've chosen wisely. The keyhole opens."]);

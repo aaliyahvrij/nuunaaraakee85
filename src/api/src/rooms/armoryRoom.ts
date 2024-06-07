@@ -48,19 +48,21 @@ export class armoryRoom extends Room {
             new CustomAction("test-me", "Inspect the Armory", false),
             new chooseWeaponAction()
         ];
-
+    
         const playerSession: PlayerSession = getPlayerSession();
-        if (playerSession.hasGivenCorrectWeapon) { // Controleren of de speler het juiste wapen heeft gegeven
+        if (playerSession.hasGivenCorrectWeapon) {
             actions.push(new CustomAction("unlock-door", "Unlock the door", false));
         }
-
+    
+        // if(playerSession.inventory.includes(swordItemAlias))
+            
         return actions;
     }
-
 
     public objects(): GameObject[] {
 
         const playerSession: PlayerSession = getPlayerSession();
+        
 
         const objects: GameObject[] =[this, ... getGameObjectsFromInventory()];
 
@@ -92,6 +94,7 @@ export class armoryRoom extends Room {
         if(!playerSession.inventory.includes(maceItemAlias)) {
             objects.push( new maceItem());
         }
+        
 
 
 
@@ -124,6 +127,7 @@ export class armoryRoom extends Room {
                 const startupRoom: Room | undefined = getRoomByAlias(StartupRoomAlias);
                 if (startupRoom) {
                     playerSession.currentRoom = startupRoom.alias;
+                    playerSession.hasGivenCorrectWeapon = false;
                     return startupRoom.examine();
                 } else {
                     return new TextActionResult(["You made a coding error :-("]);

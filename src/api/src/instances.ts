@@ -27,7 +27,7 @@ export function createNewPlayerSession(): PlayerSession {
         currentRoom: "startup",
         inventory: [],
         chooseWeapons: false,
-        hasGivenCorrectWeapon: true,
+        hasGivenCorrectWeapon: false,
     };
 }
 
