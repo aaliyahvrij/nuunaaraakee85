@@ -61,6 +61,7 @@ export class GameObjectData extends LitElement {
             <table>
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Alias</th>
                         <th>Name</th>
                         <th>Description</th>
@@ -73,6 +74,7 @@ export class GameObjectData extends LitElement {
                     ${this.gameObjects.map(
                         (gameObject) => html`
                             <tr>
+                                <td>${gameObject.id}</d>
                                 <td>${gameObject.alias}</td>
                                 <td>${gameObject.name}</td>
                                 <td>${gameObject.description}</td>

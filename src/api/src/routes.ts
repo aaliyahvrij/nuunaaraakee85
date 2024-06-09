@@ -94,8 +94,27 @@ router.get(
     asyncHandler(async (_req, res) => {
         try {
             const connection: PoolConnection = await getConnection();
-            const rows: GameObjectFormResult[] = await queryDatabase(connection, "SELECT * FROM GameObject");
+
+            // Query to get all gameobjects with prices and hp
+            const rows: GameObjectFormResult[] = await queryDatabase(
+                connection,
+                `
+  SELECT 
+    g.*, 
+    i.price, 
+    c.hp 
+  FROM 
+    GameObject g
+  LEFT JOIN 
+    Item i ON g.id = i.id
+  LEFT JOIN 
+    \`Character\` c ON g.id = c.id
+`
+            );
+
             connection.release();
+
+            // Respond with both the gameobjects and their prices and hp
             res.json(rows);
         } catch (error) {
             console.error("Error fetching game objects:", error);
