@@ -128,7 +128,7 @@ router.put(
     asyncHandler(async (req, res) => {
         const gameObjectId: number = parseInt(req.params.id);
         const requestBody: GameObjectFormResult = req.body;
-        const { alias, name, description, type, price, hp } = requestBody;
+        const { alias, name, description, price, hp } = requestBody;
 
         try {
             // Connect to database
@@ -147,14 +147,14 @@ router.put(
                     gameObjectId
                 );
 
-                if (type === "item") {
+                if (price !== null) {
                     await queryDatabase<ResultSetHeader>(
                         connection,
                         "UPDATE Item SET price = ? WHERE id = ?",
                         price,
                         gameObjectId
                     );
-                } else if (type === "character") {
+                } else if (hp !== null) {
                     await queryDatabase<ResultSetHeader>(
                         connection,
                         "UPDATE `Character` SET hp = ? WHERE id = ?",
