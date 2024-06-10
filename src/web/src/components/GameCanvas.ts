@@ -56,7 +56,7 @@ export class GameCanvas extends LitElement {
 
         .footer {
             border-radius: 10px 10px 0 0;
-            background-color: #b0a887;
+            background-color: #8d8c8c;
             border: 1px solid #332c57;
             margin-top: 10px;
             display: flex;
@@ -71,7 +71,7 @@ export class GameCanvas extends LitElement {
         }
 
         .footer .button {
-            background-color: #837d63;
+            background-color: #757474;
             border: 1px solid #332c57;
             padding: 5px 10px;
             margin: 0 0 10px 10px;

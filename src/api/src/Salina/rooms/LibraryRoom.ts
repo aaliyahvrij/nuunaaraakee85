@@ -16,6 +16,8 @@ import { UseAction } from "../actions/UseAction";
 import { BookType, BookshelfItem } from "../items/BookshelfItem";
 import { KeyItem } from "../items/KeyItem";
 import { BookItem, BookItemAlias } from "../items/BookItem";
+import { NextRoomAction } from "../actions/NextroomAction";
+
 
 export const LibraryRoomAlias: string = "library-room";
 
@@ -52,7 +54,8 @@ export class LibraryRoom extends Room {
             new CustomAction("examine-bookshelf", "Examine the bookshelf", false),
             new CustomAction("check-puzzle", "Check if the puzzle is solved", false),
             new CustomAction("test-me", "Look at the floor", false),
-            new CustomAction("reveal-code", "Reveal the code with the hint", false)
+            new CustomAction("reveal-code", "Reveal the code with the hint", false),
+            new NextRoomAction()  // Add the new action here
         ];
     }
 
@@ -74,7 +77,7 @@ export class LibraryRoom extends Room {
         if (!playerSession.inventory.includes(WindowItemAlias)) {
             objects.push(new WindowItem());
         }
-        objects.push(new BookshelfItem());
+        objects.push(this.bookshelf); // Voeg dezelfde bookshelf toe
         objects.push(new LibraryCharacter());
 
         // Debug log
