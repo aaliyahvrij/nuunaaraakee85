@@ -6,9 +6,10 @@ In dit document leg ik uit hoe ik mijn sequence diagram heb gemaakt voor mijn in
 
 Voor het maken van mijn sequence diagram heb ik gebruik gemaakt van een tool "PlantUML" via de website [App websequencediagrams](websequencediagrams.com). Door dit kon ik met een soort code dti diagram maken. Hieronder de code:
 
-`opt add GameObject
+```
+opt add GameObject
 note left of Frontend
-Adds the GameObject to the database
+Adds the GameObject to the database!
 end note
 Frontend ->+ Backend: post:3001/gameobject/add
 Backend -> Database: INSERT INTO GameObject
@@ -73,7 +74,8 @@ Backend ->- Frontend: Response error (fail)
 end
 else User Cancels Deletion
 Frontend -> Database: no request
-end`
+end
+```
 
 ### Sequence Diagram(png)
 
