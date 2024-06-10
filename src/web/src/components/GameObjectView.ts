@@ -1,4 +1,3 @@
-
 import { LitElement, html, css, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { GameObjectFormResult } from "@shared/GameObjectFormResult";
