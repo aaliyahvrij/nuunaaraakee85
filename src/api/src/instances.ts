@@ -15,6 +15,9 @@ import { PlayerSession } from "./types";
 import { serumALias, serumItem } from "./items/serum";
 import { GardenChamber, GardenChamberAlias } from "./rooms/GardenChamber";
 import { DoorCharacter, DoorCharacterAlias } from "./characters/DoorCharacter";
+import { CavePaintingCharacter, cavePaintingCharacterAlias } from "./characters/CavePaintingCharacter";
+import { StonePaintingCharacter, stonePaintingCharacterAlias } from "./characters/StonePaintingCharacter";
+import { MonkPaintingCharacter, monkPaintingCharacterAlias } from "./characters/MonkPaintingCharacter";
 
 /**
  * Create a new player session object
@@ -104,6 +107,15 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
 
         case DoorCharacterAlias:
             return new DoorCharacter();
+
+        case cavePaintingCharacterAlias:
+            return new CavePaintingCharacter();
+
+        case stonePaintingCharacterAlias:
+            return new StonePaintingCharacter();
+
+        case monkPaintingCharacterAlias:
+            return new MonkPaintingCharacter();
         //NOTE: Fall back to rooms, since those are game objects too.
         default:
             return getRoomByAlias(alias);
