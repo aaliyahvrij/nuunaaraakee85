@@ -58,8 +58,6 @@ export class TalkAction extends Action {
 export class TalkChoiceAction {
     private _id: number;
     private _text: string;
-    text: any;
-    id: any;
 
     /**
      * Create a new instance of a dialogue choice

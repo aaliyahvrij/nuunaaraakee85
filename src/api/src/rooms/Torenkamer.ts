@@ -32,6 +32,9 @@ export class Torenkamer extends Room {
         if (playerSession.lever) {
             return ["Torenkamer"];
         }
+        if (playerSession.BookExamine) {
+            return ["book"];
+        }
     
         return ["Torenkamerdonker"];
     }
@@ -62,7 +65,8 @@ export class Torenkamer extends Room {
     public examine(): ActionResult | undefined {
         const playerSession: PlayerSession = getPlayerSession();
         playerSession.torenkamer = true;
-        playerSession.table = false; 
+        playerSession.table = false;
+        playerSession.BookExamine = true; // Zorg ervoor dat BookExamine altijd op true wordt gezet bij examine
         return new TextActionResult([
             "A dark, old tower room with echoes. There's a table with a riddle. A small space in the wall has a jewel on a cushion. The room has magic symbols and carvings."
         ]);
