@@ -39,8 +39,13 @@ export class DoorCharacter extends Character implements Examine {
         } else if (choiceId === 4) {
             return new TextActionResult(["looookkkk...aaaaatttt...flooowweeeerrrssss"]);
         } else if (choiceId === 5) {
-            playerSession.inventory = [];
-            return new TextActionResult(["You gave the serum to the door"]);
+            if (playerSession.inventory.includes(serumALias)) {
+                playerSession.inventory = playerSession.inventory.filter((item) => item !== serumALias);
+                playerSession.hasGivenSerum = true;
+                return new TextActionResult(["You gave the serum to the door"]);
+            } else {
+                return new TextActionResult(["You don't have the serum"]);
+            }
         }
 
         const choiceActions: TalkChoiceAction[] = [

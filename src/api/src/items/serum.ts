@@ -23,6 +23,9 @@ export class serumItem extends Item implements Examine, Pickup {
     public pickup(): ActionResult | undefined {
         const playerSession: PlayerSession = getPlayerSession();
 
+        playerSession.hasTalkedToCave = false;
+        playerSession.hasTalkedToMonk = false;
+        playerSession.hasTalkedtoStone = false;
         if (!playerSession.inventory.includes(serumALias)) {
             playerSession.inventory.push(serumALias);
 

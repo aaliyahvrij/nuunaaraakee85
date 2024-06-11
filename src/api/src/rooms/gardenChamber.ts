@@ -16,6 +16,9 @@ import { PlayerSession } from "../types";
 import { serumItem } from "../items/serum";
 import { DoorCharacter } from "../characters/DoorCharacter";
 import { TalkAction } from "../base/actions/TalkAction";
+import { CavePaintingCharacter } from "../characters/CavePaintingCharacter";
+import { MonkPaintingCharacter } from "../characters/MonkPaintingCharacter";
+import { StonePaintingCharacter } from "../characters/StonePaintingCharacter";
 
 export const GardenChamberAlias: string = "garden";
 
@@ -25,8 +28,6 @@ export class GardenChamber extends Room {
     }
 
     public examine(): ActionResult | undefined {
-        const playerSession: PlayerSession = getPlayerSession();
-        playerSession.isViewingflowers = true;
         return new TextActionResult([
             "Its filled with exotic flowers and plants but looks somewhat overgrown",
             "You decide to investigate the flowers",
@@ -44,8 +45,20 @@ export class GardenChamber extends Room {
             return ["door"];
         }
 
-        if (playerSession.isViewingflowers) {
-            return ["garden_1"];
+        if (playerSession.hasGivenSerum) {
+            return ["hall"];
+        }
+
+        if (playerSession.hasTalkedToCave) {
+            return ["cave"];
+        }
+
+        if (playerSession.hasTalkedToMonk) {
+            return ["monk"];
+        }
+
+        if (playerSession.hasTalkedtoStone) {
+            return ["stone"];
         }
 
         return ["garden_1"];
@@ -54,31 +67,46 @@ export class GardenChamber extends Room {
     public objects(): GameObject[] {
         const playerSession: PlayerSession = getPlayerSession();
 
+        playerSession.hasTalkedToDoorCharacter = false;
+
         const objects: GameObject[] = [this, ...getGameObjectsFromInventory()];
 
+        // List of flowers
         const flowers: string[] = [blackFlowerAlias, yellowFlowerAlias, pinkFlowerAlias, whiteFlowerAlias];
 
-        if (!playerSession.inventory.includes(blackFlowerAlias)) {
-            objects.push(new blackFlowerItem());
+        // Check if the serum has been given
+        if (!playerSession.hasGivenSerum) {
+            // Add flowers to the objects array if they are not already in the inventory
+            if (!playerSession.inventory.includes(blackFlowerAlias)) {
+                objects.push(new blackFlowerItem());
+            }
+
+            if (!playerSession.inventory.includes(yellowFlowerAlias)) {
+                objects.push(new yellowFlowerItem());
+            }
+
+            if (!playerSession.inventory.includes(pinkFlowerAlias)) {
+                objects.push(new pinkFlowerItem());
+            }
+
+            if (!playerSession.inventory.includes(whiteFlowerAlias)) {
+                objects.push(new whiteFlowerItem());
+            }
+
+            if (flowers.every((flower) => playerSession.inventory.includes(flower))) {
+                objects.push(new serumItem());
+            }
+
+            objects.push(new redFlowerItem(), new rainbowFlowerItem(), new DoorCharacter());
         }
 
-        if (!playerSession.inventory.includes(yellowFlowerAlias)) {
-            objects.push(new yellowFlowerItem());
+        if (playerSession.hasGivenSerum) {
+            objects.push(
+                new CavePaintingCharacter(),
+                new MonkPaintingCharacter(),
+                new StonePaintingCharacter()
+            );
         }
-
-        if (!playerSession.inventory.includes(pinkFlowerAlias)) {
-            objects.push(new pinkFlowerItem());
-        }
-
-        if (!playerSession.inventory.includes(whiteFlowerAlias)) {
-            objects.push(new whiteFlowerItem());
-        }
-
-        if (flowers.every((flower) => playerSession.inventory.includes(flower))) {
-            objects.push(new serumItem());
-        }
-
-        objects.push(new redFlowerItem(), new rainbowFlowerItem(), new DoorCharacter());
 
         return objects;
     }
