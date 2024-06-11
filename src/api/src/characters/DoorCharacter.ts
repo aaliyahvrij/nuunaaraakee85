@@ -25,6 +25,7 @@ export class DoorCharacter extends Character implements Examine {
             "U hear voices coming from the door...",
         ]);
     }
+
     public talk(choiceId?: number | undefined): ActionResult | undefined {
         const playerSession: PlayerSession = getPlayerSession();
 
@@ -39,9 +40,12 @@ export class DoorCharacter extends Character implements Examine {
         } else if (choiceId === 4) {
             return new TextActionResult(["looookkkk...aaaaatttt...flooowweeeerrrssss"]);
         } else if (choiceId === 5) {
+            return new TextActionResult(["weeeee needdddd fooouurrr"]);
+        } else if (choiceId === 6) {
             if (playerSession.inventory.includes(serumALias)) {
                 playerSession.inventory = playerSession.inventory.filter((item) => item !== serumALias);
                 playerSession.hasGivenSerum = true;
+
                 return new TextActionResult(["You gave the serum to the door"]);
             } else {
                 return new TextActionResult(["You don't have the serum"]);
@@ -51,12 +55,13 @@ export class DoorCharacter extends Character implements Examine {
         const choiceActions: TalkChoiceAction[] = [
             new TalkChoiceAction(1, "Hi door!"),
             new TalkChoiceAction(2, "You look rough..."),
-            new TalkChoiceAction(3, "How can I open u?"),
+            new TalkChoiceAction(3, "How can I open you?"),
             new TalkChoiceAction(4, "How?"),
+            new TalkChoiceAction(5, "How many flowers?"),
         ];
 
         if (playerSession.inventory.includes(serumALias)) {
-            choiceActions.push(new TalkChoiceAction(5, "Give the serum to the door"));
+            choiceActions.push(new TalkChoiceAction(6, "Give the serum to the door"));
         }
 
         return new TalkActionResult(this, ["*voices..*"], choiceActions);

@@ -6,4 +6,5 @@ export type PlayerSession = {
     hasTalkedToMonk: boolean;
     hasTalkedtoStone: boolean;
     hasTalkedToCave: boolean;
+    hints: number;
 };

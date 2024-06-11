@@ -4,7 +4,7 @@ import { TextActionResult } from "../base/actionResults/TextActionResult";
 import { Examine, ExamineActionAlias } from "../base/actions/ExamineAction";
 import { TalkChoiceAction } from "../base/actions/TalkAction";
 import { Character } from "../base/gameObjects/Character";
-import { getPlayerSession } from "../instances";
+import { getPlayerSession, resetPlayerSession } from "../instances";
 import { PlayerSession } from "../types";
 
 export const stonePaintingCharacterAlias: string = "stone-character";
@@ -28,9 +28,18 @@ export class StonePaintingCharacter extends Character implements Examine {
     public talk(choiceId?: number | undefined): ActionResult | undefined {
         const playerSession: PlayerSession = getPlayerSession();
 
+        playerSession.hasGivenSerum = false;
         playerSession.hasTalkedtoStone = true;
 
         if (choiceId === 1) {
+            playerSession.hints++;
+            playerSession.hasTalkedtoStone = false;
+            playerSession.hasGivenSerum = true;
+
+            if (playerSession.hints > 3) {
+                resetPlayerSession();
+            }
+
             return new TextActionResult([
                 "rests in silence, concealed within the walls. Let the sounds guide you",
             ]);

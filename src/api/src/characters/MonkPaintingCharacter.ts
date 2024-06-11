@@ -4,7 +4,7 @@ import { TextActionResult } from "../base/actionResults/TextActionResult";
 import { Examine, ExamineActionAlias } from "../base/actions/ExamineAction";
 import { TalkChoiceAction } from "../base/actions/TalkAction";
 import { Character } from "../base/gameObjects/Character";
-import { getPlayerSession } from "../instances";
+import { getPlayerSession, resetPlayerSession } from "../instances";
 import { PlayerSession } from "../types";
 
 export const monkPaintingCharacterAlias: string = "monk-character";
@@ -28,9 +28,18 @@ export class MonkPaintingCharacter extends Character implements Examine {
     public talk(choiceId?: number | undefined): ActionResult | undefined {
         const playerSession: PlayerSession = getPlayerSession();
 
+        playerSession.hasGivenSerum = false;
         playerSession.hasTalkedToMonk = true;
 
         if (choiceId === 1) {
+            playerSession.hints++;
+            playerSession.hasTalkedToMonk = false;
+            playerSession.hasGivenSerum = true;
+
+            if (playerSession.hints > 3) {
+                resetPlayerSession();
+            }
+
             return new TextActionResult([
                 "In silence, echoes reveal what is hidden. Seek the place where sounds converge.",
             ]);

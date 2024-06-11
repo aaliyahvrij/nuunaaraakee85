@@ -13,7 +13,7 @@ import { redFlowerItem } from "../items/redFlower";
 import { whiteFlowerAlias, whiteFlowerItem } from "../items/whiteFlower";
 import { yellowFlowerAlias, yellowFlowerItem } from "../items/yellowFlower";
 import { PlayerSession } from "../types";
-import { serumItem } from "../items/serum";
+import { serumALias, serumItem } from "../items/serum";
 import { DoorCharacter } from "../characters/DoorCharacter";
 import { TalkAction } from "../base/actions/TalkAction";
 import { CavePaintingCharacter } from "../characters/CavePaintingCharacter";
@@ -28,6 +28,14 @@ export class GardenChamber extends Room {
     }
 
     public examine(): ActionResult | undefined {
+        const playerSession: PlayerSession = getPlayerSession();
+        if (playerSession.hasGivenSerum) {
+            return new TextActionResult([
+                "The passage is lined with 3 main paintings emitting faint voices.",
+                "You listen closely to the paintings for clues, planning to move quickly after hearing them closely.",
+            ]);
+        }
+
         return new TextActionResult([
             "Its filled with exotic flowers and plants but looks somewhat overgrown",
             "You decide to investigate the flowers",
@@ -93,7 +101,10 @@ export class GardenChamber extends Room {
                 objects.push(new whiteFlowerItem());
             }
 
-            if (flowers.every((flower) => playerSession.inventory.includes(flower))) {
+            if (
+                flowers.every((flower) => playerSession.inventory.includes(flower)) &&
+                !playerSession.inventory.includes(serumALias)
+            ) {
                 objects.push(new serumItem());
             }
 
@@ -101,13 +112,13 @@ export class GardenChamber extends Room {
         }
 
         if (playerSession.hasGivenSerum) {
+            playerSession.inventory = [];
             objects.push(
                 new CavePaintingCharacter(),
                 new MonkPaintingCharacter(),
                 new StonePaintingCharacter()
             );
         }
-
         return objects;
     }
 

@@ -4,7 +4,7 @@ import { TextActionResult } from "../base/actionResults/TextActionResult";
 import { Examine, ExamineActionAlias } from "../base/actions/ExamineAction";
 import { TalkChoiceAction } from "../base/actions/TalkAction";
 import { Character } from "../base/gameObjects/Character";
-import { getPlayerSession } from "../instances";
+import { getPlayerSession, resetPlayerSession } from "../instances";
 import { PlayerSession } from "../types";
 
 export const cavePaintingCharacterAlias: string = "cave-character";
@@ -28,9 +28,18 @@ export class CavePaintingCharacter extends Character implements Examine {
     public talk(choiceId?: number | undefined): ActionResult | undefined {
         const playerSession: PlayerSession = getPlayerSession();
 
+        playerSession.hasGivenSerum = false;
         playerSession.hasTalkedToCave = true;
 
         if (choiceId === 1) {
+            playerSession.hints++;
+            playerSession.hasTalkedToCave = false;
+            playerSession.hasGivenSerum = true;
+
+            if (playerSession.hints > 3) {
+                resetPlayerSession();
+            }
+
             return new TextActionResult(["Sounds return in this place, leading you to what you seek."]);
         }
 
