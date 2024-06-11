@@ -84,6 +84,7 @@ export class GardenChamber extends Room {
 
         // Check if the serum has been given
         if (!playerSession.hasGivenSerum) {
+            objects.push(new rainbowFlowerItem());
             // Add flowers to the objects array if they are not already in the inventory
             if (!playerSession.inventory.includes(blackFlowerAlias)) {
                 objects.push(new blackFlowerItem());
@@ -92,6 +93,8 @@ export class GardenChamber extends Room {
             if (!playerSession.inventory.includes(yellowFlowerAlias)) {
                 objects.push(new yellowFlowerItem());
             }
+
+            objects.push(new redFlowerItem());
 
             if (!playerSession.inventory.includes(pinkFlowerAlias)) {
                 objects.push(new pinkFlowerItem());
@@ -107,8 +110,7 @@ export class GardenChamber extends Room {
             ) {
                 objects.push(new serumItem());
             }
-
-            objects.push(new redFlowerItem(), new rainbowFlowerItem(), new DoorCharacter());
+            objects.push(new DoorCharacter());
         }
 
         if (playerSession.hasGivenSerum) {
