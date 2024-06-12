@@ -17,8 +17,8 @@ import {
     getGameObjectsByAliases,
 } from "./instances";
 import { PlayerSession } from "./types";
-import { handleRoutes as handleRoutesSalina } from "./Salina/routes";
-import { router as routerSalina } from "./Salina/routes";
+import { handleRoutes as handleRoutesGame } from "./Game/routes";
+import { router as routerGame} from "./Game/routes";
 // import { handleRoutes as handleRoutesJustin } from "./Salina/routes";
 import { PickupAction, PickupActionAlias } from "./actions/PickupAction";
 import { chooseWeaponAction, chooseWeaponActionAlias } from "./actions/chooseWeaponAction";
@@ -30,7 +30,7 @@ router.get("/", (_, res) => {
 
 router.use(playerSessionMiddleware("game", createNewPlayerSession));
 
-router.use("/Salina,", routerSalina);
+router.use("/Game,", routerGame);
 
 router.get("/state", (_, res) => {
     const playerSession: PlayerSession = getPlayerSession();
