@@ -59,9 +59,17 @@ export class MagicalBookCharacter extends Character implements Examine {
                     "What am I?"
                 ],
                 [
-                    new TalkChoiceAction(3, "Try to solve the riddle.")
+                    new TalkChoiceAction(3, "An echo"),
+                    new TalkChoiceAction(4, "A shadow"),
+                    new TalkChoiceAction(5, "A whisper"),
+                    new TalkChoiceAction(6, "A memory")
                 ]
             );
+        } else if (choiceId === 3) {
+            playerSession.correctRiddle = true; // Save correct answer in player session
+            return new TextActionResult(["WOW, what is happening"]);
+        } else if (choiceId === 4 || choiceId === 5 || choiceId === 6) {
+            return new TextActionResult(["No, that's not correct. Try again."]);
         }
 
         if (!this.whispers) {

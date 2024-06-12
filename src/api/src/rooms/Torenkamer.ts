@@ -6,10 +6,11 @@ import { ExamineAction } from "../base/actions/ExamineAction";
 import { TalkAction } from "../base/actions/TalkAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
-import { getPlayerSession } from "../instances";
+import { getPlayerSession, getRoomByAlias } from "../instances";
 import { table } from "../items/AntiqueTable";
 import { MagicalBookCharacter } from "../characters/MagicalBookCharacter";
 import { PlayerSession } from "../types";
+import { StartupRoomAlias } from "../rooms/StartupRoom";
 
 export const TorenkamerAlias: string = "Torenkamer";
 
@@ -24,27 +25,42 @@ export class Torenkamer extends Room {
 
     public images(): string[] {
         const playerSession: PlayerSession = getPlayerSession();
-        
-        if (playerSession.table) {
-            return ["table"];
+
+        if (playerSession.correctRiddle) {
+            return ["juweel"];
         }
-        
-        if (playerSession.lever) {
-            return ["Torenkamer"];
-        }
+
         if (playerSession.BookExamine) {
             return ["book"];
         }
-    
+
+        if (playerSession.table) {
+            return ["table"];
+        }
+
+        if (playerSession.lever) {
+            return ["Torenkamer"];
+        }
+
         return ["Torenkamerdonker"];
     }
 
     public objects(): GameObject[] {
-        return [this, new table(),new MagicalBookCharacter];
+        return [this, new table(), new MagicalBookCharacter()];
     }
 
     public actions(): Action[] {
-        return [new ExamineAction(), new TalkAction(), new CustomAction("Lever", "Press Lever", false)];
+        const playerSession: PlayerSession = getPlayerSession();
+
+        if (playerSession.correctRiddle) {
+            return [new CustomAction("Pickup", "Pick up the jewel", false)];
+        }
+
+        return [
+            new ExamineAction(),
+            new TalkAction(),
+            new CustomAction("Lever", "Press Lever", false),
+        ];
     }
 
     public custom(alias: string, _gameObjects: GameObject[] | undefined): ActionResult | undefined {
@@ -57,8 +73,20 @@ export class Torenkamer extends Room {
             } else {
                 return new TextActionResult(["The room is now dark again."]);
             }
+        } else if (alias === "ExamineBook") {
+            playerSession.BookExamine = true;
+            return new TextActionResult(["You examine the magical book."]);
+        } else if (alias === "Pickup") {
+            const startupRoom: Room | undefined = getRoomByAlias(StartupRoomAlias);
+            if (startupRoom) {
+                playerSession.currentRoom = startupRoom.alias;
+                playerSession.correctRiddle = false; // Reset the riddle state
+                return startupRoom.examine();
+            } else {
+                return new TextActionResult(["You made a coding error :-("]);
+            }
         }
-        
+
         return undefined;
     }
 
@@ -66,7 +94,7 @@ export class Torenkamer extends Room {
         const playerSession: PlayerSession = getPlayerSession();
         playerSession.torenkamer = true;
         playerSession.table = false;
-        playerSession.BookExamine = true; // Zorg ervoor dat BookExamine altijd op true wordt gezet bij examine
+        playerSession.BookExamine = false; 
         return new TextActionResult([
             "A dark, old tower room with echoes. There's a table with a riddle. A small space in the wall has a jewel on a cushion. The room has magic symbols and carvings."
         ]);

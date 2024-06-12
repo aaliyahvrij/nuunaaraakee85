@@ -1,4 +1,5 @@
 export type PlayerSession = {
+    correctRiddle: any;
     BookExamine: boolean;
     lever: boolean;
     torenkamer: boolean;
