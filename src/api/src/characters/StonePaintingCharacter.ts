@@ -4,7 +4,7 @@ import { TextActionResult } from "../base/actionResults/TextActionResult";
 import { Examine, ExamineActionAlias } from "../base/actions/ExamineAction";
 import { TalkChoiceAction } from "../base/actions/TalkAction";
 import { Character } from "../base/gameObjects/Character";
-import { getPlayerSession, resetPlayerSession } from "../instances";
+import { getPlayerSession} from "../instances";
 import { PlayerSession } from "../types";
 
 export const stonePaintingCharacterAlias: string = "stone-character";
@@ -37,7 +37,14 @@ export class StonePaintingCharacter extends Character implements Examine {
             playerSession.hasGivenSerum = true;
 
             if (playerSession.hints > 3) {
-                resetPlayerSession();
+                const TorenKamerRoom | undefined = getRoomByAlias(TorenKamerAlias);
+                if (torenKamer) {
+                    playerSession.currentRoom = torenKamer.alias;
+                    playerSession.hints = 0;
+                    return torenKamer.examine();
+                } else {
+                    return new TextActionResult(["You made a coding error :-("]);
+                }
             }
 
             return new TextActionResult([

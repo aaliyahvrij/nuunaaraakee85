@@ -36,8 +36,15 @@ export class CavePaintingCharacter extends Character implements Examine {
             playerSession.hasTalkedToCave = false;
             playerSession.hasGivenSerum = true;
 
-            if (playerSession.hints > 3) {
-                resetPlayerSession();
+           if (playerSession.hints > 3) {
+                const TorenKamerRoom | undefined = getRoomByAlias(TorenKamerAlias);
+                if (torenKamer) {
+                    playerSession.currentRoom = torenKamer.alias;
+                    playerSession.hints = 0;
+                    return torenKamer.examine();
+                } else {
+                    return new TextActionResult(["You made a coding error :-("]);
+                }
             }
 
             return new TextActionResult(["Sounds return in this place, leading you to what you seek."]);
