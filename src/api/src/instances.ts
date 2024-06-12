@@ -102,6 +102,9 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
 
        case BookshelfItemAlias:
              return new BookshelfItem();
+
+             case KeyItemAlias:
+                return new KeyItemA();
             
 
         //NOTE: Fall back to rooms, since those are game objects too.
