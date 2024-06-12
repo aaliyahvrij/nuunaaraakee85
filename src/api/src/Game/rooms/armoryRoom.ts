@@ -116,7 +116,7 @@ export class armoryRoom extends Room {
         const playerSession: PlayerSession = getPlayerSession();
         if (alias === "test-me") {
             return new TextActionResult([
-                "Inspect all the weapons and the shield in the armory to find clues.",
+                "Examine all the weapons and the shield in the armory to find clues.",
                 "The shield holds a clue to which weapon is the right choice.",
                 "Once you find the right weapon, talk to the guard and give it to him."
             ]);
