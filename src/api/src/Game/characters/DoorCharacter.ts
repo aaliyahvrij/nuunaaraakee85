@@ -1,12 +1,12 @@
-import { ActionResult } from "../base/actionResults/ActionResult";
-import { TalkActionResult } from "../base/actionResults/TalkActionResult";
-import { TextActionResult } from "../base/actionResults/TextActionResult";
-import { Examine, ExamineActionAlias } from "../base/actions/ExamineAction";
-import { TalkChoiceAction } from "../base/actions/TalkAction";
-import { Character } from "../base/gameObjects/Character";
-import { getPlayerSession } from "../instances";
+import { ActionResult } from "../../base/actionResults/ActionResult";
+import { TalkActionResult } from "../../base/actionResults/TalkActionResult";
+import { TextActionResult } from "../../base/actionResults/TextActionResult";
+import { Examine, ExamineActionAlias } from "../../base/actions/ExamineAction";
+import { TalkChoiceAction } from "../../base/actions/TalkAction";
+import { Character } from "../../base/gameObjects/Character";
+import { getPlayerSession } from "../../instances";
+import { PlayerSession } from "../../types";
 import { serumALias } from "../items/serum";
-import { PlayerSession } from "../types";
 
 export const DoorCharacterAlias: string = "door-character";
 
