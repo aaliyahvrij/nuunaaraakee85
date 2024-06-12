@@ -17,9 +17,11 @@ import {
     getGameObjectsByAliases,
 } from "./instances";
 import { PlayerSession } from "./types";
-import { ExampleAction, ExampleActionAlias } from "./actions/ExampleAction";
+import { handleRoutes as handleRoutesSalina } from "./Salina/routes";
+import { router as routerSalina } from "./Salina/routes";
+// import { handleRoutes as handleRoutesJustin } from "./Salina/routes";
 import { PickupAction, PickupActionAlias } from "./actions/PickupAction";
-
+import { chooseWeaponAction, chooseWeaponActionAlias } from "./actions/chooseWeaponAction";
 export const router: Router = Router();
 
 router.get("/", (_, res) => {
@@ -27,6 +29,8 @@ router.get("/", (_, res) => {
 });
 
 router.use(playerSessionMiddleware("game", createNewPlayerSession));
+
+router.use("/Salina,", routerSalina);
 
 router.get("/state", (_, res) => {
     const playerSession: PlayerSession = getPlayerSession();
@@ -83,6 +87,7 @@ router.post("/action", (req, res) => {
     res.json(gameState);
 });
 
+
 function handleActionInRoom(room: Room, alias: string, objectAliases?: string[]): ActionResult | undefined {
     const gameObjects: GameObject[] = getGameObjectsByAliases(objectAliases);
 
@@ -122,10 +127,15 @@ function handleActionInRoom(room: Room, alias: string, objectAliases?: string[])
 
         case PickupActionAlias:
             return PickupAction.handle(gameObjects[0]);
+            
+        case chooseWeaponActionAlias:
+            return chooseWeaponAction.handle(gameObjects[0]);
+        
     }
 
     return CustomAction.handle(alias, gameObjects);
 }
+
 
 function convertActionResultToGameState(actionResult?: ActionResult): GameState | undefined {
     //NOTE: Seems like repeated code, but the room can have changed after performing an action!

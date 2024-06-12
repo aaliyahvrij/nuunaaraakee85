@@ -13,4 +13,9 @@ export type PlayerSession = {
     hasTalkedtoStone: boolean;
     hasTalkedToCave: boolean;
     hints: number;
+    chooseWeapons: boolean;
+    hasGivenCorrectWeapon?: boolean;
+    pickedUpParchment: boolean;
+    bookGivenToPortrait?: boolean;
+  
 };

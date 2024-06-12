@@ -25,6 +25,9 @@ export interface Custom {
  * Class used to represent a custom action
  */
 export class CustomAction extends Action {
+    execute(arg0: this[]): ActionResult | undefined {
+        throw new Error("Method not implemented.");
+    }
     /**
      * Create a new instance of the custom action
      *

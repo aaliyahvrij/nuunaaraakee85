@@ -1,8 +1,8 @@
 import { Example, ExampleActionAlias } from "../actions/ExampleAction";
-import { ActionResult } from "../base/actionResults/ActionResult";
-import { TextActionResult } from "../base/actionResults/TextActionResult";
-import { Item } from "../base/gameObjects/Item";
-import { resetPlayerSession } from "../instances";
+import { ActionResult } from "../../base/actionResults/ActionResult";
+import { TextActionResult } from "../../base/actionResults/TextActionResult";
+import { Item } from "../../base/gameObjects/Item";
+import { resetPlayerSession } from "../../instances";
 
 export const ExampleItemAlias: string = "example-item";
 

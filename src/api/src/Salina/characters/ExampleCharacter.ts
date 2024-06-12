@@ -1,9 +1,9 @@
-import { ActionResult } from "../base/actionResults/ActionResult";
-import { TalkActionResult } from "../base/actionResults/TalkActionResult";
-import { TextActionResult } from "../base/actionResults/TextActionResult";
-import { Examine, ExamineActionAlias } from "../base/actions/ExamineAction";
-import { TalkChoiceAction } from "../base/actions/TalkAction";
-import { Character } from "../base/gameObjects/Character";
+import { ActionResult } from "../../base/actionResults/ActionResult";
+import { TalkActionResult } from "../../base/actionResults/TalkActionResult";
+import { TextActionResult } from "../../base/actionResults/TextActionResult";
+import { Examine, ExamineActionAlias } from "../../base/actions/ExamineAction";
+import { TalkChoiceAction } from "../../base/actions/TalkAction";
+import { Character } from "../../base/gameObjects/Character";
 
 export const ExampleCharacterAlias: string = "example-character";
 

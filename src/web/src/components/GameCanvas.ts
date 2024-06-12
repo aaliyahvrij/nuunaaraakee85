@@ -53,25 +53,25 @@ export class GameCanvas extends LitElement {
         .content p:last-of-type {
             margin: 0;
         }
-
         .footer {
             border-radius: 10px 10px 0 0;
             background-color: #142d4c;
+            background-color: #8d8c8c;
             border: 1px solid #332c57;
             margin-top: 10px;
             display: flex;
             height: 105px;
         }
-
+ 
         .footer .buttons {
             display: flex;
             flex-direction: column;
             overflow: auto;
             padding: 10px 10px 0 10px;
         }
-
+ 
         .footer .button {
-            background-color: #385170;
+            background-color: #757474;
             border: 1px solid #332c57;
             padding: 5px 10px;
             margin: 0 0 10px 10px;
@@ -81,13 +81,9 @@ export class GameCanvas extends LitElement {
             user-select: none;
         }
 
-        .title {
-            font-size: 30px;
-            font-weight: bold;
-        }
         .footer .button.active,
         .footer .button:hover {
-            background-color: #5585b5;
+            background-color: #332c57;
         }
     `;
 
