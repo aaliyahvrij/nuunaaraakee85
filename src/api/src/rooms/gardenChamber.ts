@@ -43,6 +43,28 @@ export class GardenChamber extends Room {
     }
 
     public name(): string {
+        const playerSession: PlayerSession = getPlayerSession();
+
+        if (playerSession.hasTalkedToDoorCharacter) {
+            return "Rusty Door";
+        }
+
+        if (playerSession.hasGivenSerum) {
+            return "Underground Passage";
+        }
+
+        if (playerSession.hasTalkedToCave) {
+            return "Cave Painting";
+        }
+
+        if (playerSession.hasTalkedToMonk) {
+            return "Monk Painting";
+        }
+
+        if (playerSession.hasTalkedtoStone) {
+            return "Stone Painting";
+        }
+
         return "Garden Chambers";
     }
 
