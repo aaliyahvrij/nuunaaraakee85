@@ -9,7 +9,7 @@ import { ObservatoryRoom, ObservatoryRoomAlias } from "./ObservatoryRoom";
 import { getPlayerSession } from "../instances";
 import { PlayerSession } from "../types";
 import { BigHall } from "./BigHall";
-import { ExampleRoom } from "./ExampleRoom";
+
 
 export const StartupRoomAlias: string = "startup";
 
