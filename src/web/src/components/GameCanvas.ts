@@ -30,7 +30,7 @@ export class GameCanvas extends LitElement {
         }
 
         .header img {
-            width: 80%;
+            width: 45%;
             height: auto;
             image-rendering: pixelated;
         }
@@ -79,10 +79,10 @@ export class GameCanvas extends LitElement {
             display: inline-block;
             user-select: none;
         }
- 
+
         .footer .button.active,
         .footer .button:hover {
-            background-color:  #332c57
+            background-color: #332c57;
         }
     `;
 

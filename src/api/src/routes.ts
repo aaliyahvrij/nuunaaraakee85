@@ -18,6 +18,7 @@ import {
 } from "./instances";
 import { PlayerSession } from "./types";
 import { ExampleAction, ExampleActionAlias } from "./actions/ExampleAction";
+import { PickupAction, PickupActionAlias } from "./actions/PickupAction";
 import { chooseWeaponAction, chooseWeaponActionAlias } from "./actions/chooseWeaponAction";
 
 export const router: Router = Router();
@@ -119,6 +120,9 @@ function handleActionInRoom(room: Room, alias: string, objectAliases?: string[])
 
         case ExampleActionAlias:
             return ExampleAction.handle(gameObjects[0]);
+
+        case PickupActionAlias:
+            return PickupAction.handle(gameObjects[0]);
             
         case chooseWeaponActionAlias:
             return chooseWeaponAction.handle(gameObjects[0]);
