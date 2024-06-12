@@ -141,16 +141,18 @@ router.delete("/gameobjects/:id", asyncHandler(async (req, res) => {
             console.error(`GameObject with id ${id} not found`);
             res.status(404).send("GameObject not found");
             return;
+
         }
+         console.log(deleteResult);
 
         await connection.commit();
         res.status(204).send();
     } catch (error) {
         console.error("Transaction error:", error);
-        await getConnection.rollback();
+        // await getConnection().rollback();
         res.status(500).send("Error occurred during transaction");
     } finally {
-        getConnection.release();
+        // getConnection.release();
     }
 }));
  
