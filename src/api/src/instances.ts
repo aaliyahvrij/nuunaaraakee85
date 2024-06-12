@@ -2,13 +2,28 @@ import { GameObject } from "./base/gameObjects/GameObject";
 import { Room } from "./base/gameObjects/Room";
 import { getPlayerSessionFromContext, resetPlayerSessionInContext } from "./base/playerSessionMiddleware";
 import { ExampleCharacter, ExampleCharacterAlias } from "./characters/ExampleCharacter";
+import { PaintingCharacter, PaintingCharacterAlias } from "./characters/PaintingCharacter";
 import { ExampleItem, ExampleItemAlias } from "./items/ExampleItem";
 import { SpecialItem, SpecialItemAlias } from "./items/SpecialItem";
 import { TelescopeItem, TelescopeItemAlias } from "./items/TelescopeItem";
+import { blackFlowerAlias, blackFlowerItem } from "./items/blackFlower";
+import { pinkFlowerAlias, pinkFlowerItem } from "./items/pinkFlower";
+import { rainbowFlowerAlias, rainbowFlowerItem } from "./items/rainbowFlower";
+import { redFlowerAlias, redFlowerItem } from "./items/redFlower";
+import { whiteFlowerAlias, whiteFlowerItem } from "./items/whiteFlower";
+import { yellowFlowerAlias, yellowFlowerItem } from "./items/yellowFlower";
+import { PaintingItemAlias, painting } from "./items/FireplaceItem";
+import { BigHall, BigHallRoomAlias } from "./rooms/BigHall";
 import { ExampleRoom, ExampleRoomAlias } from "./rooms/ExampleRoom";
 import { ObservatoryRoom, ObservatoryRoomAlias } from "./rooms/ObservatoryRoom";
 import { StartupRoom, StartupRoomAlias } from "./rooms/StartupRoom";
 import { PlayerSession } from "./types";
+import { serumALias, serumItem } from "./items/serum";
+import { GardenChamber, GardenChamberAlias } from "./rooms/GardenChamber";
+import { DoorCharacter, DoorCharacterAlias } from "./characters/DoorCharacter";
+import { CavePaintingCharacter, cavePaintingCharacterAlias } from "./characters/CavePaintingCharacter";
+import { StonePaintingCharacter, stonePaintingCharacterAlias } from "./characters/StonePaintingCharacter";
+import { MonkPaintingCharacter, monkPaintingCharacterAlias } from "./characters/MonkPaintingCharacter";
 
 /**
  * Create a new player session object
@@ -19,6 +34,7 @@ export function createNewPlayerSession(): PlayerSession {
     return {
         currentRoom: "startup",
         inventory: [],
+        actionsTaken: [],
     };
 }
 
@@ -52,10 +68,14 @@ export function getRoomByAlias(alias: string): Room | undefined {
 
         case ExampleRoomAlias:
             return new ExampleRoom();
-
         case ObservatoryRoomAlias:
             return new ObservatoryRoom();
             
+        case GardenChamberAlias:
+            return new GardenChamber();
+
+        case BigHallRoomAlias:
+            return new BigHall();
     }
 
     return undefined;
@@ -76,12 +96,43 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
         case ExampleCharacterAlias:
             return new ExampleCharacter();
 
-        case TelescopeItemAlias:
-            return new TelescopeItem();
+        case PaintingItemAlias:
+            return new painting();
 
-        case SpecialItemAlias:
-            return new SpecialItem();
+        case PaintingCharacterAlias:
+            return new PaintingCharacter();
+        case redFlowerAlias:
+            return new redFlowerItem();
 
+        case yellowFlowerAlias:
+            return new yellowFlowerItem();
+
+        case blackFlowerAlias:
+            return new blackFlowerItem();
+
+        case whiteFlowerAlias:
+            return new whiteFlowerItem();
+
+        case rainbowFlowerAlias:
+            return new rainbowFlowerItem();
+
+        case pinkFlowerAlias:
+            return new pinkFlowerItem();
+
+        case serumALias:
+            return new serumItem();
+
+        case DoorCharacterAlias:
+            return new DoorCharacter();
+
+        case cavePaintingCharacterAlias:
+            return new CavePaintingCharacter();
+
+        case stonePaintingCharacterAlias:
+            return new StonePaintingCharacter();
+
+        case monkPaintingCharacterAlias:
+            return new MonkPaintingCharacter();
         //NOTE: Fall back to rooms, since those are game objects too.
         default:
             return getRoomByAlias(alias);

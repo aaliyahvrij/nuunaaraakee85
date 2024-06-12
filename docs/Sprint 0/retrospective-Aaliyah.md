@@ -7,7 +7,7 @@ In dit bestand ga ik mijn individuele actiepunten bespreken die uitkwamen bij on
 Hoe ging dit fout:
 
 -   ik spendeerde niet genoeg tijd aan mijn individuele opdracht waardoor ik minder informatie heb opgemaakt
--   vorige sprint en vorige opdracht heb ik me geofocust op het laten werken van me project inplaats van het begrijpen.
+-   vorige sprint en vorige opdracht heb ik me gefocust op het laten werken van me project inplaats van het begrijpen.
 
 Hoe ga ik dit verbeteren:
 

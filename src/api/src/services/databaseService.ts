@@ -18,7 +18,7 @@ export function getConnection(): Promise<PoolConnection> {
 }
 
 export async function queryDatabase<T = any>(
-    connection: Connection,
+    connection: PoolConnection,
     query: string,
     ...values: any[]
 ): Promise<T> {
