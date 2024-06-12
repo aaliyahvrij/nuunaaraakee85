@@ -3,6 +3,7 @@ import { Room } from "./base/gameObjects/Room";
 import { getPlayerSessionFromContext, resetPlayerSessionInContext } from "./base/playerSessionMiddleware";
 import { ExampleCharacter, ExampleCharacterAlias } from "./characters/ExampleCharacter";
 import { ExampleItem, ExampleItemAlias } from "./items/ExampleItem";
+import { SpecialItem, SpecialItemAlias } from "./items/SpecialItem";
 import { TelescopeItem, TelescopeItemAlias } from "./items/TelescopeItem";
 import { ExampleRoom, ExampleRoomAlias } from "./rooms/ExampleRoom";
 import { ObservatoryRoom, ObservatoryRoomAlias } from "./rooms/ObservatoryRoom";
@@ -77,6 +78,9 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
 
         case TelescopeItemAlias:
             return new TelescopeItem();
+
+        case SpecialItemAlias:
+            return new SpecialItem();
 
         //NOTE: Fall back to rooms, since those are game objects too.
         default:
