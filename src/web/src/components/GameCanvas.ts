@@ -30,7 +30,7 @@ export class GameCanvas extends LitElement {
         }
 
         .header img {
-            width: 90%;
+            width: 80%;
             height: auto;
             image-rendering: pixelated;
         }
@@ -53,26 +53,25 @@ export class GameCanvas extends LitElement {
         .content p:last-of-type {
             margin: 0;
         }
-
         .footer {
             border-radius: 10px 10px 0 0;
-            background-color: #3E2723;
-            border: 1px solid #5D4037;
+            background-color: #142d4c;
+            border: 1px solid #332c57;
             margin-top: 10px;
             display: flex;
             height: 105px;
         }
-
+ 
         .footer .buttons {
             display: flex;
             flex-direction: column;
             overflow: auto;
             padding: 10px 10px 0 10px;
         }
-
+ 
         .footer .button {
-            background-color: #3E2723;
-            border: 1px solid #5D4037;
+            background-color: #385170;
+            border: 1px solid #332c57;
             padding: 5px 10px;
             margin: 0 0 10px 10px;
             text-transform: uppercase;
@@ -80,10 +79,10 @@ export class GameCanvas extends LitElement {
             display: inline-block;
             user-select: none;
         }
-
+ 
         .footer .button.active,
         .footer .button:hover {
-            background-color: #5D4037;
+            background-color:  #332c57
         }
     `;
 
