@@ -36,7 +36,7 @@ export class StartupRoom extends Room {
 
     public custom(alias: string, _gameObjects?: GameObject[]): ActionResult | undefined {
         if (alias === "start-game") {
-            const room: BigHall = new BigHall();
+            const room: ObservatoryRoom = new ObservatoryRoom();
             const playerSession: PlayerSession = getPlayerSession();
 
             //Set the current room to the example room

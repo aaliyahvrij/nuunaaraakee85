@@ -6,6 +6,7 @@ import { CustomAction } from "../base/actions/CustomAction";
 import { ExamineAction } from "../base/actions/ExamineAction";
 import { GameObject } from "../base/gameObjects/GameObject";
 import { Room } from "../base/gameObjects/Room";
+import { SpecialItem } from "../items/SpecialItem";
 import { TelescopeItem } from "../items/TelescopeItem";
 
 export const ObservatoryRoomAlias: string = "observatory";
@@ -26,7 +27,7 @@ export class ObservatoryRoom extends Room {
     }
 
     public objects(): GameObject[] {
-        return [this, new TelescopeItem()];
+        return [this, new TelescopeItem(), new SpecialItem()];
     }
 
     public actions(): Action[] {
