@@ -49,14 +49,24 @@ import { KeyItem, KeyItemAlias } from "./Game/items/KeyItem";
  */
 export function createNewPlayerSession(): PlayerSession {
     return {
+        correctRiddle: false,
+        BookExamine: false,
+        lever: false,
+        torenkamer: false,
+        table: false,
         currentRoom: "startup",
         inventory: [],
-        pickedUpParchment: false,
-        bookGivenToPortrait: false,
         actionsTaken: [],
+        hasTalkedToDoorCharacter: false,
+        hasGivenSerum: false,
+        hasTalkedToMonk: false,
+        hasTalkedtoStone: false,
+        hasTalkedToCave: false,
+        hints: 0,
         chooseWeapons: false,
         hasGivenCorrectWeapon: false,
-      
+        pickedUpParchment: false,
+        bookGivenToPortrait: false,
 
     };
 }
