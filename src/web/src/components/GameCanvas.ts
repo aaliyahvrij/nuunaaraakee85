@@ -30,7 +30,7 @@ export class GameCanvas extends LitElement {
         }
 
         .header img {
-            width: 100%;
+            width: 45%;
             height: auto;
             image-rendering: pixelated;
         }
