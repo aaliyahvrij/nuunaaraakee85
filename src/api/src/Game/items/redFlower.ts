@@ -1,9 +1,9 @@
 import { Pickup, PickupActionAlias } from "../actions/PickupAction";
-import { ActionResult } from "../base/actionResults/ActionResult";
-import { TextActionResult } from "../base/actionResults/TextActionResult";
-import { Examine, ExamineActionAlias } from "../base/actions/ExamineAction";
-import { Item } from "../base/gameObjects/Item";
-import { resetPlayerSession } from "../instances";
+import { ActionResult } from "../../base/actionResults/ActionResult";
+import { TextActionResult } from "../../base/actionResults/TextActionResult";
+import { Examine, ExamineActionAlias } from "../../base/actions/ExamineAction";
+import { Item } from "../../base/gameObjects/Item";
+import { resetPlayerSession } from "../../instances";
 
 export const redFlowerAlias: string = "red-flower";
 

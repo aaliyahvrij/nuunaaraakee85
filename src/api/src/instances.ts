@@ -11,8 +11,8 @@ import { rainbowFlowerAlias, rainbowFlowerItem } from "./Game/items/rainbowFlowe
 import { redFlowerAlias, redFlowerItem } from "./Game/items/redFlower";
 import { whiteFlowerAlias, whiteFlowerItem } from "./Game/items/whiteFlower";
 import { yellowFlowerAlias, yellowFlowerItem } from "./Game/items/yellowFlower";
-import { PaintingItemAlias, painting } from "./Game/items/FireplaceItem";
-import { BigHall, BigHallRoomAlias } from "./Game/rooms/BigHall";
+//import { PaintingItemAlias, painting } from "./Game/items/FireplaceItem";
+//import { BigHall, BigHallRoomAlias } from "./Game/rooms/BigHall";
 import { axeItem, axeItemAlias } from "./Game/items/axeItem";
 import { crossbowItem, crossbowItemAlias } from "./Game/items/crossbowItem";
 import { daggerItem, daggerItemAlias } from "./Game/items/daggerItem";
@@ -23,7 +23,7 @@ import { spearItem, spearItemAlias } from "./Game/items/spearItem";
 import { swordItem, swordItemAlias } from "./Game/items/swordItem";
 import { ParchmentItem, ParchmentItemAlias } from "./Game/items/ParchmentItem";
 import { BookItem, BookItemAlias } from "./Game/items/BookItem";
-import { getRoomByAlias as getRoomByAlias} from "./Game/instances";
+//import { getRoomByAlias as getRoomByAlias} from "./Game/instances";
 import { armoryRoom, armoryRoomAlias } from "./Game/rooms/armoryRoom";
 import { PlayerSession } from "./types";
 import { serumALias, serumItem } from "./Game/items/serum";
@@ -38,6 +38,9 @@ import { GreenBookItem, GreenBookItemAlias } from "./Game/items/GreenBookItem";
 import { RedBookItem, RedBookItemAlias } from "./Game/items/RedBookItem";
 import { OrangeBookItem, OrangeBookItemAlias } from "./Game/items/OrangeBookItem";
 import { BookshelfItem, BookshelfItemAlias } from "./Game/items/BookshelfItem";
+import { LibraryRoom, LibraryRoomAlias} from "./Game/rooms/LibraryRoom";
+import { ExampleRoom, ExampleRoomAlias } from "./Game/rooms/ExampleRoom";
+import { KeyItem, KeyItemAlias } from "./Game/items/KeyItem";
 
 /**
  * Create a new player session object
@@ -53,6 +56,8 @@ export function createNewPlayerSession(): PlayerSession {
         actionsTaken: [],
         chooseWeapons: false,
         hasGivenCorrectWeapon: false,
+      
+
     };
 }
 
@@ -79,11 +84,14 @@ export function resetPlayerSession(): void {
  *
  * @returns Instance of the room
  */
-export function getRoomByAlias(alias: string): Room | undefined {
-    const room: Room | undefined = getRoomByAlias/Game(alias);
 
+export function getRoomByAlias(alias: string): Room | undefined {
+    switch (alias) {
         case ExampleRoomAlias:
-         return new ExampleRoom();
+            return new ExampleRoom();
+
+        case LibraryRoomAlias:
+            return new LibraryRoom();
 
         case GardenChamberAlias:
             return new GardenChamber();
@@ -94,14 +102,13 @@ export function getRoomByAlias(alias: string): Room | undefined {
         case armoryRoomAlias:
             return new armoryRoom();
 
-            
-    
+        default:
+            return undefined;
     }
-
-
-
-    return undefined;
 }
+
+
+
 
 /**
  * Get the instance of a game object by its alias
@@ -153,6 +160,7 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
 
         case PaintingCharacterAlias:
             return new PaintingCharacter();
+
         case redFlowerAlias:
             return new redFlowerItem();
 
@@ -214,7 +222,7 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
              return new BookshelfItem();
 
              case KeyItemAlias:
-                return new KeyItemAlias();
+                return new KeyItem();
             
 
         //NOTE: Fall back to rooms, since those are game objects too.

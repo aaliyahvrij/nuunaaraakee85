@@ -1,15 +1,15 @@
-import { ActionResult } from "../base/actionResults/ActionResult";
-import { TextActionResult } from "../base/actionResults/TextActionResult";
-import { Action } from "../base/actions/Action";
-import { CustomAction } from "../base/actions/CustomAction";
-import { ExamineAction } from "../base/actions/ExamineAction";
-import { TalkAction } from "../base/actions/TalkAction";
-import { GameObject } from "../base/gameObjects/GameObject";
-import { Room } from "../base/gameObjects/Room";
-import { getPlayerSession, getRoomByAlias } from "../instances";
+import { ActionResult } from "../../base/actionResults/ActionResult";
+import { TextActionResult } from "../../base/actionResults/TextActionResult";
+import { Action } from "../../base/actions/Action";
+import { CustomAction } from "../../base/actions/CustomAction";
+import { ExamineAction } from "../../base/actions/ExamineAction";
+import { TalkAction } from "../../base/actions/TalkAction";
+import { GameObject } from "../../base/gameObjects/GameObject";
+import { Room } from "../../base/gameObjects/Room";
+import { getPlayerSession, getRoomByAlias } from "../../instances";
 import { table } from "../items/AntiqueTable";
 import { MagicalBookCharacter } from "../characters/MagicalBookCharacter";
-import { PlayerSession } from "../types";
+import { PlayerSession } from "../../types";
 import { StartupRoomAlias } from "../rooms/StartupRoom";
 
 export const TorenkamerAlias: string = "Torenkamer";

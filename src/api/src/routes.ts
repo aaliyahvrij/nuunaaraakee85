@@ -17,11 +17,11 @@ import {
     getGameObjectsByAliases,
 } from "./instances";
 import { PlayerSession } from "./types";
-import { handleRoutes as handleRoutesGame } from "./Game/routes";
+//import { handleRoutes as handleRoutesGame } from "./Game/routes";
 import { router as routerGame} from "./Game/routes";
 // import { handleRoutes as handleRoutesJustin } from "./Salina/routes";
-import { PickupAction, PickupActionAlias } from "./actions/PickupAction";
-import { chooseWeaponAction, chooseWeaponActionAlias } from "./actions/chooseWeaponAction";
+import { PickupAction, PickupActionAlias } from "../src/Game/actions/PickupAction";
+import { chooseWeaponAction, chooseWeaponActionAlias } from "../src/Game/actions/chooseWeaponAction";
 export const router: Router = Router();
 
 router.get("/", (_, res) => {
@@ -122,8 +122,6 @@ function handleActionInRoom(room: Room, alias: string, objectAliases?: string[])
         case ExamineActionAlias:
             return ExamineAction.handle(gameObjects[0]);
 
-        case ExampleActionAlias:
-            return ExampleAction.handle(gameObjects[0]);
 
         case PickupActionAlias:
             return PickupAction.handle(gameObjects[0]);

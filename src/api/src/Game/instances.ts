@@ -7,13 +7,11 @@ export function getRoomByAlias(alias: string): Room | undefined {
     switch (alias) {
         case StartupRoomAlias:
             return new StartupRoom();
-
         case ExampleRoomAlias:
             return new ExampleRoom();
-
         case LibraryRoomAlias:
             return new LibraryRoom();
+        default:
+            return undefined;
     }
-
-    return undefined;
 }

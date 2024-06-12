@@ -1,7 +1,7 @@
-import { ActionResult } from "../base/actionResults/ActionResult";
-import { TextActionResult } from "../base/actionResults/TextActionResult";
-import { Examine, ExamineActionAlias } from "../base/actions/ExamineAction";
-import { Item } from "../base/gameObjects/Item";
+import { ActionResult } from "../../base/actionResults/ActionResult";
+import { TextActionResult } from "../../base/actionResults/TextActionResult";
+import { Examine, ExamineActionAlias } from "../../base/actions/ExamineAction";
+import { Item } from "../../base/gameObjects/Item";
 
 export const shieldItemAlias: string = "shield";
 

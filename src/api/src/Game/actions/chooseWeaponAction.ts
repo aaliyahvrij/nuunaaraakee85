@@ -1,7 +1,7 @@
-import { ActionResult } from "../base/actionResults/ActionResult";
-import { Action } from "../base/actions/Action";
-import { GameObject } from "../base/gameObjects/GameObject";
-import { castTo, implementsInterface } from "../base/helpers";
+import { ActionResult } from "../../base/actionResults/ActionResult";
+import { Action } from "../../base/actions/Action";
+import { GameObject } from "../../base/gameObjects/GameObject";
+import { castTo, implementsInterface } from "../../base/helpers";
 
 
 

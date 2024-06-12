@@ -1,10 +1,10 @@
-import { ActionResult } from "../base/actionResults/ActionResult";
-import { TalkActionResult } from "../base/actionResults/TalkActionResult";
-import { TextActionResult } from "../base/actionResults/TextActionResult";
-import { Examine, ExamineActionAlias } from "../base/actions/ExamineAction";
-import { TalkChoiceAction } from "../base/actions/TalkAction";
-import { Character } from "../base/gameObjects/Character";
-import { getPlayerSession } from "../instances";
+import { ActionResult } from "../../base/actionResults/ActionResult";
+import { TalkActionResult } from "../../base/actionResults/TalkActionResult";
+import { TextActionResult } from "../../base/actionResults/TextActionResult";
+import { Examine, ExamineActionAlias } from "../../base/actions/ExamineAction";
+import { TalkChoiceAction } from "../../base/actions/TalkAction";
+import { Character } from "../../base/gameObjects/Character";
+import { getPlayerSession } from "../../instances";
 import { axeItemAlias } from "../items/axeItem";
 import { crossbowItemAlias } from "../items/crossbowItem";
 import { daggerItemAlias } from "../items/daggerItem";
@@ -12,7 +12,7 @@ import { hammerItemAlias } from "../items/hammerItem";
 import { maceItemAlias } from "../items/maceItem";
 import { spearItemAlias } from "../items/spearItem";
 import { swordItemAlias } from "../items/swordItem";
-import { PlayerSession } from "../types";
+import { PlayerSession } from "../../types";
 
 export const guardCharacterAlias: string = "guard";
 
