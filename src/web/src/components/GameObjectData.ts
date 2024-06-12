@@ -14,28 +14,43 @@ export class GameObjectData extends LitElement {
         table {
             width: 100%;
             border-collapse: collapse;
-            background-color: #ffe6e6;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
         }
+
         th,
         td {
-            border: 1px solid black;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 8px;
             text-align: left;
         }
+
         th {
-            background-color: #ffcccc;
+            background-color: rgba(255, 255, 255, 0.5);
+            font-weight: bold;
         }
+
         tr:nth-child(even) {
-            background-color: #ffe6e6;
+            background-color: rgba(255, 255, 255, 0.8);
         }
+
         tr:nth-child(odd) {
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.6);
         }
+
         .valid {
             color: green;
         }
+
         .error {
             color: red;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffafcc, #ff75a0, #c2185b);
         }
     `;
 
