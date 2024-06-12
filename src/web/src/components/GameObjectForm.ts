@@ -24,6 +24,24 @@ export class GameObjectForm extends LitElement {
     @property() public messageResponse: string = "";
 
     public static styles = css`
+        button {
+            padding: 8px 16px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            background-color: #ffffff;
+            color: #333;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
         .valid {
             color: green;
         }
