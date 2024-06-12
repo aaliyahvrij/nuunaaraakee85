@@ -1,6 +1,7 @@
 export type PlayerSession = {
     currentRoom: string;
     inventory: string[];
+    actionsTaken: string[];
     hasTalkedToDoorCharacter: boolean;
     hasGivenSerum: boolean;
     hasTalkedToMonk: boolean;

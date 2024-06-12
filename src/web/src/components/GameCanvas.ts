@@ -81,6 +81,10 @@ export class GameCanvas extends LitElement {
             user-select: none;
         }
 
+        .title {
+            font-size: 30px;
+            font-weight: bold;
+        }
         .footer .button.active,
         .footer .button:hover {
             background-color: #5585b5;
