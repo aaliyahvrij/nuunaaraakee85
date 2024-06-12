@@ -20,6 +20,8 @@ import { PlayerSession } from "./types";
 import { handleRoutes as handleRoutesSalina } from "./Salina/routes";
 import { router as routerSalina } from "./Salina/routes";
 // import { handleRoutes as handleRoutesJustin } from "./Salina/routes";
+import { PickupAction, PickupActionAlias } from "./actions/PickupAction";
+import { chooseWeaponAction, chooseWeaponActionAlias } from "./actions/chooseWeaponAction";
 export const router: Router = Router();
 
 router.get("/", (_, res) => {
@@ -116,21 +118,20 @@ function handleActionInRoom(room: Room, alias: string, objectAliases?: string[])
         return TalkAction.handle(character, choiceId);
     }
 
-    if (alias === ExamineActionAlias) {
-        return ExamineAction.handle(gameObjects[0]);
+    switch (alias) {
+        case ExamineActionAlias:
+            return ExamineAction.handle(gameObjects[0]);
+
+        case ExampleActionAlias:
+            return ExampleAction.handle(gameObjects[0]);
+
+        case PickupActionAlias:
+            return PickupAction.handle(gameObjects[0]);
+            
+        case chooseWeaponActionAlias:
+            return chooseWeaponAction.handle(gameObjects[0]);
+        
     }
-
-    const actionResult: ActionResult | undefined = handleRoutesSalina(room, alias, gameObjects);
-
-    if (actionResult) {
-        return actionResult;
-    }
-
-    //actionResult = handleRoutesJustin(room, alias, gameObjects);
-   
-  //  if (actionResult) {
- //       return actionResult;
- //   }
 
     return CustomAction.handle(alias, gameObjects);
 }

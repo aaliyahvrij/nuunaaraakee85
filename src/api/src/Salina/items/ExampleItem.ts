@@ -18,6 +18,9 @@ export class ExampleItem extends Item implements Example {
     public example(): ActionResult | undefined {
         resetPlayerSession();
 
-        return new TextActionResult(["This is an example action executed on an item, which caused your game to reset.", "<GAME OVER>"]);
+        return new TextActionResult([
+            "This is an example action executed on an item, which caused your game to reset.",
+            "<GAME OVER>",
+        ]);
     }
 }

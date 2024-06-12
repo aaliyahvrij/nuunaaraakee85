@@ -30,7 +30,7 @@ export class GameCanvas extends LitElement {
         }
 
         .header img {
-            width: 100%;
+            width: 45%;
             height: auto;
             image-rendering: pixelated;
         }
@@ -53,23 +53,23 @@ export class GameCanvas extends LitElement {
         .content p:last-of-type {
             margin: 0;
         }
-
         .footer {
             border-radius: 10px 10px 0 0;
+            background-color: #142d4c;
             background-color: #8d8c8c;
             border: 1px solid #332c57;
             margin-top: 10px;
             display: flex;
             height: 105px;
         }
-
+ 
         .footer .buttons {
             display: flex;
             flex-direction: column;
             overflow: auto;
             padding: 10px 10px 0 10px;
         }
-
+ 
         .footer .button {
             background-color: #757474;
             border: 1px solid #332c57;
