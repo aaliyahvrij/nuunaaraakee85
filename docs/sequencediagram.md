@@ -7,9 +7,10 @@ In dit document leg ik uit hoe ik mijn sequence diagram heb gemaakt voor mijn in
 Voor het maken van mijn sequence diagram heb ik gebruik gemaakt van een tool "PlantUML" via de website [App websequencediagrams](websequencediagrams.com). Door dit kon ik met een soort code dti diagram maken. Hieronder de code:
 
 ```
+
 opt add GameObject
 note left of Frontend
-Adds the GameObject to the database!
+Adds the GameObject to the database
 end note
 Frontend ->+ Backend: post:3001/gameobject/add
 Backend -> Database: INSERT INTO GameObject
@@ -26,9 +27,10 @@ Database -> Backend: Response (success)
 Backend ->- Frontend: Response (success)
 
 else Error adding gameobject
-Database ->+ Backend: Response error (fail)
-Backend ->- Frontend: Response error (fail)
+Database ->+ Backend: Response error (status 400)
+Backend ->- Frontend: Response error (status 400)
 end
+
 
 opt Show Gameobject
 note left of Frontend
@@ -40,23 +42,26 @@ Backend -> Database: SELECT FROM GameObject, Item and Character
 Database -> Backend: Response (gameObjects data)
 Backend ->- Frontend: Response (gameObjects data)
 else Error fetching gameobjects
-Database ->+ Backend: Response error (fail)
-Backend ->- Frontend: Response error (fail)
+Database ->+ Backend: Response error (status 500)
+Backend ->- Frontend: Response error (status 500)
 end
+
+
 
 opt Update GameObject
 note left of Frontend
 Updates GameObjects in database
 and Frontend
 end note
-Frontend ->+ Backend: put:3001/gameobject/edit/id
-Backend -> Database: UPDATE GameObject
-Database -> Backend: Response updated GameObject(success)
-Backend ->- Frontend: Response updated GameObject(success)
+   Frontend ->+ Backend: put:3001/gameobject/edit/id
+   Backend -> Database: UPDATE GameObject
+   Database -> Backend: Response updated GameObject(success)
+   Backend ->- Frontend: Response updated GameObject(success)
 else Error
-Database ->+ Backend: Response error (fail)
-Backend ->- Frontend: Response error (fail)
+    Database ->+ Backend: Response error (status 400)
+Backend ->- Frontend: Response error (status 400)
 end
+
 
 opt Deleting GameObject
 note left of Frontend
@@ -64,14 +69,14 @@ Deletes GameObjects from database
 and updates Frontend
 end note
 opt User Confirms Deletion
-Frontend ->+ Backend: delete:3001/gameobject/delete/id
-Backend -> Database: DELETE FROM GameObject
-Database -> Backend: Response (success)
-Backend ->- Frontend: Response (success)
-else Error
-Database ->+ Backend: Response error (fail)
-Backend ->- Frontend: Response error (fail)
-end
+    Frontend ->+ Backend: delete:3001/gameobject/delete/id
+    Backend -> Database: DELETE FROM GameObject
+    Database -> Backend: Response (success)
+    Backend ->- Frontend: Response (success)
+    else Error
+    Database ->+ Backend: Response error (status 500)
+    Backend ->- Frontend: Response error (status 500)
+    end
 else User Cancels Deletion
 Frontend -> Database: no request
 end
