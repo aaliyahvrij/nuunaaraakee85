@@ -19,7 +19,7 @@ import { GameObject } from "../../base/gameObjects/GameObject";
 import { ExamineAction } from "../../base/actions/ExamineAction";
 import { TalkAction } from "../../base/actions/TalkAction";
 import { CustomAction } from "../../base/actions/CustomAction";
-import { TorenkamerAlias, TorenkamerRoomAlias } from "./Torenkamer";
+import { TorenkamerRoomAlias } from "./Torenkamer";
 import { Action } from "../../base/actions/Action";
 
 export const GardenChamberAlias: string = "garden";
@@ -153,7 +153,7 @@ export class GardenChamber extends Room {
 
         const playerSession: PlayerSession = getPlayerSession();
 
-        if (playerSession.hasTalkedToMonk && playerSession.hasTalkedToCave && playerSession.hasTalkedtoStone) {
+        if (playerSession.hints > 3) {
             actions.push(new CustomAction("go-to-next-room", "Go to the next room", false));
         }
 
@@ -162,7 +162,7 @@ export class GardenChamber extends Room {
 
     public custom(alias: string, _gameObjects: GameObject[] | undefined): ActionResult | undefined {
         const playerSession: PlayerSession = getPlayerSession();
-        
+
         if (alias === "go-to-next-room") {
             const TorenkamerRoom: Room | undefined = getRoomByAlias(TorenkamerRoomAlias);
             if (TorenkamerRoom) {
