@@ -40,5 +40,13 @@ Door mijn achtergrond in de zorg had ik al enkele vaardigheden die nuttig waren,
 Binnen het schooljaar van augustus 2023 tot juni 2024 heb ik mijn doelen bereikt en mijn voortgang regelmatig geëvalueerd en aangepast.
 
 
+
+
+# Persoonlijke Ontwikkeling
+In het afgelopen schooljaar heb ik veel vooruitgang geboekt in mijn persoonlijke ontwikkeling. Ik begon zonder ervaring in de ICT-sector, maar door hard te werken heb ik mijn codeervaardigheden aanzienlijk verbeterd. Ik heb geleerd hoe belangrijk het is om goed te plannen en effectief samen te werken met anderen.
+
+Daarnaast ben ik opener geworden en heb ik meer zelfvertrouwen gekregen in mijn vaardigheden. Ik heb mijn leerdoelen bereikt en mijn tijd beter leren beheren. Door mijn aanpassingsvermogen en doorzettingsvermogen heb ik ook geleerd om uitdagingen te overwinnen. Al deze ervaringen hebben bijgedragen aan mijn groei en hebben me voorbereid op verdere successen in de toekomst.
+
+
 ![alt text](<retroSteph.jpg>)
 
