@@ -28,17 +28,17 @@ export class StonePaintingCharacter extends Character implements Examine {
     public talk(choiceId?: number | undefined): ActionResult | undefined {
         const playerSession: PlayerSession = getPlayerSession();
 
-        
+        playerSession.hasGivenSerum = false;
         playerSession.hasTalkedtoStone = true;
 
         if (choiceId === 1) {
-
-            // Check if the player has talked to all characters
-            if (playerSession.hasTalkedToMonk && playerSession.hasTalkedtoStone && playerSession.hasTalkedToPainting) {
-                // Ensure a way to indicate the button should be shown
+            if (playerSession.hints > 3) {
                 playerSession.victory = true;
             }
-            playerSession.hasTalkedtoStone = true;
+            playerSession.hints++;
+            playerSession.hasTalkedtoStone = false;
+            playerSession.hasGivenSerum = true;
+
             return new TextActionResult([
                 "rests in silence, concealed within the walls. Let the sounds guide you.",
             ]);

@@ -27,25 +27,24 @@ export class MonkPaintingCharacter extends Character implements Examine {
 
     public talk(choiceId?: number | undefined): ActionResult | undefined {
         const playerSession: PlayerSession = getPlayerSession();
+        playerSession.hasGivenSerum = false;
+        playerSession.hasTalkedToMonk = true;
 
         if (choiceId === 1) {
-            playerSession.hasTalkedToMonk = true;
-            return new TextActionResult(["In silence, echoes reveal what is hidden. Seek the place where sounds converge."]);
+            if (playerSession.hints > 3) {
+                playerSession.victory = true;
+            }
+            playerSession.hints++;
+            playerSession.hasTalkedToMonk = false;
+            playerSession.hasGivenSerum = true;
+
+            return new TextActionResult([
+                "In silence, echoes reveal what is hidden. Seek the place where sounds converge.",
+            ]);
         }
 
         const choiceActions: TalkChoiceAction[] = [new TalkChoiceAction(1, "Listen carefully...")];
 
         return new TalkActionResult(this, ["*voices..*"], choiceActions);
-    }
-
-    private checkVictoryCondition(playerSession: PlayerSession) {
-        console.log("Check victory condition - Monk:");
-        console.log("Monk talked:", playerSession.hasTalkedToMonk);
-        console.log("Stone talked:", playerSession.hasTalkedtoStone);
-        console.log("Cave talked:", playerSession.hasTalkedToCave);
-
-        if (playerSession.hasTalkedToMonk && playerSession.hasTalkedtoStone && playerSession.hasTalkedToCave) {
-            playerSession.victory = true;
-        }
     }
 }
