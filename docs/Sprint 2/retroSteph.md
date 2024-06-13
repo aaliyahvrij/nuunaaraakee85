@@ -12,6 +12,9 @@ Tijdens het schooljaar heb ik hard gewerkt om mijn vaardigheden te verbeteren. I
 ## Resultaat
 Aan het einde van het schooljaar, in juni 2024, was ik trots op mijn vooruitgang. Ik was meer open geworden, beter in samenwerking, en had mijn leerdoelen bereikt. Hoewel ik soms een slaaptekort had door de hoeveelheid werk, was mijn voorbereiding en lesplanning verbeterd.
 
+## Wat ik achterlaat
+Voor het volgende schooljaar laat ik een aantal dingen achter. Ik laat mijn luiheid en het gebrek aan planning achter. Ik zal niet langer bang zijn om vragen te stellen of te vrezen dat ik het niet zal halen. Deze negatieve gewoonten en gedachten laat ik achter me, zodat ik met een frisse en positieve houding aan het nieuwe schooljaar kan beginnen.
+
 ## Reflectie
 Terugkijkend op het schooljaar, ben ik tevreden met mijn persoonlijke en academische groei. Ik heb geleerd hoe belangrijk motivatie, zelfzorg, en balans zijn. Door goede communicatie en planning kon ik succesvol mijn doelen bereiken.
 
