@@ -14,12 +14,12 @@ export class GameCanvas extends LitElement {
             grid-column-gap: 0px;
             grid-row-gap: 0px;
         }
-
+ 
         .title {
             text-align: center;
             margin-top: 10px;
         }
-
+ 
         .header {
             display: flex;
             flex-direction: column;
@@ -28,35 +28,35 @@ export class GameCanvas extends LitElement {
             position: relative;
             margin-top: 10px;
         }
-
+ 
         .header img {
-            width: 45%;
+            width: 100%;
             height: auto;
             image-rendering: pixelated;
         }
-
+ 
         .header img:nth-child(n + 2) {
             position: absolute;
         }
-
+ 
         .content {
             flex-grow: 1;
             overflow: auto;
             margin-top: 10px;
             padding: 0 10px;
         }
-
+ 
         .content p {
             margin: 0 0 10px 0;
         }
-
+ 
         .content p:last-of-type {
             margin: 0;
         }
+ 
         .footer {
             border-radius: 10px 10px 0 0;
             background-color: #142d4c;
-            background-color: #8d8c8c;
             border: 1px solid #332c57;
             margin-top: 10px;
             display: flex;
@@ -71,7 +71,7 @@ export class GameCanvas extends LitElement {
         }
  
         .footer .button {
-            background-color: #757474;
+            background-color: #385170;
             border: 1px solid #332c57;
             padding: 5px 10px;
             margin: 0 0 10px 10px;
@@ -80,13 +80,16 @@ export class GameCanvas extends LitElement {
             display: inline-block;
             user-select: none;
         }
-
+ 
+        .title {
+            font-size: 30px;
+            font-weight: bold;
+        }
         .footer .button.active,
         .footer .button:hover {
-            background-color: #332c57;
+            background-color: #5585b5;
         }
     `;
-
     private roomTitle?: string;
     private roomImages?: string[];
     private contentText?: string[];

@@ -26,12 +26,6 @@ Kamer 3 - De Tuinzaal: Aaliyah
 De tuinzaal is een grote, glazen serre die overwoekerd is met allerlei planten en bloemen. In deze kamer hangt een lichte, mysterieuze geur van exotische planten. Je moet de verschillende planten onderzoeken en combineren om een speciaal serum te maken. Dit serum gebruik je om een oude, verroeste deur in de tuinzaal te openen, die leidt naar een ondergrondse passage. Hierin vind je verdere aanwijzingen over de historie van het kasteel en de vorige eigenaars, die cruciaal zijn voor het begrijpen van de laatste puzzels in de torenkamer.
 
 Vereisten om door te gaan naar de volgende kamer:
-Je hebt het speciale serum in de tuinzaal gemaakt en gebruikt om de verroeste deur te openen naar de ondergrondse passage.
-Kamer 4 - De Observatoriumkamer: (Christopher)
-(Toegankelijk via veroeste deur in tuinzaal)
-De observatoriumkamer is hoog in een van de torens van het kasteel. Hier staan oude, stoffige telescopen en astronoominstrumenten gericht op de sterren. Je moet de telescopen gebruiken om bepaalde sterrenbeelden te vinden die overeenkomen met een sterrenkaart aan de muur. Het juist afstemmen van de telescopen onthult een trap naar boven (eindkamer).
-
-Vereisten om door te gaan naar de volgende kamer:
 Je hebt de onderdelen van de antieke machine in de observatoriumkamer verzameld en samengevoegd.
 Eindkamer - De Torenkamer: (Mats)
 De kaart leidt je naar de torenkamer, waar het Nico Juweel wordt bewaard. Om het juweel te verkrijgen, moet je een laatste raadsel oplossen dat te maken heeft met het echoënde geluid in de toren. Als je het raadsel oplost, opent een klein compartiment zich waar het juweel veilig opgeborgen ligt.

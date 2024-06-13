@@ -1,4 +1,6 @@
 export type PlayerSession = {
+    hasTalkedToPainting: boolean;
+    victory: boolean;
     correctRiddle: any;
     BookExamine: boolean;
     lever: boolean;

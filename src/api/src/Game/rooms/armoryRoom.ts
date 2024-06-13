@@ -19,11 +19,13 @@ import { spearItem, spearItemAlias } from "../items/spearItem";
 import { swordItem, swordItemAlias } from "../items/swordItem";
 import { PlayerSession } from "../../types";
 import { StartupRoomAlias } from "./StartupRoom";
+import { GardenChamberAlias } from "./gardenChamber";
 
 export const armoryRoomAlias: string = "Armory";
 
 
 export class armoryRoom extends Room {
+    static alias: string;
     
 
     public constructor(){
@@ -124,11 +126,11 @@ export class armoryRoom extends Room {
 
         if (alias === "unlock-door") {
             if (playerSession.hasGivenCorrectWeapon) {
-                const startupRoom: Room | undefined = getRoomByAlias(StartupRoomAlias);
-                if (startupRoom) {
-                    playerSession.currentRoom = startupRoom.alias;
+                const gardenchamber: Room | undefined = getRoomByAlias(GardenChamberAlias);
+                if (gardenchamber) {
+                    playerSession.currentRoom = gardenchamber.alias;
                     playerSession.hasGivenCorrectWeapon = false;
-                    return startupRoom.examine();
+                    return gardenchamber.examine();
                 } else {
                     return new TextActionResult(["You made a coding error :-("]);
                 }

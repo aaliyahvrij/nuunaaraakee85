@@ -12,11 +12,11 @@ import { MagicalBookCharacter } from "../characters/MagicalBookCharacter";
 import { PlayerSession } from "../../types";
 import { StartupRoomAlias } from "../rooms/StartupRoom";
 
-export const TorenkamerAlias: string = "Torenkamer";
+export const TorenkamerRoomAlias: string = "Torenkamer";
 
 export class Torenkamer extends Room {
     public constructor() {
-        super(TorenkamerAlias);
+        super(TorenkamerRoomAlias);
     }
 
     public name(): string {

@@ -1,46 +1,49 @@
 import { GameObject } from "./base/gameObjects/GameObject";
 import { Room } from "./base/gameObjects/Room";
 import { getPlayerSessionFromContext, resetPlayerSessionInContext } from "./base/playerSessionMiddleware";
+import { cavePaintingCharacterAlias, CavePaintingCharacter } from "./Game/characters/CavePaintingCharacter";
+import { DoorCharacterAlias, DoorCharacter } from "./Game/characters/DoorCharacter";
 import { ExampleCharacter, ExampleCharacterAlias } from "./Game/characters/ExampleCharacter";
-import { LibraryCharacter, LibraryCharacterAlias } from "./Game/characters/LibraryCharacter";
-import { guardCharacter, guardCharacterAlias } from "./Game/characters/guardCharacter";
-import { ExampleItem, ExampleItemAlias } from "./Game/items/ExampleItem";
+import { LibraryCharacterAlias, LibraryCharacter } from "./Game/characters/LibraryCharacter";
+import { MagicalBookAlias, MagicalBookCharacter } from "./Game/characters/MagicalBookCharacter";
+import { monkPaintingCharacterAlias, MonkPaintingCharacter } from "./Game/characters/MonkPaintingCharacter";
+import { guardCharacterAlias, guardCharacter } from "./Game/characters/guardCharacter";
+import { PaintingCharacter, PaintingCharacterAlias } from "./Game/characters/paintingCharacter";
+import { stonePaintingCharacterAlias, StonePaintingCharacter } from "./Game/characters/StonePaintingCharacter";
+import { BlueBookItemAlias, BlueBookItem } from "./Game/items/BlueBookItem";
+import { BookItemAlias, BookItem } from "./Game/items/BookItem";
+import { BookshelfItemAlias, BookshelfItem } from "./Game/items/BookshelfItem";
+import { axeItemAlias, axeItem } from "./Game/items/axeItem";
 import { blackFlowerAlias, blackFlowerItem } from "./Game/items/blackFlower";
+import { crossbowItemAlias, crossbowItem } from "./Game/items/crossbowItem";
+import { daggerItemAlias, daggerItem } from "./Game/items/daggerItem";
+import { ExampleItem, ExampleItemAlias } from "./Game/items/ExampleItem";
+import { PaintingItemAlias, painting } from "./Game/items/fireplaceitem";
+import { GreenBookItemAlias, GreenBookItem } from "./Game/items/GreenBookItem";
+import { KeyItemAlias, KeyItem } from "./Game/items/KeyItem";
+import { OrangeBookItemAlias, OrangeBookItem } from "./Game/items/OrangeBookItem";
+import { ParchmentItemAlias, ParchmentItem } from "./Game/items/ParchmentItem";
+import { RedBookItemAlias, RedBookItem } from "./Game/items/RedBookItem";
+import { WindowItemAlias, WindowItem } from "./Game/items/WindowItem";
+import { hammerItemAlias, hammerItem } from "./Game/items/hammerItem";
+import { maceItemAlias, maceItem } from "./Game/items/maceItem";
 import { pinkFlowerAlias, pinkFlowerItem } from "./Game/items/pinkFlower";
 import { rainbowFlowerAlias, rainbowFlowerItem } from "./Game/items/rainbowFlower";
 import { redFlowerAlias, redFlowerItem } from "./Game/items/redFlower";
+import { serumALias, serumItem } from "./Game/items/serum";
+import { shieldItemAlias, shieldItem } from "./Game/items/shieldItem";
+import { spearItemAlias, spearItem } from "./Game/items/spearItem";
+import { swordItemAlias, swordItem } from "./Game/items/swordItem";
 import { whiteFlowerAlias, whiteFlowerItem } from "./Game/items/whiteFlower";
 import { yellowFlowerAlias, yellowFlowerItem } from "./Game/items/yellowFlower";
-//import { PaintingItemAlias, painting } from "./Game/items/FireplaceItem";
-//import { BigHall, BigHallRoomAlias } from "./Game/rooms/BigHall";
-import { axeItem, axeItemAlias } from "./Game/items/axeItem";
-import { crossbowItem, crossbowItemAlias } from "./Game/items/crossbowItem";
-import { daggerItem, daggerItemAlias } from "./Game/items/daggerItem";
-import { hammerItem, hammerItemAlias } from "./Game/items/hammerItem";
-import { maceItem, maceItemAlias } from "./Game/items/maceItem";
-import { shieldItem, shieldItemAlias } from "./Game/items/shieldItem";
-import { spearItem, spearItemAlias } from "./Game/items/spearItem";
-import { swordItem, swordItemAlias } from "./Game/items/swordItem";
-import { ParchmentItem, ParchmentItemAlias } from "./Game/items/ParchmentItem";
-import { BookItem, BookItemAlias } from "./Game/items/BookItem";
-//import { getRoomByAlias as getRoomByAlias} from "./Game/instances";
 import { armoryRoom, armoryRoomAlias } from "./Game/rooms/armoryRoom";
-import { PlayerSession } from "./types";
-import { serumALias, serumItem } from "./Game/items/serum";
-import { GardenChamber, GardenChamberAlias } from "./Game/rooms/gardenChamber";
-import { DoorCharacter, DoorCharacterAlias } from "./Game/characters/DoorCharacter";
-import { CavePaintingCharacter, cavePaintingCharacterAlias } from "./Game/characters/CavePaintingCharacter";
-import { StonePaintingCharacter, stonePaintingCharacterAlias } from "./Game/characters/StonePaintingCharacter";
-import { MonkPaintingCharacter, monkPaintingCharacterAlias } from "./Game/characters/MonkPaintingCharacter";
-import { WindowItemAlias, WindowItem } from "./Game/items/WindowItem";
-import { BlueBookItemAlias, BlueBookItem } from "./Game/items/BlueBookItem";
-import { GreenBookItem, GreenBookItemAlias } from "./Game/items/GreenBookItem";
-import { RedBookItem, RedBookItemAlias } from "./Game/items/RedBookItem";
-import { OrangeBookItem, OrangeBookItemAlias } from "./Game/items/OrangeBookItem";
-import { BookshelfItem, BookshelfItemAlias } from "./Game/items/BookshelfItem";
-import { LibraryRoom, LibraryRoomAlias} from "./Game/rooms/LibraryRoom";
+import { BigHall, BigHallRoomAlias } from "./Game/rooms/BighallRoom"
 import { ExampleRoom, ExampleRoomAlias } from "./Game/rooms/ExampleRoom";
-import { KeyItem, KeyItemAlias } from "./Game/items/KeyItem";
+import { GardenChamberAlias, GardenChamber } from "./Game/rooms/gardenChamber";
+import { LibraryRoomAlias, LibraryRoom } from "./Game/rooms/LibraryRoom";
+import { StartupRoom, StartupRoomAlias } from "./Game/rooms/StartupRoom";
+import { PlayerSession } from "./types";
+import { Torenkamer, TorenkamerRoomAlias } from "./Game/rooms/Torenkamer";
 
 /**
  * Create a new player session object
@@ -71,6 +74,7 @@ export function createNewPlayerSession(): PlayerSession {
     };
 }
 
+
 /**
  * Get the player session from the current request
  *
@@ -94,31 +98,35 @@ export function resetPlayerSession(): void {
  *
  * @returns Instance of the room
  */
-
 export function getRoomByAlias(alias: string): Room | undefined {
     switch (alias) {
+        case StartupRoomAlias:
+            return new StartupRoom();
+
         case ExampleRoomAlias:
             return new ExampleRoom();
+            
+            case BigHallRoomAlias:
+                return new BigHall();
 
         case LibraryRoomAlias:
             return new LibraryRoom();
 
-        case GardenChamberAlias:
+            case GardenChamberAlias:
             return new GardenChamber();
 
-        case BigHallRoomAlias:
-            return new BigHall();
-
-        case armoryRoomAlias:
+            case armoryRoomAlias:
             return new armoryRoom();
 
-        default:
-            return undefined;
+            case TorenkamerRoomAlias:
+                return new Torenkamer();
+
+
+
     }
+
+    return undefined;
 }
-
-
-
 
 /**
  * Get the instance of a game object by its alias
@@ -233,8 +241,7 @@ export function getGameObjectByAlias(alias: string): GameObject | undefined {
 
              case KeyItemAlias:
                 return new KeyItem();
-            
-
+     
         //NOTE: Fall back to rooms, since those are game objects too.
         default:
             return getRoomByAlias(alias);
@@ -260,5 +267,3 @@ export function getGameObjectsByAliases(objectAliases?: string[]): GameObject[] 
 export function getGameObjectsFromInventory(): GameObject[] {
     return getGameObjectsByAliases(getPlayerSession().inventory);
 }
-
-

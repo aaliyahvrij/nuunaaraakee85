@@ -9,6 +9,8 @@ import { Pickup, PickupActionAlias } from "../actions/PickupAction";
 export const KeyItemAlias: string = "key";
 
 export class KeyItem extends Item implements Examine, Pickup {
+    public static alias = KeyItemAlias;
+
     public constructor() {
         super(KeyItemAlias, ExamineActionAlias, PickupActionAlias);
     }

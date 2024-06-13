@@ -4,12 +4,8 @@ import { TextActionResult } from "../../base/actionResults/TextActionResult";
 import { Examine, ExamineActionAlias } from "../../base/actions/ExamineAction";
 import { TalkChoiceAction } from "../../base/actions/TalkAction";
 import { Character } from "../../base/gameObjects/Character";
-import { getPlayerSession, getRoomByAlias } from "../../instances";
+import { getPlayerSession } from "../../instances";
 import { PlayerSession } from "../../types";
-
-
-
-
 
 export const cavePaintingCharacterAlias: string = "cave-character";
 
@@ -22,7 +18,7 @@ export class CavePaintingCharacter extends Character implements Examine {
         return "Cave Painting";
     }
 
-    public examine(): ActionResult | undefined {
+    public examine(): TextActionResult | undefined {
         return new TextActionResult([
             "The paintings description has written:",
             "A dark cave with a faint light illuminating the entrance, showing a path leading deeper inside.",
@@ -31,25 +27,10 @@ export class CavePaintingCharacter extends Character implements Examine {
 
     public talk(choiceId?: number | undefined): ActionResult | undefined {
         const playerSession: PlayerSession = getPlayerSession();
-
-        playerSession.hasGivenSerum = false;
-        playerSession.hasTalkedToCave = true;
-
         if (choiceId === 1) {
-            playerSession.hints++;
-            playerSession.hasTalkedToCave = false;
-            playerSession.hasGivenSerum = true;
+            playerSession.hasTalkedToCave = true;
 
-           if (playerSession.hints > 3) {
-                const TorenKamerRoom | undefined = getRoomByAlias(TorenKamerAlias);
-                if (torenKamer) {
-                    playerSession.currentRoom = torenKamer.alias;
-                    playerSession.hints = 0;
-                    return torenKamer.examine();
-                } else {
-                    return new TextActionResult(["You made a coding error :-("]);
-                }
-            }
+            this.checkVictoryCondition(playerSession);
 
             return new TextActionResult(["Sounds return in this place, leading you to what you seek."]);
         }
@@ -57,5 +38,16 @@ export class CavePaintingCharacter extends Character implements Examine {
         const choiceActions: TalkChoiceAction[] = [new TalkChoiceAction(1, "Listen carefully...")];
 
         return new TalkActionResult(this, ["*voices..*"], choiceActions);
+    }
+
+    private checkVictoryCondition(playerSession: PlayerSession) {
+        console.log("Check victory condition - Cave:");
+        console.log("Monk talked:", playerSession.hasTalkedToMonk);
+        console.log("Stone talked:", playerSession.hasTalkedtoStone);
+        console.log("Cave talked:", playerSession.hasTalkedToCave);
+
+        if (playerSession.hasTalkedToMonk && playerSession.hasTalkedtoStone && playerSession.hasTalkedToCave) {
+            playerSession.victory = true;
+        }
     }
 }

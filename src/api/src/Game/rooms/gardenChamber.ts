@@ -13,11 +13,13 @@ import { StonePaintingCharacter } from "../characters/StonePaintingCharacter";
 import { Room } from "../../base/gameObjects/Room";
 import { ActionResult } from "../../base/actionResults/ActionResult";
 import { PlayerSession } from "../../types";
-import { getGameObjectsFromInventory, getPlayerSession } from "../../instances";
+import { getGameObjectsFromInventory, getPlayerSession, getRoomByAlias } from "../../instances";
 import { TextActionResult } from "../../base/actionResults/TextActionResult";
 import { GameObject } from "../../base/gameObjects/GameObject";
 import { ExamineAction } from "../../base/actions/ExamineAction";
 import { TalkAction } from "../../base/actions/TalkAction";
+import { CustomAction } from "../../base/actions/CustomAction";
+import { TorenkamerAlias, TorenkamerRoomAlias } from "./Torenkamer";
 import { Action } from "../../base/actions/Action";
 
 export const GardenChamberAlias: string = "garden";
@@ -37,8 +39,8 @@ export class GardenChamber extends Room {
         }
 
         return new TextActionResult([
-            "Its filled with exotic flowers and plants but looks somewhat overgrown",
-            "You decide to investigate the flowers",
+            "It's filled with exotic flowers and plants but looks somewhat overgrown.",
+            "You decide to investigate the flowers.",
         ]);
     }
 
@@ -147,6 +149,30 @@ export class GardenChamber extends Room {
     }
 
     public actions(): Action[] {
-        return [new ExamineAction(), new PickupAction(), new TalkAction()];
+        const actions: Action[] = [new ExamineAction(), new PickupAction(), new TalkAction()];
+
+        const playerSession: PlayerSession = getPlayerSession();
+
+        if (playerSession.hasTalkedToMonk && playerSession.hasTalkedToCave && playerSession.hasTalkedtoStone) {
+            actions.push(new CustomAction("go-to-next-room", "Go to the next room", false));
+        }
+
+        return actions;
+    }
+
+    public custom(alias: string, _gameObjects: GameObject[] | undefined): ActionResult | undefined {
+        const playerSession: PlayerSession = getPlayerSession();
+        
+        if (alias === "go-to-next-room") {
+            const TorenkamerRoom: Room | undefined = getRoomByAlias(TorenkamerRoomAlias);
+            if (TorenkamerRoom) {
+                playerSession.currentRoom = TorenkamerRoom.alias;
+                return TorenkamerRoom.examine();
+            } else {
+                return new TextActionResult(["Error: Torenkamer not found."]);
+            }
+        }
+
+        return undefined;
     }
 }

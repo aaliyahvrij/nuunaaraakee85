@@ -8,7 +8,7 @@ import { TalkAction } from "../../base/actions/TalkAction";
 import { GameObject } from "../../base/gameObjects/GameObject";
 import { Room } from "../../base/gameObjects/Room";
 import { LibraryCharacter } from "../characters/LibraryCharacter";
-import { getGameObjectsFromInventory, getPlayerSession } from "../../instances";
+import { getGameObjectsFromInventory, getPlayerSession, getRoomByAlias } from "../../instances";
 import { ParchmentItem, ParchmentItemAlias } from "../items/ParchmentItem";
 import { PlayerSession } from "../../types";
 import { WindowItem, WindowItemAlias } from "../items/WindowItem";
@@ -16,7 +16,7 @@ import { UseAction } from "../actions/UseAction";
 import { BookType, BookshelfItem } from "../items/BookshelfItem";
 import { KeyItem } from "../items/KeyItem";
 import { BookItem, BookItemAlias } from "../items/BookItem";
-import { NextRoomAction } from "../actions/NextroomAction";
+import { armoryRoom, armoryRoomAlias } from "./armoryRoom";
 
 
 export const LibraryRoomAlias: string = "library-room";
@@ -55,7 +55,7 @@ export class LibraryRoom extends Room {
             new CustomAction("check-puzzle", "Check if the puzzle is solved", false),
             new CustomAction("test-me", "Look at the floor", false),
             new CustomAction("reveal-code", "Reveal the code with the hint", false),
-            new NextRoomAction()  // Add the new action here
+            new CustomAction("next-room", "Go to the next room", false),
         ];
     }
 
@@ -90,7 +90,9 @@ export class LibraryRoom extends Room {
         return new TextActionResult(["It's a beautiful library!!", "You can see a lot of roughed up books and papers."]);
     }
 
+
     public custom(alias: string, gameObjects: GameObject[] | undefined, _targetObjectAlias?: string): TextActionResult | undefined {
+        const playerSession: PlayerSession = getPlayerSession();
         if (alias === "examine-bookshelf") {
             const books: BookType[] = this.bookshelf.getBooks();
             const booksString: string = books.map(book => book.toString()).join(", ");
@@ -105,7 +107,12 @@ export class LibraryRoom extends Room {
         } else if (alias === "check-puzzle") {
             if (this.checkPuzzle()) {
                 this.updatePlayerInventoryWithKey();
-                return new TextActionResult(["Congratulations! You solved the puzzle and found the key! Now you can go to the next room!"]);
+
+                if (playerSession.victory) {
+                    return new TextActionResult(["Congratulations! You solved the puzzle and found the key! Now you can go to the next room!"]);
+                } else {
+                    return new TextActionResult(["You solved the puzzle, but something went wrong with the victory flag."]);
+                }
             } else {
                 return new TextActionResult(["The puzzle is not solved yet."]);
             }
@@ -127,8 +134,19 @@ export class LibraryRoom extends Room {
         } else if (alias === "test-me") {
             return new TextActionResult(["You looked at the floor. It's a boring floor."]);
         }
+        if (alias === "next-room") {
+            const ArmoryRoom: Room | undefined = getRoomByAlias(armoryRoomAlias);
+            if (ArmoryRoom) {
+                playerSession.currentRoom = ArmoryRoom.alias;
+                return ArmoryRoom.examine();
+            } else {
+                return new TextActionResult(["You made a coding error :-("]);
+            }
+        }
+        
         return undefined;
     }
+    
 
     private checkPuzzle(): boolean {
         const currentOrder: BookType[] = this.bookshelf.getBooks();
