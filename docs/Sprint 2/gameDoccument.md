@@ -118,3 +118,14 @@ Dit document laat zien hoe elk kamer in de game is ontworpen. We hebben een unie
 - Tools: Canva
 - Methodes: Think, Make, Check Cyclus, Gebruikerstests
 - Documentatie: Markdown file 
+
+
+
+# Nieuwe Beslissingen
+We hebben nieuwe beslissingen genomen betreffende de kleur van alle kamers en de afbeeldingen zijn veranderd in een AI-gegenereerde grafische stijl.
+**Opmerking:** De kleur van alle kamers is blauw.
+
+## Overzicht Diagram
+Hieronder volgt een overzicht van de kamers in het kasteel:
+
+
