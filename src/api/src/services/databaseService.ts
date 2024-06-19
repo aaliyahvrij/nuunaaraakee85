@@ -26,3 +26,4 @@ export async function queryDatabase<T = any>(
 
     return queryResult[0] as T;
 }
+//commit

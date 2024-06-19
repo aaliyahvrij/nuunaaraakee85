@@ -21,3 +21,5 @@ const port: number = (process.env.PORT || 8080) as number;
 app.listen(port, () => {
     console.log(`API is running on http://localhost:${port}`);
 });
+
+//commit
