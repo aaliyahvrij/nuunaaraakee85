@@ -12,6 +12,7 @@ router.get("/", (_req, res) => {
     });
 });
 
+// THE FILL
 router.post("/gameobject/add", asyncHandler(async (req, res) => {
     const requestBody: GameObjectFormResult = req.body;
     const { alias, name, description, type, price, hp } = requestBody;
@@ -77,7 +78,6 @@ router.post("/gameobject/add", asyncHandler(async (req, res) => {
             res.status(204).send();
 
         } catch (error) {
-            // Rollback transaction 
             await connection.rollback();
             console.error("Transaction error:", error);
             res.status(400).send("Error occurred during transaction");
@@ -93,7 +93,7 @@ router.post("/gameobject/add", asyncHandler(async (req, res) => {
 }));
 
 
-
+// THE  RETRIEVE FUNCTION
 router.get("/gameobjects", asyncHandler(async (_req, res) => {
     try {
         const connection: PoolConnection = await getConnection();
@@ -124,19 +124,40 @@ router.get("/gameobjects", asyncHandler(async (_req, res) => {
 
 
 
-
+//THE DELETE FUNCTION
 router.delete("/gameobjects/:id", asyncHandler(async (req, res) => {
     const { id } = req.params;
     try {
         const connection: PoolConnection = await getConnection();
         await connection.beginTransaction();
 
+     
+
+        await queryDatabase<ResultSetHeader>(
+            connection,
+            "DELETE FROM `Character` WHERE id = ?",
+            id
+        );
+
+        await queryDatabase<ResultSetHeader>(
+            connection,
+            "DELETE FROM Item WHERE id = ?",
+            id
+        );
+
+        await queryDatabase<ResultSetHeader>(
+            connection,
+            "DELETE FROM Room WHERE id = ?",
+            id
+        );
+
         const deleteResult: ResultSetHeader = await queryDatabase<ResultSetHeader>(
             connection,
             "DELETE FROM GameObject WHERE id = ?",
-            [id]
+            id
         );
 
+     
         if (deleteResult.affectedRows === 0) {
             console.error(`GameObject with id ${id} not found`);
             res.status(404).send("GameObject not found");
@@ -160,16 +181,12 @@ router.delete("/gameobjects/:id", asyncHandler(async (req, res) => {
 
 
 
-
-
-
-
-
-
+// THE EDIT FUNCTION
 router.put("/gameobjects/:id", asyncHandler(async (req, res) => {
     const { id } = req.params;
     const { alias, name, description, type, price, hp }: GameObjectFormResult = req.body;
 
+    // Validate input
     if (!alias || !name || !description || !type) {
         res.status(400).send("Invalid input");
         return;
@@ -181,33 +198,48 @@ router.put("/gameobjects/:id", asyncHandler(async (req, res) => {
         connection = await getConnection();
         await connection.beginTransaction();
 
+        // Update GameObject table
         await queryDatabase<ResultSetHeader>(
             connection,
-            "UPDATE GameObject SET alias = ?, name = ?, description = ?, type = ? WHERE id = ?",
-            [alias, name, description, type, id]
+            "UPDATE GameObject SET alias = ?, name = ?, description = ? WHERE id = ?",
+            alias, name, description, id
         );
+        
 
-        if (type === "item" && price !== undefined) {
+        if (type === "item") {
+            if (price === undefined) {
+                throw new Error("Price is required for items");
+            }
             await queryDatabase<ResultSetHeader>(
                 connection,
-                "REPLACE INTO Item (id, price) VALUES (?, ?)",
-                [id, price]
+                "UPDATE Item SET price = ? WHERE id = ?",
+                price, id
             );
-        } else if (type === "character" && hp !== undefined) {
+
+            
+            
+        } else if (type === "character") {
+             if (hp === undefined) {
+                throw new Error("HP is required for characters");
+            }
             await queryDatabase<ResultSetHeader>(
                 connection,
-                "REPLACE INTO `Character` (id, hp) VALUES (?, ?)",
-                [id, hp]
+                "UPDATE `Character` SET hp = ? WHERE id = ?",
+                hp, id
             );
         }
 
         await connection.commit();
         res.status(200).send("GameObject updated successfully");
     } catch (error) {
-        if (connection) await connection.rollback();
+        if (connection) {
+            await connection.rollback();
+        }
         console.error("Transaction error:", error);
         res.status(500).send("Error occurred during transaction");
     } finally {
-        if (connection) connection.release();
+        if (connection) {
+            connection.release();
+        }
     }
 }));
