@@ -18,11 +18,11 @@ export class GameObjectForm extends LitElement {
         .success-message {
             color: green;
         }
-
         .error-message {
             color: red;
         }
     `;
+
     public render(): TemplateResult {
         return html`
             <div>
@@ -56,7 +56,7 @@ export class GameObjectForm extends LitElement {
         const { id, value } = target;
         if (id) {
             this[id as keyof this] = value;
-        }
+}
     }
 
     private handleTypeChange(event: Event): void {
@@ -94,6 +94,8 @@ export class GameObjectForm extends LitElement {
             if (success) {
                 this.isSuccess = true;
                 this.isError = false;
+                // Refresh the entire page
+                window.location.reload();
             } else {
                 this.isSuccess = false;
                 this.isError = true;
@@ -105,4 +107,3 @@ export class GameObjectForm extends LitElement {
         }
     }
 }
-//commit
