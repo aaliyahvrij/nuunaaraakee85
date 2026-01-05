@@ -1,12 +1,9 @@
-# Software Engineering (SE) - Project Blok 3
-We doen het dit blok helemaal anders! 
+## Overview
+This project is a text-based game built with Lit and TypeScript, where I explored object-oriented programming concepts and component-based UI design.
 
-Alle informatie over het project, zoals de opdrachtomschrijving, de criteria en het startproject, vind je op de [Studenten Knowledgebase voor Blok 3 (SE)](https://kb-se-b3.hbo-ict.cloud/)! Verwar deze Knowledgebase niet met de [HBO-ICT Knowledgebase](https://knowledgebase.hbo-ict-hva.nl/), ook die heb je nog steeds nodig! 
+I was responsible for creating the “garden chamber” room, which gave me a lot of creative freedom. I experimented with basic TypeScript syntax and Lit integrations, such as dynamically changing images based on the player, their inventory, and the actions they took.
 
-Waarom geen uitgebreide README.md zoals bij blok 1 en blok 2? Omdat het kan! Nee, geintje, maar het voorkomt wel dubbele informatie op meerdere plekken. Daarnaast stelt het ons (docenten) in staat om de _Studenten Knowledgebase voor Blok 3_ gaandeweg van meer informatie te voorzien!
+One of the things I enjoyed most about this project was being able to experiment freely — even adding slightly silly outcomes (like unexpectedly killing the player) while still focusing on clean logic and structure. It was a fun way to learn how gameplay logic and UI updates work together.
 
-Dus open de website en lees wat erop vermeld staat. 
-
-> **TIP!** Als je daar dan toch al bent, voeg de website dan gelijk toe aan je favorieten, want je zult hem nog regelmatig gaan gebruiken!
-
-Heel veel plezier en succes gewenst dit blok!
+## Notes
+This project is kept as part of my personal portfolio to showcase my development approach, technical skills, and learning process.
